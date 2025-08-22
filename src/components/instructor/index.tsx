@@ -1,198 +1,46 @@
-import tela1 from '../../assets/Tela1.png';
-import tela2 from '../../assets/Tela2.png';
-import tela3 from '../../assets/Tela3.png';
-import tela4 from '../../assets/Tela4.png';
-import tela5 from '../../assets/Tela5.png';
-import tela6 from '../../assets/Tela6.png';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-
-interface Steps {
-    id: number;
-    title: string;
-    description: React.ReactNode;
-    link?: { href: string, text: string };
-    image?: string;
-    imgClass?: string;
-}
-
-const steps: Steps[] = [
-    {
-        id: 1,
-        title: "Entre no link e na sua conta gov.br",
-        description: (
-            <>
-                Entre no Portal de Serviços Digitais e clique em{" "}
-                '<span className="font-bold italic">
-                    Realizar Inscrição em Cursos e Eventos de Extensão
-                </span>'
-                . Em seguida, faça login na sua conta gov.br.
-                <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Realizar Inscrição em Cursos e Eventos de Extensão &gt; Entrar com gov.br
-                </p>
-            </>
-        ),
-        link: {
-            href: "https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/",
-            text: "Clique aqui",
-        },
-        image: tela1,
-        imgClass: 'w-138'
-    },
-    {
-        id: 2,
-        title: "Se inscreva no evento",
-        description: (
-            <>
-                Clique em {' '}
-                '<span className="font-bold italic">
-                    Inscrições abertas
-                </span>'.
-                <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Inscrições abertas
-                </p>
-            </>
-        ),
-        image: tela2,
-        imgClass: 'w-218'
-    },
-    {
-        id: 3,
-        title: "Escolha a CAPCOM",
-        description: (
-            <>
-                Clique em {' '}
-                '<span className="font-bold italic">
-                    Inscrever-se
-                </span>', no icone de pessoa.
-                <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Inscrever-se
-                </p>
-            </>
-        ),
-        image: tela3,
-        imgClass: 'w-218'
-    },
-    {
-        id: 4,
-        title: "Faça sua inscrição no evento",
-        description: (
-            <>
-                Desça a página e insira em {' '}
-                '<span className="font-bold italic">
-                    Intituição
-                </span>' a instituição a qual está vinculada e clique em
-                '<span className="font-bold italic">
-                    Confirmar Inscrição
-                </span>'.
-                <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Confirmar Inscrição
-                </p>
-            </>
-        ),
-        image: tela4,
-        imgClass: 'w-188'
-    },
-    {
-        id: 5,
-        title: "Aguarde",
-        description: (
-            <>
-                Espere sua inscrição ser confirmada pelos coordenadores do evento!
-            </>
-        ),
-    },
-    {
-        id: 6,
-        title: "Faça sua inscrição no minicurso",
-        description: (
-            <>
-                Com a sua inscrição confirmada, volte a página inicial, vá para a tela de {' '}
-                '<span className="font-bold italic">
-                    Inscrições abertas
-                </span>'. Em seguida, clique em {' '}
-                '<span className="font-bold italic">
-                    Visualizar as mini atividades
-                </span>'.
-                <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Página inicial &gt; Inscrições abertas &gt; Visualizar as mini atividades
-                </p>
-            </>
-        ),
-        image: tela5,
-        imgClass: 'w-228'
-    },
-    {
-        id: 7,
-        title: "Escolha seu minicurso",
-        description: (
-            <>
-                Escolha seu minicurso e clique em{' '}
-                '<span className="font-bold italic">
-                    Inscrever-se
-                </span>'.
-                <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Inscrever-se
-                </p>
-            </>
-        ),
-        image: tela6,
-        imgClass: 'w-158'
-    },
-    {
-        id: 8,
-        title: "Faça sua inscrição no minicurso",
-        description: (
-            <>
-                Desça a página e insira em {' '}
-                '<span className="font-bold italic">
-                    Intituição
-                </span>' a instituição a qual está vinculada e clique em
-                '<span className="font-bold italic">
-                    Confirmar Inscrição
-                </span>'.
-                <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Confirmar Inscrição
-                </p>
-            </>
-        ),
-        image: tela4,
-        imgClass: 'w-158'
-    },
-]
+import { FiUsers, FiUserPlus } from "react-icons/fi";
+import { LuGraduationCap } from "react-icons/lu";
+import { IoBookOutline } from "react-icons/io5";
+import { FaRegStar } from "react-icons/fa";
 
 export function Instructor() {
-
     return (
-        <section className="min-h-screen bg-blue-300/20 w-full flex flex-col items-center justify-center py-22">
-            <h2 className="font-bold pb-4 text-blue-900 md:text-3xl text-2xl">Como me inscrevo?</h2>
-            <div className="bg-gray-300/50 w-full max-w-7xl rounded-md flex items-center justify-center pt-12 px-8">
-                <Swiper
-                    slidesPerView={1}
-                    pagination={{ clickable: true }}
-                    navigation
-                    modules={[Navigation, Pagination]}
-                >
-                    {steps.map((step) => (
-                        <SwiperSlide key={step.id} className='px-18'>
-                            <div className="w-full max-w-6xl">
-                                <span className='text-blue-600'>Passo {step.id}</span>
-                                <p className='font-bold md:text-2xl text-xl pb-1'>{step.title}</p>
-                                {step.link && (
-                                    <a
-                                        className='text-blue-800 underline'
-                                        href={step.link.href}
-                                        target='_blank'
-                                    >{step.link.text}</a>
-                                )}
-                                <p className='pt-4 text-zinc-800'>{step.description}</p>
-                                {step.image && (
-                                    <img className={step.imgClass} src={step.image} alt={`Ilustração do passo ${step.id}`} />
-                                )}
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+        <section className="min-h-screen w-full flex flex-col items-center justify-center ">
+            <p className="bg-blue-300/50 border border-blue-300/30 shadow-md px-8 py-1 rounded-2xl text-blue-800 font-bold flex items-center justify-center gap-4">
+                <LuGraduationCap size={20} className="text-blue-800" />
+                Para Instrutores
+            </p>
+            <h2 className="md:text-4xl text-2xl font-bold text-blue-900 pt-8 pb-2">Quer Ministrar um Minicurso?</h2>
+            <p className="text-zinc-700 md:text-lg text-base md:max-w-none max-w-lg">Compartilhe seu conhecimento e ajude outros estudantes a crescerem na área da computação</p>
+
+            <div className="mt-12 w-full max-w-5xl h-72 bg-blue-300/20 rounded-xl border border-blue-200 flex items-center justify-center flex-col gap-12">
+                <div className="flex gap-18">
+                    <div className="flex items-center flex-col justify-center">
+                        <span className="bg-blue-300/30 rounded-full p-5">
+                            <FiUsers size={38} className="text-blue-700" />
+                        </span>
+                        <h3 className="font-medium text-gray-900 md:text-xl text-lg pt-2">Impacte Vidas</h3>
+                        <span className="text-zinc-700 md:text-lg text-base">Ensine e inspire novos talentos</span>
+                    </div>
+                    <div className="flex items-center flex-col justify-center">
+                        <span className="bg-blue-300/30 rounded-full p-5">
+                            <FaRegStar size={38} className="text-blue-700" />
+                        </span>
+                        <h3 className="font-medium text-gray-900 md:text-xl text-lg pt-2">Desenvolva-se</h3>
+                        <span className="text-zinc-700 md:text-lg text-base">Aprimore suas habilidades de ensino</span>
+                    </div>
+                    <div className="flex items-center flex-col justify-center">
+                        <span className="bg-blue-300/30 rounded-full p-5">
+                            <IoBookOutline size={38} className="text-blue-700" />
+                        </span>
+                        <h3 className="font-medium text-gray-900 md:text-xl text-lg pt-2">Flexibilidade</h3>
+                        <span className="text-zinc-700 md:text-lg text-base">Escolha o tema que domina</span>
+                    </div>
+                </div>
+                <a className="bg-blue-700 rounded-3xl md:text-lg text-base text-white font-medium px-8 py-2 transition-all hover:scale-105 cursor-pointer shadow-md flex items-center justify-center gap-4">
+                    <FiUserPlus size={20} color="#fff" />
+                    Seja um Instrutor
+                </a>
             </div>
         </section>
     )
