@@ -1,3 +1,4 @@
+import { Faq } from "./components/faq"
 import { Header } from "./components/header"
 import { Infos } from "./components/infos"
 import { Instructions } from "./components/instructions"
@@ -14,6 +15,7 @@ function App() {
       <Minicourse />
       <Instructions />
       <Instructor />
+      <Faq />
     </div>
   )
 }

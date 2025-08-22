@@ -166,7 +166,7 @@ export function Instructions() {
     return (
         <section className="min-h-screen bg-blue-300/20 w-full flex flex-col items-center justify-center py-22">
             <h2 className="font-bold pb-4 text-blue-900 md:text-3xl text-2xl">Como me inscrevo?</h2>
-            <div className="bg-gray-300/50 w-full max-w-7xl rounded-md flex items-center justify-center pt-12 px-8">
+            <div className="bg-gray-300/50 w-full max-w-7xl rounded-xl flex items-center justify-center pt-12 px-8 shadow-md">
                 <Swiper
                     slidesPerView={1}
                     pagination={{ clickable: true }}

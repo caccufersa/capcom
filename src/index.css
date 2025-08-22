@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+summary {
+  list-style: none;
+  cursor: pointer;
+}
