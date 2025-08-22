@@ -2,7 +2,7 @@ import capcomLogo from '../../assets/capcom-logo.png';
 
 export function Header() {
     return (
-        <header className="absolute top-4 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 max-w-5xl mx-auto flex items-center justify-center rounded-full bg-white md:h-16 h-12 border-2 border-zinc-300 shadow-md">
+        <header className="fixed top-4 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 max-w-5xl mx-auto flex items-center justify-center rounded-full bg-white md:h-16 h-12 border-2 border-zinc-300 shadow-md">
             <nav className="flex md:justify-between md:gap-0 gap-4 justify-center items-center w-full px-12">
                 <img src={capcomLogo} alt="Logo capcom" className="md:w-24 w-12" />
                 <div className='flex gap-8 md:gap-16'>

@@ -1,4 +1,5 @@
 import { Header } from "./components/header"
+import { Minicourse } from "./components/mini-course"
 import { Welcome } from "./components/welcome"
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div>
       <Header />
       <Welcome />
+      <Minicourse />
     </div>
   )
 }
