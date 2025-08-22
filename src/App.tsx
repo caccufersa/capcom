@@ -1,4 +1,5 @@
 import { Header } from "./components/header"
+import { Infos } from "./components/infos"
 import { Minicourse } from "./components/mini-course"
 import { Welcome } from "./components/welcome"
 
@@ -7,6 +8,7 @@ function App() {
     <div>
       <Header />
       <Welcome />
+      <Infos />
       <Minicourse />
     </div>
   )

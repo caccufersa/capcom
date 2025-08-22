@@ -41,7 +41,7 @@ export function Welcome() {
                     </div>
                     <div className="flex flex-col items-center justify-center bg-white rounded-2xl md:w-50 w-40 md:h-40 h-30">
                         <IoTimerSharp className="text-blue-700 md:text-5xl text-3xl" />
-                        <p className="font-bold text-blue-700 md:text-3xl text-2xl">4 dias</p>
+                        <p className="font-bold text-blue-700 md:text-3xl text-2xl">2 dias</p>
                         <span className="text-zinc-700 text-center md:text-base text-sm">de Aprendizado</span>
                     </div>
                 </div>
