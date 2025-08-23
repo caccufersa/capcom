@@ -36,7 +36,7 @@ export function Minicourse() {
     })
 
     return (
-        <section id="minicourse" className="min-h-screen flex items-center justify-center flex-col text-center w-full bg-blue-50/50 px-4 py-12 ">
+        <section id="minicourse" className="min-h-screen flex items-center justify-center flex-col text-center w-full bg-blue-50/50 px-4 py-12">
             <div className="w-full flex items-center flex-col my-8">
                 <h2 className="font-bold bg-gradient-to-l from-blue-900 to-blue-500 bg-clip-text text-transparent md:text-4xl text-2xl">Minicursos em Destaque</h2>
                 <p className="text-zinc-700 md:text-lg text-base md:max-w-none max-w-lg">Descubra alguns dos nossos minicursos mais populares e comece sua jornada de aprendizado.</p>
