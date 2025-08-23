@@ -37,7 +37,7 @@ export function Instructor() {
                         <span className="text-zinc-700 md:text-lg text-base">Escolha o tema que domina</span>
                     </div>
                 </div>
-                <a className="bg-blue-700 rounded-3xl md:text-lg text-base text-white font-medium px-8 py-2 transition-all hover:scale-105 cursor-pointer shadow-md flex items-center justify-center gap-4">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" target="_blank" className="bg-blue-700 rounded-3xl md:text-lg text-base text-white font-medium px-8 py-2 transition-all hover:scale-105 cursor-pointer shadow-md flex items-center justify-center gap-4">
                     <FiUserPlus size={20} color="#fff" />
                     Seja um Instrutor
                 </a>
