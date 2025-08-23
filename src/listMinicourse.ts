@@ -1,6 +1,7 @@
 import WhesleyImg from './assets/instructors/whesley.jpg';
 import GaldinoImg from './assets/instructors/Galdino.jpg';
 import SarahEloisaImg from './assets/instructors/sarahEloisa.jpg';
+import JoaoGabrielImg from './assets/instructors/JoaoGabriel.jpg'
 
 export interface ListMinicourseProps {
     id: number;
@@ -53,12 +54,16 @@ export const ListMinicourse: ListMinicourseProps[] = [
         id: 2,
         title: 'Primeiros passos com C#',
         instructor1: {
-            name: 'João Gabriel de Araújo Peixoto'
+            name: 'João Gabriel de Araújo Peixoto',
+            img: JoaoGabrielImg,
+            github: 'https://github.com/CalmMagma',
+            email: 'joaogabrielpeixoto2005@gmail.com',
+            description: 'Às vezes, a única coisa necessária para resolver um problema é uma mudança de perspectiva.'
         },
         courseLocation: 'Lab 3',
         date: '23/10',
         description: 'Conceitos básicos de C#. Discutindo sua utilidade, vantagens, aplicações no mercado. Conhecendo a sintaxe e estrutura do código.',
-        prerequisites: 'Não há pré-requisitos'
+        prerequisites: 'Noções de introdução à computação, ou especificamente as disciplinas Algoritmo e Programação I ou Introdução a Computação.'
     },
     {
         id: 3,
