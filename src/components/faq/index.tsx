@@ -1,7 +1,7 @@
 import { SlArrowDown } from "react-icons/sl";
 export function Faq() {
     return (
-        <section className="min-h-screen bg-blue-700/10 w-full flex flex-col items-center justify-center py-22 px-8">
+        <section id="faq" className="min-h-screen bg-blue-700/10 w-full flex flex-col items-center justify-center py-22 px-8">
             <h2 className="md:text-4xl text-2xl font-bold text-blue-900 pt-8 pb-2 mb-4">FAQ</h2>
             <div className="w-full max-w-7xl rounded-xl flex flex-col items-center justify-center p-8 bg-white border border-zinc-300 shadow-md py-12 gap-8">
                 <details className="w-full max-w-6xl border-b border-zinc-300">

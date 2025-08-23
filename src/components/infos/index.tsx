@@ -3,7 +3,7 @@ import { GrLocation } from "react-icons/gr";
 
 export function Infos() {
     return (
-        <section className="flex items-center justify-center flex-col py-24 px-4">
+        <section id="infos" className="flex items-center justify-center flex-col py-24 px-4">
             <h2 className="md:text-4xl text-2xl font-bold text-blue-900">Informações Importantes</h2>
             <p className="text-zinc-700 md:text-lg text-base pt-2">Tudo que você precisa saber sobre os minicursos</p>
 

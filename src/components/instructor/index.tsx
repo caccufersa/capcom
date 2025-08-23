@@ -5,7 +5,7 @@ import { FaRegStar } from "react-icons/fa";
 
 export function Instructor() {
     return (
-        <section className="min-h-screen w-full flex flex-col items-center justify-center ">
+        <section id="instructor" className="min-h-screen w-full flex flex-col items-center justify-center ">
             <p className="bg-blue-300/50 border border-blue-300/30 shadow-md px-8 py-1 rounded-2xl text-blue-800 font-bold flex items-center justify-center gap-4">
                 <LuGraduationCap size={20} className="text-blue-800" />
                 Para Instrutores

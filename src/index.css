@@ -4,3 +4,7 @@ summary {
   list-style: none;
   cursor: pointer;
 }
+
+html {
+  scroll-behavior: smooth;
+}
