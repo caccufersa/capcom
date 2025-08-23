@@ -164,9 +164,9 @@ const steps: Steps[] = [
 export function Instructions() {
 
     return (
-        <section id='instructions' className="min-h-screen bg-blue-300/20 w-full flex flex-col items-center justify-center py-22">
+        <section id='instructions' className="min-h-screen bg-blue-300/20 w-full flex flex-col items-center justify-center py-22 px-8">
             <h2 className="font-bold pb-4 text-blue-900 md:text-3xl text-2xl">Como me inscrevo?</h2>
-            <div className="bg-gray-300/50 w-full max-w-7xl rounded-xl flex items-center justify-center pt-12 px-8 shadow-md">
+            <div className="bg-gray-300/50 w-full max-w-7xl rounded-xl flex items-center justify-center pt-12 md:px-8 px-0 shadow-md">
                 <Swiper
                     slidesPerView={1}
                     pagination={{ clickable: true }}
@@ -174,7 +174,7 @@ export function Instructions() {
                     modules={[Navigation, Pagination]}
                 >
                     {steps.map((step) => (
-                        <SwiperSlide key={step.id} className='px-18'>
+                        <SwiperSlide key={step.id} className='md:px-18 px-12'>
                             <div className="w-full max-w-6xl">
                                 <span className='text-blue-600'>Passo {step.id}</span>
                                 <p className='font-bold md:text-2xl text-xl pb-1'>{step.title}</p>
