@@ -1,4 +1,5 @@
 import { Faq } from "./components/faq"
+import { Footer } from "./components/footer"
 import { Header } from "./components/header"
 import { Infos } from "./components/infos"
 import { Instructions } from "./components/instructions"
@@ -16,6 +17,7 @@ function App() {
       <Instructions />
       <Instructor />
       <Faq />
+      <Footer />
     </div>
   )
 }
