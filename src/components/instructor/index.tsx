@@ -8,7 +8,7 @@ export function Instructor() {
         <section id="instructor" className="min-h-screen w-full flex flex-col items-center justify-center px-8 py-12">
             <p className="bg-blue-300/50 border border-blue-300/30 shadow-md px-8 py-1 rounded-2xl text-blue-800 font-bold flex items-center justify-center gap-4">
                 <LuGraduationCap size={20} className="text-blue-800" />
-                Para Instrutores
+                Para Ministrante
             </p>
             <h2 className="md:text-4xl text-2xl font-bold text-blue-900 pt-8 pb-2">Quer Ministrar um Minicurso?</h2>
             <p className="text-zinc-700 md:text-lg text-base md:max-w-none max-w-lg">Compartilhe seu conhecimento e ajude outros estudantes a crescerem na área da computação</p>
@@ -39,7 +39,7 @@ export function Instructor() {
                 </div>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" target="_blank" className="bg-blue-700 rounded-3xl md:text-lg text-base text-white font-medium px-8 py-2 transition-all hover:scale-105 cursor-pointer shadow-md flex items-center justify-center gap-4">
                     <FiUserPlus size={20} color="#fff" />
-                    Seja um Instrutor
+                    Seja um Ministrante
                 </a>
             </div>
         </section>
