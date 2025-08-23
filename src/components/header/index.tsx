@@ -7,7 +7,7 @@ export function Header() {
                 <a href="#welcome">
                     <img src={capcomLogo} alt="Logo capcom" className="md:w-24 w-12" />
                 </a>
-                <div className='flex gap-8 md:gap-16'>
+                <div className='flex gap-4 md:gap-16 sm:gap-8'>
                     <a href="#infos" className="font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">Sobre</a>
                     <a href="#minicourse" className="font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">Minicursos</a>
                     <a href="#instructions" className="font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">Inscrições</a>
