@@ -18,14 +18,14 @@ export function Welcome() {
                     muito mais em um ambiente colaborativo de aprendizado.</p>
 
                 <div className="flex gap-4 my-10 md:flex-row flex-col w-full max-w-2xl justify-center">
-                    <button className="rounded-3xl bg-blue-950 px-4 h-10 text-white font-medium md:text-lg text-base justify-center shadow-md flex items-center gap-2 cursor-pointer transition-all hover:scale-105 w-full">
+                    <a href="#minicourse" className="rounded-3xl bg-blue-950 px-4 h-10 text-white font-medium md:text-lg text-base justify-center shadow-md flex items-center gap-2 cursor-pointer transition-all hover:scale-105 w-full">
                         <IoBookOutline className="md:text-xl text-lg" color="#fff" />
                         Explorar Minicursos
-                    </button>
-                    <button className="border border-white rounded-3xl px-4 h-10 text-white font-medium md:text-lg text-base justify-center shadow-md flex items-center gap-2 cursor-pointer transition-all hover:scale-105 w-full">
+                    </a>
+                    <a href="#instructions" className="border border-white rounded-3xl px-4 h-10 text-white font-medium md:text-lg text-base justify-center shadow-md flex items-center gap-2 cursor-pointer transition-all hover:scale-105 w-full">
                         Como me Inscrever
                         <IoIosArrowForward className=" md:text-xl text-lg" color="#fff" />
-                    </button>
+                    </a>
                 </div>
 
                 <div className="flex gap-8 md:flex-row flex-col">
