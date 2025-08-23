@@ -1,6 +1,6 @@
 import { Faq } from "./components/faq"
 import { Footer } from "./components/footer"
-import { Header } from "./components/header"
+import { Nav } from "./components/nav/index.tsx"
 import { Infos } from "./components/infos"
 import { Instructions } from "./components/instructions"
 import { Instructor } from "./components/instructor"
@@ -10,7 +10,7 @@ import { Welcome } from "./components/welcome"
 function App() {
   return (
     <div>
-      <Header />
+      <Nav />
       <Welcome />
       <Infos />
       <Minicourse />

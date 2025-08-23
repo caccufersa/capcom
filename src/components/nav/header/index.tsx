@@ -1,4 +1,4 @@
-import capcomLogo from '../../assets/capcom-logo.png';
+import capcomLogo from '../../../assets/capcom-logo.png';
 
 export function Header() {
     return (
