@@ -1,6 +1,6 @@
-import { MdOutlineClose } from "react-icons/md";
+import { MdOutlineClose, MdOutlineMail } from "react-icons/md";
 import { ListMinicourse } from "../../listMinicourse";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaItchIo } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
 
 interface ModalProps {
@@ -38,31 +38,60 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
                                 <p className="text-left">{course?.instructor1.name}</p>
                                 <p className="pb-2 text-left text-zinc-700 text-sm">{course?.instructor1.description}</p>
                                 <span className="flex gap-2 items-center">
-                                    <a href={course?.instructor1.insta} target="_blank">
-                                        <FaInstagram size={26} color="#000" />
-                                    </a>
-                                    <a href={course?.instructor1.github} target="_blank">
-                                        <IoLogoGithub size={26} color="#000" />
-                                    </a>
+                                    {course?.instructor1.insta && (
+                                        <a href={course?.instructor1.insta} target="_blank">
+                                            <FaInstagram size={26} color="#000" />
+                                        </a>
+                                    )}
+                                    {course?.instructor1.github && (
+                                        <a href={course?.instructor1.github} target="_blank">
+                                            <IoLogoGithub size={26} color="#000" />
+                                        </a>
+                                    )}
+                                    {course?.instructor1.email && (
+                                        <a href={course?.instructor1.email} target="_blank">
+                                            <MdOutlineMail size={26} color="#000" />
+                                        </a>
+                                    )}
+                                    {course?.instructor1.itchio && (
+                                        <a href={course?.instructor1.itchio} target="_blank">
+                                            <FaItchIo size={26} color="#000" />
+                                        </a>
+                                    )}
                                 </span>
                             </div>
                         </div>
-                        <div className="flex gap-4">
-                            <img className="rounded-full w-28 h-28 object-cover" src={course?.instructor2?.img} alt="Foto do ministrante" />
-                            <div>
-                                <p className="text-left">{course?.instructor2?.name}</p>
-                                <p className="pb-2 text-left text-zinc-700 text-sm">{course?.instructor2?.description}</p>
-                                <span className="flex gap-2 items-center">
-                                    <a href={course?.instructor2?.insta} target="_blank">
-                                        <FaInstagram size={26} color="#000" />
-                                    </a>
-                                    <a href={course?.instructor2?.github} target="_blank">
-                                        <IoLogoGithub size={26} color="#000" />
-                                    </a>
-
-                                </span>
+                        {course?.instructor2 && (
+                            <div className="flex gap-4">
+                                <img className="rounded-full w-28 h-28 object-cover" src={course?.instructor2?.img} alt="Foto do ministrante" />
+                                <div>
+                                    <p className="text-left">{course?.instructor2?.name}</p>
+                                    <p className="pb-2 text-left text-zinc-700 text-sm">{course?.instructor2?.description}</p>
+                                    <span className="flex gap-2 items-center">
+                                        {course?.instructor2?.insta && (
+                                            <a href={course?.instructor2?.insta} target="_blank">
+                                                <FaInstagram size={26} color="#000" />
+                                            </a>
+                                        )}
+                                        {course?.instructor2?.github && (
+                                            <a href={course?.instructor2?.github} target="_blank">
+                                                <IoLogoGithub size={26} color="#000" />
+                                            </a>
+                                        )}
+                                        {course?.instructor2?.email && (
+                                            <a href={course?.instructor2?.email} target="_blank">
+                                                <MdOutlineMail size={26} color="#000" />
+                                            </a>
+                                        )}
+                                        {course?.instructor2?.itchio && (
+                                            <a href={course?.instructor2?.itchio} target="_blank">
+                                                <FaItchIo size={26} color="#000" />
+                                            </a>
+                                        )}
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </section>
             </main>

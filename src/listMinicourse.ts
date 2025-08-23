@@ -20,6 +20,8 @@ export interface InstructorProps {
     insta?: string;
     github?: string
     description?: string;
+    email?: string;
+    itchio?: string;
 }
 
 export const ListMinicourse: ListMinicourseProps[] = [
@@ -31,11 +33,16 @@ export const ListMinicourse: ListMinicourseProps[] = [
             insta: 'https://www.instagram.com/g4ld1n0_/',
             github: 'https://github.com/G4ldin0',
             description: 'Sênior Lego Scratch, desenvolvendo jogos e pra sempre preso entre paginas de documentação ou ando meio desligado.',
-            img: GaldinoImg
+            img: GaldinoImg,
+            itchio: 'https://g4ldin0.itch.io/',
+            email: 'joao.duarte31219@alunos.ufersa.edu.br'
         },
         instructor2: {
             name: 'Sarah Heloysa Oliveira Tomaz',
-            img: SarahEloisaImg
+            img: SarahEloisaImg,
+            description: 'Não existem criações pequenas na robótica; cada uma carrega um pedaço do futuro.',
+            email: 'sarah.tomaz@alunos.ufersa.edu.br',
+            github: 'https://github.com/SarahTomaz'
         },
         courseLocation: 'Lab 6',
         date: '23/10',
@@ -75,14 +82,17 @@ export const ListMinicourse: ListMinicourseProps[] = [
             insta: 'https://www.instagram.com/g4ld1n0_/',
             github: 'https://github.com/G4ldin0',
             description: 'Sênior Lego Scratch, desenvolvendo jogos e pra sempre preso entre paginas de documentação ou ando meio desligado.',
-            img: GaldinoImg
+            img: GaldinoImg,
+            itchio: 'https://g4ldin0.itch.io/',
+            email: 'joao.duarte31219@alunos.ufersa.edu.br'
         },
         instructor2: {
             name: 'Wesley Felipe Xavier Rocha',
             insta: 'https://www.instagram.com/whesxavi/',
             github: 'GitHub.com/X4vierWhes',
             description: 'Acho que dá pra rodar DOOM aqui.',
-            img: WhesleyImg
+            img: WhesleyImg,
+            email: 'whesley.rocha@alunos.ufersa.edu.br'
         },
         courseLocation: 'Lab 2',
         date: '24/10',
