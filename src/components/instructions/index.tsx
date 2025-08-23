@@ -174,7 +174,7 @@ export function Instructions() {
                     modules={[Navigation, Pagination]}
                 >
                     {steps.map((step) => (
-                        <SwiperSlide key={step.id} className='md:px-18 px-12'>
+                        <SwiperSlide key={step.id} className='md:px-18 px-12 pb-8'>
                             <div className="w-full max-w-6xl">
                                 <span className='text-blue-600'>Passo {step.id}</span>
                                 <p className='font-bold md:text-2xl text-xl pb-1'>{step.title}</p>
