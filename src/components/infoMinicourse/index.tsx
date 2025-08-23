@@ -13,7 +13,7 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
     const course = ListMinicourse.find((item) => item.id === id)
 
     return (
-        <div className="bg-black/40 fixed inset-0 flex items-center justify-center z-10" onClick={closeModal}>
+        <div className="bg-black/40 fixed inset-0 flex items-center justify-center z-100" onClick={closeModal}>
             <main className="max-h-11/12 overflow-y-auto bg-white w-11/12 max-w-5xl h-auto flex flex-col rounded-lg p-8 " onClick={(e) => e.stopPropagation()}>
                 <header>
                     <div className="flex  justify-between mb-2">

@@ -76,7 +76,7 @@ export function Minicourse() {
 
                     {filteredCouses.map((item) => (
                         <SwiperSlide key={item.id} className="my-12">
-                            <div onClick={() => { setModal(true), setIdCouse(item.id) }} className="border-blue-500 border-l-4 bg-blue-400/10 mx-12 rounded-2xl max-w-98 px-4 md:h-73 h-58 flex justify-center text-left flex-col transition-all cursor-pointer shadow-md hover:shadow-2xl">
+                            <div onClick={() => { setModal(true), setIdCouse(item.id) }} className="border-blue-500 border-l-4 bg-blue-400/10 mx-12 rounded-2xl max-w-98 px-4 md:h-73 h-68 flex justify-center text-left flex-col transition-all cursor-pointer shadow-md hover:shadow-2xl">
                                 <span className="text-zinc-700 text-sm">{item.date} • {item.courseLocation}</span>
                                 <h3 className="font-bold md:text-xl text-lg text-blue-950 py-2">{item.title}</h3>
                                 <p className="text-zinc-700 md:text-base text-sm max-w-92">{item.description}</p>
