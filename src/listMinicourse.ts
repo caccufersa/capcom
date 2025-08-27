@@ -84,7 +84,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         courseLocation: 'Lab 7',
         date: '24/10',
         description: 'Conceitos básicos do framework. Conhecendo a estrutura do funcionamento, widgets básicos, formas de processar os dados para criar um aplicativo multiplataforma.',
-        prerequisites: 'Não há pré-requisitos'
+        prerequisites: 'Noções de orientação a objetos.'
     },
     {
         id: 4,
