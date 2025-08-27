@@ -44,13 +44,17 @@ export function Footer() {
                     </a>
                 </div>
             </div>
-            <div className='flex flex-col items-center flex-1 justify-center gap-2'>
-                <h3 className='text-white font-medium md:text-xl text-lg'>Localização</h3>
-                <GrMapLocation color='#fff' className='md:text-2xl text-xl' />
-                <p className='text-white flex items-center gap-2 max-w-96 text-center md:text-base text-sm'>
-                    R. Francisco Mota, 572 - Pres. Costa e Silva, Mossoró - RN | CEP: 59.625-900, +55 84 3317-8200
-                    CNPJ: 24.529.265/0001-40
-                </p>
+            <div className='flex items-center justify-center'>
+                <a className='flex flex-col items-center flex-1 justify-center gap-2'
+                    target='_blank'
+                    href="https://www.google.com/maps/place/LCC/@-5.206761,-37.3266134,17z/data=!3m1!4b1!4m6!3m5!1s0x7ba07ec488f7071:0x195359523efeb3d7!8m2!3d-5.206761!4d-37.3240385!16s%2Fg%2F11vjgr9hny?entry=ttu&g_ep=EgoyMDI1MDgyNC4wIKXMDSoASAFQAw%3D%3D">
+                    <h3 className='text-white font-medium md:text-xl text-lg'>Localização</h3>
+                    <GrMapLocation color='#fff' className='md:text-2xl text-xl' />
+                    <p className='text-white flex items-center gap-2 max-w-96 text-center md:text-base text-sm'>
+                        R. Francisco Mota, 572 - Pres. Costa e Silva, Mossoró - RN | CEP: 59.625-900, +55 84 3317-8200
+                        CNPJ: 24.529.265/0001-40
+                    </p>
+                </a>
             </div>
         </footer>
     )
