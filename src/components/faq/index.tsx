@@ -26,7 +26,7 @@ export function Faq() {
                     <summary className="flex items-center justify-between pb-4 font-medium">Não sei programar, posso ver algum minicurso?
                         <SlArrowDown size={15} />
                     </summary>
-                    <p className="pb-4">Sim, as recomendações para quem não tem experiência são o minicurso de Robótica, linguagem R, Python Pandas, Teoria dos Números e PowerBI. Há mais recomendações ao apertar o botão 'Sou aluno de outro curso'.</p>
+                    <p className="pb-4">Sim, há cursos sem pré-requisitos que aborda conceitos básicos desde o início.</p>
                 </details>
                 <details className="w-full max-w-6xl border-b border-zinc-300">
                     <summary className="flex items-center justify-between pb-4 font-medium">Posso ver algum minicurso ter os pré-requesitos necessários?

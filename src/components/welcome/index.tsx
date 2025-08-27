@@ -14,7 +14,7 @@ export function Welcome() {
             <div className="w-full max-w-7xl flex flex-col items-center flex-1 justify-center">
                 <h2 className="text-white font-bold md:text-4xl text-2xl md:text-left text-center max-w-2xl mb-4">Semana de Capacitação em Computação da UFERSA</h2>
                 <p className="md:text-left text-center max-w-2xl md:text-xl text-base text-white">Minicursos gratuitos de computação ministrados por alunos ativos do curso.
-                    Aprenda sobre desenvolvimento web, jogos, robótica, mineração de dados e
+                    Aprenda sobre robótica, C#, Flutter, jogos e
                     muito mais em um ambiente colaborativo de aprendizado.</p>
 
                 <div className="flex gap-4 my-10 md:flex-row flex-col w-full max-w-2xl justify-center">
@@ -31,7 +31,7 @@ export function Welcome() {
                 <div className="flex gap-8 md:flex-row flex-col">
                     <div className="flex flex-col items-center justify-center bg-white rounded-2xl md:w-50 w-40 md:h-40 h-30">
                         <MdMenuBook className="text-blue-700 md:text-5xl text-3xl" />
-                        <p className="font-bold text-blue-700 md:text-3xl text-2xl">10 +</p>
+                        <p className="font-bold text-blue-700 md:text-3xl text-2xl">4 +</p>
                         <span className="text-zinc-700 text-center md:text-base text-sm">Minicursos Disponíveis</span>
                     </div>
                     <div className="flex flex-col items-center justify-center bg-white rounded-2xl md:w-50 w-40 md:h-40 h-30">
