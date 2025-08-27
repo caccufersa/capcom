@@ -14,22 +14,34 @@ export function Footer() {
             <div className='flex flex-col flex-1 items-center justify-center'>
                 <h3 className='text-white font-medium md:text-xl text-lg'>Contato</h3>
                 <div className='flex flex-col gap-2'>
-                    <p className='text-white flex items-center gap-2 md:text-base text-sm'>
+                    <a
+                        href='https://mail.google.com/mail/?view=cm&fs=1&to=escolapilotodecomputacao@gmail.com&su=Assunto&body=Mensagem'
+                        target='_blank'
+                        className='text-white flex items-center gap-2 md:text-base text-sm'>
                         <MdOutlineMail color='#fff' className='md:text-2xl text-xl' />
                         escolapilotodecomputacao@gmail.com
-                    </p>
-                    <p className='text-white flex items-center gap-2 md:text-base text-sm'>
+                    </a>
+                    <a
+                        href='https://www.instagram.com/epc_ufersa/'
+                        target='_blank'
+                        className='text-white flex items-center gap-2 md:text-base text-sm'>
                         <FaInstagram color='#fff' className='md:text-2xl text-xl' />
                         @epc_ufersa
-                    </p>
-                    <p className='text-white flex items-center gap-2 md:text-base text-sm'>
+                    </a>
+                    <a
+                        href='https://mail.google.com/mail/?view=cm&fs=1&to=caccufersa@gmail.com&su=Assunto&body=Mensagem'
+                        target='_blank'
+                        className='text-white flex items-center gap-2 md:text-base text-sm'>
                         <MdOutlineMail color='#fff' className='md:text-2xl text-xl' />
                         caccufersa@gmail.com
-                    </p>
-                    <p className='text-white flex items-center gap-2 md:text-base text-sm'>
+                    </a>
+                    <a
+                        href='https://www.instagram.com/cacc.ufersa/'
+                        target='_blank'
+                        className='text-white flex items-center gap-2 md:text-base text-sm'>
                         <FaInstagram color='#fff' className='md:text-2xl text-xl' />
                         @cacc.ufersa
-                    </p>
+                    </a>
                 </div>
             </div>
             <div className='flex flex-col items-center flex-1 justify-center gap-2'>
