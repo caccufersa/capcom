@@ -1,6 +1,6 @@
 import { MdOutlineClose, MdOutlineMail } from "react-icons/md";
 import { ListMinicourse } from "../../listMinicourse";
-import { FaInstagram, FaItchIo } from "react-icons/fa";
+import { FaInstagram, FaItchIo, FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
 
 interface ModalProps {
@@ -58,6 +58,11 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
                                             <FaItchIo size={26} color="#000" />
                                         </a>
                                     )}
+                                    {course?.instructor1.linkedin && (
+                                        <a href={course?.instructor1.linkedin} target="_blank">
+                                            <FaLinkedin size={26} color="#000" />
+                                        </a>
+                                    )}
                                 </span>
                             </div>
                         </div>
@@ -86,6 +91,11 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
                                         {course?.instructor2?.itchio && (
                                             <a href={course?.instructor2?.itchio} target="_blank">
                                                 <FaItchIo size={26} color="#000" />
+                                            </a>
+                                        )}
+                                        {course?.instructor2?.linkedin && (
+                                            <a href={course?.instructor2?.linkedin} target="_blank">
+                                                <FaLinkedin size={26} color="#000" />
                                             </a>
                                         )}
                                     </span>

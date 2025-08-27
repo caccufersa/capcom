@@ -1,7 +1,8 @@
 import WhesleyImg from './assets/instructors/whesley.jpg';
 import GaldinoImg from './assets/instructors/Galdino.jpg';
 import SarahEloisaImg from './assets/instructors/sarahEloisa.jpg';
-import JoaoGabrielImg from './assets/instructors/JoaoGabriel.jpg'
+import JoaoGabrielImg from './assets/instructors/JoaoGabriel.jpg';
+import NickolasEmanuel from "./assets/instructors/nikolasEmanuel.jpg"
 
 export interface ListMinicourseProps {
     id: number;
@@ -23,6 +24,7 @@ export interface InstructorProps {
     description?: string;
     email?: string;
     itchio?: string;
+    linkedin?: string;
 }
 
 export const ListMinicourse: ListMinicourseProps[] = [
@@ -69,7 +71,12 @@ export const ListMinicourse: ListMinicourseProps[] = [
         id: 3,
         title: 'Criação de apps com Flutter',
         instructor1: {
-            name: 'Nickolas Emanuel de Oliveira Silva'
+            name: 'Nickolas Emanuel de Oliveira Silva',
+            insta: 'https://www.instagram.com/nickolas_emanuel_/',
+            email: "nickolasemanuel10@gmail.com",
+            description: "Desenvolvedor Front-end Multiplataforma.",
+            img: NickolasEmanuel,
+            linkedin: "https://www.linkedin.com/in/n%C3%ADckolas-emanuel-02924b223/"
         },
         instructor2: {
             name: 'Arthur Peixoto de Almeida'
