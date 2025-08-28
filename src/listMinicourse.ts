@@ -82,7 +82,8 @@ export const ListMinicourse: ListMinicourseProps[] = [
         instructor2: {
             name: 'Arthur Peixoto de Almeida',
             email: "ggpeaol@gmail.com",
-            description: "Ex-Jogador amador de fortnite, 2x semi finalista do interclasse da escola, desenvolvedor junior aprendiz de programação e loucamente apaixonado"
+            description: "Ex-Jogador amador de fortnite, 2x semi finalista do interclasse da escola, desenvolvedor junior aprendiz de programação e loucamente apaixonado",
+            img: ArthurPeixoto
         },
         courseLocation: 'Lab 7',
         date: '24/10',
