@@ -2,7 +2,8 @@ import WhesleyImg from './assets/instructors/whesley.jpg';
 import GaldinoImg from './assets/instructors/Galdino.jpg';
 import SarahEloisaImg from './assets/instructors/sarahEloisa.jpg';
 import JoaoGabrielImg from './assets/instructors/JoaoGabriel.jpg';
-import NickolasEmanuel from "./assets/instructors/nikolasEmanuel.jpg"
+import NickolasEmanuel from "./assets/instructors/nikolasEmanuel.jpg";
+import ArthurPeixoto from "./assets/instructors/arthurPeixoto.jpg"
 
 export interface ListMinicourseProps {
     id: number;
