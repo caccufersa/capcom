@@ -10,8 +10,9 @@ export function Infos() {
             <div className="flex lg:flex-row flex-col md:gap-18 gap-12 py-12">
                 <div className="flex flex-col items-center justify-center bg-blue-300/20 rounded-xl border border-blue-200 md:w-68 w-58 md:h-48 h-38">
                     <FiCalendar className="text-blue-700 md:text-4xl text-3xl" />
-                    <p className="font-medium text-gray-900 md:text-xl text-lg py-2">Quando</p>
+                    <p className="font-medium text-gray-900 md:text-xl text-lg py-2">Quando?</p>
                     <span className="text-zinc-700 md:text-lg text-base">23/10 e 24/10</span>
+                    <span className="text-zinc-700 md:text-lg text-base">Das 8:00 às 12:00</span>
                     <span className="text-zinc-700 md:text-lg text-base">Das 14:00 às 18:00</span>
                 </div>
                 <div >
