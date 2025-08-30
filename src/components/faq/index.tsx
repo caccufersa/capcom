@@ -29,7 +29,7 @@ export function Faq() {
                     <p className="pb-4">Sim, há cursos sem pré-requisitos que aborda conceitos básicos desde o início.</p>
                 </details>
                 <details className="w-full max-w-6xl border-b border-zinc-300">
-                    <summary className="flex items-center justify-between pb-4 font-medium">Posso ver algum minicurso ter os pré-requesitos necessários?
+                    <summary className="flex items-center justify-between pb-4 font-medium">Posso ver algum minicurso sem ter os pré-requesitos necessários?
                         <SlArrowDown size={15} />
                     </summary>
                     <p className="pb-4">Sim, por sua conta e risco :{')'}</p>
