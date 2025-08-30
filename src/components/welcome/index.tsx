@@ -6,7 +6,7 @@ import ilustration from '../../assets/ilustrationGirl.png'
 
 export function Welcome() {
     return (
-        <section id="welcome" className="lg:py-0 py-18 lg:flex-row flex-col w-full bg-gradient-to-l from-blue-900 to-blue-500 flex items-center justify-center min-h-screen px-4">
+        <section id="welcome" className="lg:pt-25 py-18 lg:flex-row flex-col w-full bg-gradient-to-l from-blue-900 to-blue-500 flex items-center justify-center min-h-screen px-4">
             <div className="flex flex-1 justify-center flex-col items-center lg:py-0 py-4">
                 <img src={ilustration} alt="Ilustração" className="lg:w-168 md:w-128 w-68" />
             </div>
