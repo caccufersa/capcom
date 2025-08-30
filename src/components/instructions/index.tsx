@@ -6,6 +6,7 @@ import tela5 from '../../assets/Tela5.png';
 import tela6 from '../../assets/Tela6.png';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { useState, useEffect } from 'react'; 
 
 interface Steps {
     id: number;
@@ -28,12 +29,12 @@ const steps: Steps[] = [
                 </span>'
                 . Em seguida, faça login na sua conta gov.br.
                 <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Realizar Inscrição em Cursos e Eventos de Extensão &gt; Entrar com gov.br
+                     Realizar Inscrição em Cursos e Eventos de Extensão  Entrar com gov.br
                 </p>
             </>
         ),
         link: {
-            href: "https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/",
+            href: "https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/  ",
             text: "Clique aqui",
         },
         image: tela1,
@@ -49,7 +50,7 @@ const steps: Steps[] = [
                     Inscrições abertas
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Inscrições abertas
+                     Inscrições abertas
                 </p>
             </>
         ),
@@ -66,7 +67,7 @@ const steps: Steps[] = [
                     Inscrever-se
                 </span>', no icone de pessoa.
                 <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Inscrever-se
+                     Inscrever-se
                 </p>
             </>
         ),
@@ -86,7 +87,7 @@ const steps: Steps[] = [
                     Confirmar Inscrição
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Confirmar Inscrição
+                     Confirmar Inscrição
                 </p>
             </>
         ),
@@ -115,7 +116,7 @@ const steps: Steps[] = [
                     Visualizar as mini atividades
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Página inicial &gt; Inscrições abertas &gt; Visualizar as mini atividades
+                     Página inicial  Inscrições abertas  Visualizar as mini atividades
                 </p>
             </>
         ),
@@ -132,7 +133,7 @@ const steps: Steps[] = [
                     Inscrever-se
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Inscrever-se
+                     Inscrever-se
                 </p>
             </>
         ),
@@ -152,7 +153,7 @@ const steps: Steps[] = [
                     Confirmar Inscrição
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                    &gt; Confirmar Inscrição
+                     Confirmar Inscrição
                 </p>
             </>
         ),
@@ -162,6 +163,23 @@ const steps: Steps[] = [
 ]
 
 export function Instructions() {
+    const [expandedImage, setExpandedImage] = useState<string | null>(null);
+    const [isClosing, setIsClosing] = useState(false);
+
+    // Efeito para animação de fechamento
+    useEffect(() => {
+        if (!expandedImage) {
+            setIsClosing(false);
+        }
+    }, [expandedImage]);
+
+    const handleClose = () => {
+        setIsClosing(true);
+        // Tempo deve corresponder à duração da animação CSS (300ms)
+        setTimeout(() => {
+            setExpandedImage(null);
+        }, 300);
+    };
 
     return (
         <section id='instructions' className="min-h-screen bg-blue-300/20 w-full flex flex-col items-center justify-center py-22 px-8">
@@ -187,13 +205,92 @@ export function Instructions() {
                                 )}
                                 <p className='pt-4 text-zinc-800'>{step.description}</p>
                                 {step.image && (
-                                    <img className={step.imgClass} src={step.image} alt={`Ilustração do passo ${step.id}`} />
+                                    <div className="flex justify-center mt-6">
+                                        <img
+                                            src={step.image}
+                                            alt={`Step ${step.id}`}
+                                            className={`cursor-pointer rounded-lg shadow-md hover:shadow-lg transition-all ${step.imgClass || 'w-full max-w-2xl'}`}
+                                            onClick={() => step.image && setExpandedImage(step.image)}
+                                        />
+                                    </div>
                                 )}
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
+            
+            {/* Modal para imagem ampliada com animação suave */}
+            {expandedImage && (
+                <div 
+                    className={`fixed inset-0 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'} bg-black bg-opacity-90 flex items-center justify-center z-50 p-4`}
+                    onClick={handleClose}
+                >
+                    <div className="relative max-w-full max-h-full" onClick={e => e.stopPropagation()}>
+                        <button 
+                            className="absolute -top-12 right-0 text-white text-3xl font-bold hover:text-gray-300 transition-colors"
+                            onClick={handleClose}
+                        >
+                            ×
+                        </button>
+                        <img 
+                            className={`max-w-full max-h-[85vh] object-contain rounded-lg shadow-xl ${isClosing ? 'animate-scale-out' : 'animate-scale-in'}`} 
+                            src={expandedImage} 
+                            alt="Imagem ampliada" 
+                        />
+                    </div>
+                </div>
+            )}
+            
+            <style >{`
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+                
+                @keyframes scaleIn {
+                    from { 
+                        transform: scale(0.8);
+                        opacity: 0;
+                    }
+                    to { 
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                }
+                
+                @keyframes scaleOut {
+                    from { 
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                    to { 
+                        transform: scale(0.8);
+                        opacity: 0;
+                    }
+                }
+                
+                .animate-fade-in {
+                    animation: fadeIn 0.3s ease forwards;
+                }
+                
+                .animate-fade-out {
+                    animation: fadeOut 0.3s ease forwards;
+                }
+                
+                .animate-scale-in {
+                    animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+                }
+                
+                .animate-scale-out {
+                    animation: scaleOut 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+                }
+            `}</style>
         </section>
     )
 }
