@@ -162,11 +162,11 @@ const steps: Steps[] = [
     },
 ]
 
+//Para expandir as imagens
 export function Instructions() {
     const [expandedImage, setExpandedImage] = useState<string | null>(null);
     const [isClosing, setIsClosing] = useState(false);
 
-    // Efeito para animação de fechamento
     useEffect(() => {
         if (!expandedImage) {
             setIsClosing(false);
@@ -175,7 +175,6 @@ export function Instructions() {
 
     const handleClose = () => {
         setIsClosing(true);
-        // Tempo deve corresponder à duração da animação CSS (300ms)
         setTimeout(() => {
             setExpandedImage(null);
         }, 300);
@@ -220,7 +219,6 @@ export function Instructions() {
                 </Swiper>
             </div>
             
-            {/* Modal para imagem ampliada com animação suave */}
             {expandedImage && (
                 <div 
                     className={`fixed inset-0 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'} bg-black bg-opacity-90 flex items-center justify-center z-50 p-4`}

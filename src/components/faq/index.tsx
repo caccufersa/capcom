@@ -39,7 +39,7 @@ export function Faq() {
                         Onde serão os eventos?
                         <SlArrowDown size={15} />
                     </summary>
-                    <p className="pb-4">Nos laboratórios do LCC</p>
+                    <p className="pb-4">Nos laboratórios do LCC, manhã e tarde</p>
                 </details>
             </div>
         </section>
