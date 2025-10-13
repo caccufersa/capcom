@@ -1,52 +1,85 @@
-import { IoBookOutline, IoTimerSharp } from "react-icons/io5";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoBookOutline } from "react-icons/io5";
 import { MdMenuBook } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
-import ilustration from '../../assets/ilustrationGirl.png'
+import { IoCalendarOutline } from "react-icons/io5";
+import ilustration from '../../assets/ilustrationGirl.webp'
 
 export function Welcome() {
     return (
-        <section id="welcome" className="lg:pt-25 py-18 lg:flex-row flex-col w-full bg-gradient-to-l from-blue-900 to-blue-500 flex items-center justify-center min-h-screen px-4">
-            <div className="flex flex-1 justify-center flex-col items-center lg:py-0 py-4">
-                <img src={ilustration} alt="Ilustração" className="lg:w-168 md:w-128 w-68" />
-            </div>
+        <section id="welcome" className="pt-36 sm:pt-40 pb-20 lg:flex-row flex-col w-full bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center min-h-screen px-4">
+            <div className="container mx-auto max-w-7xl">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Conteúdo */}
+                    <div className="flex flex-col justify-center lg:order-1 order-2">
+                        <div className="inline-block mb-6">
+                            <span className="text-sm font-medium text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full">
+                                Evento Gratuito
+                            </span>
+                        </div>
+                        
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 leading-tight">
+                            Semana de Capacitação em Computação
+                        </h1>
+                        
+                        <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-xl">
+                            Participe de oficinas, minicursos e atividades práticas que vão te conectar ao universo das tecnologias emergentes.
+                        </p>
 
-            <div className="w-full max-w-7xl flex flex-col items-center flex-1 justify-center">
-                <h2 className="text-white font-bold md:text-4xl text-2xl md:text-left text-center max-w-2xl mb-4">Semana de Capacitação em Computação da UFERSA</h2>
-                <p className="md:text-left text-center max-w-2xl md:text-xl text-base text-white">Minicursos gratuitos de computação ministrados por alunos ativos do curso.
-                    Aprenda sobre robótica, C#, Flutter, jogos e
-                    muito mais em um ambiente colaborativo de aprendizado.</p>
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12">
+                            <a 
+                                href="#minicourse" 
+                                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2 text-sm sm:text-base"
+                            >
+                                <IoBookOutline size={20} />
+                                Ver Minicursos
+                            </a>
+                            <a 
+                                href="#instructions" 
+                                className="px-6 py-3 border-2 border-slate-300 text-slate-700 rounded-lg font-medium hover:border-slate-400 hover:bg-slate-50 transition-all inline-flex items-center justify-center gap-2 text-sm sm:text-base"
+                            >
+                                Como Participar
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
 
-                <div className="flex gap-4 my-10 md:flex-row flex-col w-full max-w-2xl justify-center">
-                    <a href="#minicourse" className="rounded-3xl bg-blue-950 px-4 h-10 text-white font-medium md:text-lg text-base justify-center shadow-md flex items-center gap-2 cursor-pointer transition-all hover:scale-105 w-full">
-                        <IoBookOutline className="md:text-xl text-lg" color="#fff" />
-                        Explorar Minicursos
-                    </a>
-                    <a href="#instructions" className="border border-white rounded-3xl px-4 h-10 text-white font-medium md:text-lg text-base justify-center shadow-md flex items-center gap-2 cursor-pointer transition-all hover:scale-105 w-full">
-                        Como me Inscrever
-                        <IoIosArrowForward className=" md:text-xl text-lg" color="#fff" />
-                    </a>
+                        {/* Stats minimalistas */}
+                        <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-8 border-t border-slate-200">
+                            <div>
+                                <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                                    <MdMenuBook className="text-blue-600" size={18} />
+                                    <p className="text-xl sm:text-2xl font-light text-slate-900">10+</p>
+                                </div>
+                                <span className="text-xs sm:text-sm text-slate-600">Minicursos</span>
+                            </div>
+                            <div>
+                                <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                                    <IoCalendarOutline className="text-blue-600" size={18} />
+                                    <p className="text-xl sm:text-2xl font-light text-slate-900">2</p>
+                                </div>
+                                <span className="text-xs sm:text-sm text-slate-600">Dias</span>
+                            </div>
+                            <div>
+                                <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                                    <RiMoneyDollarCircleLine className="text-blue-600" size={18} />
+                                    <p className="text-xl sm:text-2xl font-light text-slate-900">100%</p>
+                                </div>
+                                <span className="text-xs sm:text-sm text-slate-600">Gratuito</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Ilustração */}
+                    <div className="flex justify-center lg:order-2 order-1">
+                        <img 
+                            src={ilustration} 
+                            alt="Ilustração CAPCOM" 
+                            className="w-full max-w-lg drop-shadow-xl"
+                        />
+                    </div>
                 </div>
-
-                <div className="flex gap-8 md:flex-row flex-col">
-                    <div className="flex flex-col items-center justify-center bg-white rounded-2xl md:w-50 w-40 md:h-40 h-30">
-                        <MdMenuBook className="text-blue-700 md:text-5xl text-3xl" />
-                        <p className="font-bold text-blue-700 md:text-3xl text-2xl">4 +</p>
-                        <span className="text-zinc-700 text-center md:text-base text-sm">Minicursos Disponíveis</span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center bg-white rounded-2xl md:w-50 w-40 md:h-40 h-30">
-                        <RiMoneyDollarCircleLine className="text-blue-700 md:text-5xl text-3xl" />
-                        <p className="font-bold text-blue-700 md:text-3xl text-2xl">100%</p>
-                        <span className="text-zinc-700 text-center md:text-base text-sm">Gratuito</span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center bg-white rounded-2xl md:w-50 w-40 md:h-40 h-30">
-                        <IoTimerSharp className="text-blue-700 md:text-5xl text-3xl" />
-                        <p className="font-bold text-blue-700 md:text-3xl text-2xl">2 dias</p>
-                        <span className="text-zinc-700 text-center md:text-base text-sm">de Aprendizado</span>
-                    </div>
-                </div>
-
             </div>
-        </section >
+        </section>
     )
 }

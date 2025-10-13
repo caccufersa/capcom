@@ -1,38 +1,72 @@
 import { FiUsers, FiCalendar } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
+import { MapModal, useMapModal } from "../map-modal";
 
 export function Infos() {
-    return (
-        <section id="infos" className="flex items-center justify-center flex-col py-12 px-4">
-            <h2 className="md:text-4xl text-2xl font-bold text-blue-900">Informações Importantes</h2>
-            <p className="text-zinc-700 md:text-lg text-base pt-2">Tudo que você precisa saber sobre os minicursos</p>
+    const { isOpen, openMap, closeMap } = useMapModal();
 
-            <div className="flex lg:flex-row flex-col md:gap-18 gap-12 py-12">
-                <div className="flex flex-col items-center justify-center bg-blue-300/20 rounded-xl border border-blue-200 md:w-68 w-58 md:h-48 h-38">
-                    <FiCalendar className="text-blue-700 md:text-4xl text-3xl" />
-                    <p className="font-medium text-gray-900 md:text-xl text-lg py-2">Quando?</p>
-                    <span className="text-zinc-700 md:text-lg text-base">23/10 e 24/10</span>
-                    <span className="text-zinc-700 md:text-lg text-base">Das 8:00 às 12:00</span>
-                    <span className="text-zinc-700 md:text-lg text-base">Das 14:00 às 18:00</span>
+    return (
+        <section id="infos" className="bg-slate-50 py-16 md:py-20 px-4 border-b border-slate-200">
+            <div className="container mx-auto max-w-6xl">
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 mb-3">
+                        Informações Importantes
+                    </h2>
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg">
+                        Tudo que você precisa saber sobre o evento
+                    </p>
                 </div>
-                <div >
-                    <a
-                        className="flex flex-col items-center justify-center bg-blue-300/20 rounded-xl border border-blue-200 md:w-68 w-58 md:h-48 h-38"
-                        href="https://www.google.com/maps/place/LCC/@-5.206761,-37.3266134,17z/data=!3m1!4b1!4m6!3m5!1s0x7ba07ec488f7071:0x195359523efeb3d7!8m2!3d-5.206761!4d-37.3240385!16s%2Fg%2F11vjgr9hny?entry=ttu&g_ep=EgoyMDI1MDgyNC4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank">
-                        <GrLocation className="text-blue-700 md:text-4xl text-3xl" />
-                        <p className="font-medium text-gray-900 md:text-xl text-lg py-2">Onde</p>
-                        <span className="text-zinc-700 md:text-lg text-base">LCC</span>
-                        <span className="text-zinc-700 md:text-lg text-base">UFERSA - Mossoró</span>
-                    </a>
-                </div>
-                <div className="flex flex-col items-center justify-center bg-blue-300/20 rounded-xl border border-blue-200 md:w-68 w-58 md:h-48 h-38">
-                    <FiUsers className="text-blue-700 md:text-4xl text-3xl" />
-                    <p className="font-medium text-gray-900 md:text-xl text-lg py-2">Para quem</p>
-                    <span className="text-zinc-700 md:text-lg text-base text-center max-w-58">Estudantes e interessados em computação</span>
+
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    {/* Quando */}
+                    <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 text-center hover:shadow-lg transition-shadow">
+                        <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-full mb-4">
+                            <FiCalendar className="text-blue-600 text-2xl" />
+                        </div>
+                        <h3 className="font-semibold text-slate-900 text-lg md:text-xl mb-3">Quando</h3>
+                        <div className="space-y-1 text-sm md:text-base text-slate-600">
+                            <p className="font-medium text-slate-900">23 e 24 de Outubro</p>
+                            <p>Manhã: 8h às 12h</p>
+                            <p>Tarde: 14h às 18h</p>
+                        </div>
+                    </div>
+
+                    {/* Onde */}
+                    <button
+                        onClick={openMap}
+                        className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 text-center hover:shadow-lg hover:border-blue-300 transition-all group cursor-pointer"
+                    >
+                        <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-full mb-4 group-hover:bg-blue-100 transition-colors">
+                            <GrLocation className="text-blue-600 text-2xl" />
+                        </div>
+                        <h3 className="font-semibold text-slate-900 text-lg md:text-xl mb-3">Onde</h3>
+                        <div className="space-y-1 text-sm md:text-base text-slate-600">
+                            <p className="font-medium text-slate-900">LCC - UFERSA</p>
+                            <p>Campus Mossoró</p>
+                            <p className="text-blue-600 text-xs mt-2 group-hover:underline">
+                                Ver no mapa →
+                            </p>
+                        </div>
+                    </button>
+
+                    {/* Para quem */}
+                    <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 text-center hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
+                        <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-full mb-4">
+                            <FiUsers className="text-blue-600 text-2xl" />
+                        </div>
+                        <h3 className="font-semibold text-slate-900 text-lg md:text-xl mb-3">Para Quem</h3>
+                        <div className="space-y-1 text-sm md:text-base text-slate-600">
+                            <p>Estudantes e interessados</p>
+                            <p>em Computação</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            {/* Modal do Mapa */}
+            <MapModal isOpen={isOpen} onClose={closeMap} />
         </section>
     )
 }

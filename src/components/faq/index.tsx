@@ -29,7 +29,7 @@ export function Faq() {
                     <p className="pb-4">Sim, há cursos sem pré-requisitos que aborda conceitos básicos desde o início.</p>
                 </details>
                 <details className="w-full max-w-6xl border-b border-zinc-300">
-                    <summary className="flex items-center justify-between pb-4 font-medium">Posso ver algum minicurso sem ter os pré-requesitos necessários?
+                    <summary className="flex items-center justify-between pb-4 font-medium">Posso ver algum minicurso sem ter os pré-requisitos necessários?
                         <SlArrowDown size={15} />
                     </summary>
                     <p className="pb-4">Sim, por sua conta e risco :{')'}</p>
@@ -40,6 +40,27 @@ export function Faq() {
                         <SlArrowDown size={15} />
                     </summary>
                     <p className="pb-4">Nos laboratórios do LCC, manhã e tarde</p>
+                </details>
+                <details className="w-full max-w-6xl border-b border-zinc-300">
+                    <summary className="flex items-center justify-between pb-4 font-medium">
+                        Haverá certificado de participação?
+                        <SlArrowDown size={15} />
+                    </summary>
+                    <p className="pb-4">Sim! Será emitido certificado digital para todos os participantes que cumprirem os requisitos mínimos de participação. O certificado será disponibilizado após o evento através da plataforma SIGAA.</p>
+                </details>
+                <details className="w-full max-w-6xl border-b border-zinc-300">
+                    <summary className="flex items-center justify-between pb-4 font-medium">
+                        Qual a carga horária dos minicursos?
+                        <SlArrowDown size={15} />
+                    </summary>
+                    <p className="pb-4">Cada minicurso tem carga horária de 4 horas, distribuídas em um único dia (manhã ou tarde). É possível participar de até 2 minicursos durante o evento (um em cada dia).</p>
+                </details>
+                <details className="w-full max-w-6xl border-b border-zinc-300">
+                    <summary className="flex items-center justify-between pb-4 font-medium">
+                        Quais os critérios para receber o certificado?
+                        <SlArrowDown size={15} />
+                    </summary>
+                    <p className="pb-4">Para receber o certificado é necessário ter pelo menos 75% de presença no(s) minicurso(s) em que se inscreveu. A presença será computada através de lista de frequência durante as atividades.</p>
                 </details>
             </div>
         </section>

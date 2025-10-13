@@ -2,6 +2,7 @@ import { MdOutlineClose, MdOutlineMail } from "react-icons/md";
 import { ListMinicourse } from "../../listMinicourse";
 import { FaInstagram, FaItchIo, FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
+import { useMemo } from "react";
 
 interface ModalProps {
     closeModal: () => void;
@@ -9,99 +10,125 @@ interface ModalProps {
 }
 
 export function InfosMinicouse({ closeModal, id }: ModalProps) {
+    const course = useMemo(() => ListMinicourse.find((item) => item.id === id), [id])
 
-    const course = ListMinicourse.find((item) => item.id === id)
+    if (!course) {
+        return null
+    }
+
+    type InstructorInfo = NonNullable<typeof course.instructor1>
+    const instructors = [course.instructor1, course.instructor2].filter((instructor): instructor is InstructorInfo => Boolean(instructor))
+    const prerequisites = course.prerequisites ?? "Sem pré-requisitos informados."
+
+    function renderSocialLinks(instructor: InstructorInfo) {
+        return (
+            <span className="flex gap-2 items-center">
+                {instructor.insta && (
+                    <a href={instructor.insta} target="_blank" rel="noreferrer" aria-label="Instagram do ministrante">
+                        <FaInstagram size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                    </a>
+                )}
+                {instructor.github && (
+                    <a href={instructor.github} target="_blank" rel="noreferrer" aria-label="GitHub do ministrante">
+                        <IoLogoGithub size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                    </a>
+                )}
+                {instructor.email && (
+                    <a href={`mailto:${instructor.email}`} aria-label="Enviar e-mail para o ministrante">
+                        <MdOutlineMail size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                    </a>
+                )}
+                {instructor.itchio && (
+                    <a href={instructor.itchio} target="_blank" rel="noreferrer" aria-label="Itch.io do ministrante">
+                        <FaItchIo size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                    </a>
+                )}
+                {instructor.linkedin && (
+                    <a href={instructor.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn do ministrante">
+                        <FaLinkedin size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                    </a>
+                )}
+            </span>
+        )
+    }
+
+    function renderAvatar(instructor: InstructorInfo) {
+        if (instructor.img) {
+            return <img className="rounded-full w-24 h-24 object-cover border border-blue-100" src={instructor.img} alt={`Foto de ${instructor.name}`} />
+        }
+
+        const initials = instructor.name.split(' ').map(part => part[0]).join('').slice(0, 2).toUpperCase()
+
+        return (
+            <div className="rounded-full w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-semibold text-xl">
+                {initials}
+            </div>
+        )
+    }
 
     return (
-        <div className="bg-black/40 fixed inset-0 flex items-center justify-center z-100" onClick={closeModal}>
-            <main className="max-h-11/12 overflow-y-auto bg-white w-11/12 max-w-5xl h-auto flex flex-col rounded-lg p-8 " onClick={(e) => e.stopPropagation()}>
-                <header>
-                    <div className="flex  justify-between mb-2">
-                        <p className="font-bold md:text-xl text-lg text-blue-950 text-left">{course?.title}</p>
-                        <MdOutlineClose onClick={closeModal} size={25} className="cursor-pointer mb-4 text-black transition-all duration-200 hover:text-red-500" />
+        <div className="bg-black/40 fixed inset-0 flex items-center justify-center z-[100]" onClick={closeModal}>
+            <main
+                role="dialog"
+                aria-modal="true"
+                className="max-h-[90vh] overflow-y-auto bg-white w-11/12 max-w-5xl h-auto flex flex-col rounded-2xl p-8 shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <header className="flex justify-between items-start gap-4 border-b border-zinc-200 pb-4">
+                    <div className="flex-1">
+                        <p className="font-bold md:text-2xl text-xl text-blue-950 text-left leading-tight mb-2">{course.title}</p>
+                        <span className="text-sm text-blue-800/80">{course.date} • {course.courseLocation}</span>
+                        
+                        {/* Tags no modal */}
+                        {course.tags && course.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                {course.tags.map((tag, index) => (
+                                    <span 
+                                        key={index}
+                                        className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-sm"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </div>
+                    <button
+                        onClick={closeModal}
+                        className="rounded-full border border-transparent p-1 text-zinc-600 hover:text-red-500 hover:border-red-200 transition-colors"
+                        aria-label="Fechar detalhes do minicurso"
+                    >
+                        <MdOutlineClose size={26} />
+                    </button>
                 </header>
-                <section className="flex gap-6 lg:flex-row flex-col">
-                    <div className="flex flex-2 flex-col text-left max-w-xl">
-                        <p>{course?.description}</p>
-                        <p className="font-medium mt-4 md:text-lg text-base">Pré-Requisitos: </p>
-                        <span className="text-zinc-700">{course?.prerequisites}</span>
+                <section className="flex gap-8 lg:flex-row flex-col pt-6">
+                    <div className="flex flex-2 flex-col text-left max-w-xl gap-4">
+                        <p className="text-zinc-700 leading-relaxed">{course.description}</p>
+                        <div>
+                            <p className="font-semibold md:text-lg text-base text-blue-900">Pré-requisitos</p>
+                            <span className="text-zinc-700 md:text-base text-sm leading-relaxed">{prerequisites}</span>
+                        </div>
                         <a
                             onClick={closeModal}
                             href="#instructions"
-                            className="text-left mt-6 bg-blue-600 max-w-38 flex items-center justify-center py-1 rounded-3xl text-white font-medium transition-all hover:scale-105 cursor-pointer">Inscrever-se!</a>
+                            className="inline-flex items-center justify-center gap-2 mt-4 bg-blue-600 px-6 py-2 rounded-full text-white font-semibold transition-all hover:scale-105"
+                        >
+                            Inscrever-se
+                        </a>
                     </div>
-                    <div className="flex flex-col gap-4 flex-1 justify-center">
-                        <div className="flex gap-4">
-                            <img className="rounded-full w-28 h-28 object-cover" src={course?.instructor1.img} alt="Foto do ministrante" />
-                            <div>
-                                <p className="text-left">{course?.instructor1.name}</p>
-                                <p className="pb-2 text-left text-zinc-700 text-sm">{course?.instructor1.description}</p>
-                                <span className="flex gap-2 items-center">
-                                    {course?.instructor1.insta && (
-                                        <a href={course?.instructor1.insta} target="_blank">
-                                            <FaInstagram size={26} color="#000" />
-                                        </a>
+                    <div className="flex flex-col gap-6 flex-1 justify-center">
+                        {instructors.map((instructor, index) => (
+                            <article key={instructor.name ?? index} className="flex gap-4 items-start">
+                                {renderAvatar(instructor)}
+                                <div className="flex-1">
+                                    <p className="text-left font-medium text-blue-950">{instructor.name}</p>
+                                    {instructor.description && (
+                                        <p className="pb-2 text-left text-zinc-700 text-sm leading-relaxed">{instructor.description}</p>
                                     )}
-                                    {course?.instructor1.github && (
-                                        <a href={course?.instructor1.github} target="_blank">
-                                            <IoLogoGithub size={26} color="#000" />
-                                        </a>
-                                    )}
-                                    {course?.instructor1.email && (
-                                        <a href={course?.instructor1.email} target="_blank">
-                                            <MdOutlineMail size={26} color="#000" />
-                                        </a>
-                                    )}
-                                    {course?.instructor1.itchio && (
-                                        <a href={course?.instructor1.itchio} target="_blank">
-                                            <FaItchIo size={26} color="#000" />
-                                        </a>
-                                    )}
-                                    {course?.instructor1.linkedin && (
-                                        <a href={course?.instructor1.linkedin} target="_blank">
-                                            <FaLinkedin size={26} color="#000" />
-                                        </a>
-                                    )}
-                                </span>
-                            </div>
-                        </div>
-                        {course?.instructor2 && (
-                            <div className="flex gap-4">
-                                <img className="rounded-full w-28 h-28 object-cover" src={course?.instructor2?.img} alt="Foto do ministrante" />
-                                <div>
-                                    <p className="text-left">{course?.instructor2?.name}</p>
-                                    <p className="pb-2 text-left text-zinc-700 text-sm">{course?.instructor2?.description}</p>
-                                    <span className="flex gap-2 items-center">
-                                        {course?.instructor2?.insta && (
-                                            <a href={course?.instructor2?.insta} target="_blank">
-                                                <FaInstagram size={26} color="#000" />
-                                            </a>
-                                        )}
-                                        {course?.instructor2?.github && (
-                                            <a href={course?.instructor2?.github} target="_blank">
-                                                <IoLogoGithub size={26} color="#000" />
-                                            </a>
-                                        )}
-                                        {course?.instructor2?.email && (
-                                            <a href={course?.instructor2?.email} target="_blank">
-                                                <MdOutlineMail size={26} color="#000" />
-                                            </a>
-                                        )}
-                                        {course?.instructor2?.itchio && (
-                                            <a href={course?.instructor2?.itchio} target="_blank">
-                                                <FaItchIo size={26} color="#000" />
-                                            </a>
-                                        )}
-                                        {course?.instructor2?.linkedin && (
-                                            <a href={course?.instructor2?.linkedin} target="_blank">
-                                                <FaLinkedin size={26} color="#000" />
-                                            </a>
-                                        )}
-                                    </span>
+                                    {renderSocialLinks(instructor)}
                                 </div>
-                            </div>
-                        )}
+                            </article>
+                        ))}
                     </div>
                 </section>
             </main>

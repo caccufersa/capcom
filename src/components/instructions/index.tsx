@@ -181,42 +181,64 @@ export function Instructions() {
     };
 
     return (
-        <section id='instructions' className="min-h-screen bg-blue-300/20 w-full flex flex-col items-center justify-center py-22 px-8">
-            <h2 className="font-bold pb-4 text-blue-900 md:text-3xl text-2xl">Como me inscrevo?</h2>
-            <div className="bg-gray-300/50 w-full max-w-7xl rounded-xl flex items-center justify-center pt-12 md:px-8 px-0 shadow-md">
-                <Swiper
-                    slidesPerView={1}
-                    pagination={{ clickable: true }}
-                    navigation
-                    modules={[Navigation, Pagination]}
-                >
-                    {steps.map((step) => (
-                        <SwiperSlide key={step.id} className='md:px-18 px-12 pb-8'>
-                            <div className="w-full max-w-6xl">
-                                <span className='text-blue-600'>Passo {step.id}</span>
-                                <p className='font-bold md:text-2xl text-xl pb-1'>{step.title}</p>
-                                {step.link && (
-                                    <a
-                                        className='text-blue-800 underline'
-                                        href={step.link.href}
-                                        target='_blank'
-                                    >{step.link.text}</a>
-                                )}
-                                <p className='pt-4 text-zinc-800'>{step.description}</p>
-                                {step.image && (
-                                    <div className="flex justify-center mt-6">
-                                        <img
-                                            src={step.image}
-                                            alt={`Step ${step.id}`}
-                                            className={`cursor-pointer rounded-lg shadow-md hover:shadow-lg transition-all ${step.imgClass || 'w-full max-w-2xl'}`}
-                                            onClick={() => step.image && setExpandedImage(step.image)}
-                                        />
+        <section id='instructions' className="bg-white py-16 md:py-20 w-full flex flex-col items-center justify-center px-4 border-b border-slate-200">
+            <div className="container mx-auto max-w-6xl">
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 mb-3">
+                        Como me inscrevo?
+                    </h2>
+                    <p className="text-slate-600 text-sm sm:text-base">
+                        Siga o passo a passo para garantir sua vaga
+                    </p>
+                </div>
+
+                {/* Swiper Container */}
+                <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 md:p-12 shadow-sm">
+                    <Swiper
+                        slidesPerView={1}
+                        pagination={{ clickable: true }}
+                        navigation
+                        modules={[Navigation, Pagination]}
+                        className="instructions-swiper"
+                    >
+                        {steps.map((step) => (
+                            <SwiperSlide key={step.id} className='pb-16'>
+                                <div className="w-full max-w-4xl mx-auto">
+                                    <div className="inline-block bg-blue-100 text-blue-600 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                                        Passo {step.id} de {steps.length}
                                     </div>
-                                )}
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                                    <h3 className='font-semibold text-lg sm:text-xl md:text-2xl text-slate-900 mb-3'>{step.title}</h3>
+                                    {step.link && (
+                                        <a
+                                            className='inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base underline underline-offset-2 mb-3'
+                                            href={step.link.href}
+                                            target='_blank'
+                                            rel="noopener noreferrer"
+                                        >
+                                            {step.link.text}
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    )}
+                                    <p className='text-sm sm:text-base text-slate-600 leading-relaxed'>{step.description}</p>
+                                    {step.image && (
+                                        <div className="flex justify-center mt-6 sm:mt-8">
+                                            <img
+                                                src={step.image}
+                                                alt={`Passo ${step.id}`}
+                                                className="cursor-pointer rounded-xl shadow-md hover:shadow-xl transition-all max-w-full h-auto"
+                                                style={{ maxHeight: '400px', objectFit: 'contain' }}
+                                                onClick={() => step.image && setExpandedImage(step.image)}
+                                            />
+                                        </div>
+                                    )}
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
             </div>
             
             {expandedImage && (

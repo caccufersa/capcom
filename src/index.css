@@ -8,3 +8,107 @@ summary {
 html {
   scroll-behavior: smooth;
 }
+
+/* Removed excessive animations for minimal design */
+
+/* Swiper Navigation Custom Styles */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 44px !important;
+  height: 44px !important;
+  background: white !important;
+  border: 2px solid rgb(226 232 240) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  top: 50% !important;
+  margin-top: -22px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: rgb(71 85 105) !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgb(37 99 235) !important;
+  border-color: rgb(37 99 235) !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  color: white !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed !important;
+}
+
+.swiper-button-prev {
+  left: -60px !important;
+}
+
+.swiper-button-next {
+  right: -60px !important;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1280px) and (min-width: 769px) {
+  .swiper-button-prev {
+    left: -50px !important;
+  }
+  
+  .swiper-button-next {
+    right: -50px !important;
+  }
+}
+
+/* Mobile adjustments - abaixo dos cards */
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgb(226 232 240) !important;
+    top: auto !important;
+    bottom: -50px !important;
+    margin-top: 0 !important;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px !important;
+  }
+  
+  .swiper-button-prev {
+    left: 50% !important;
+    transform: translateX(-50px) !important;
+  }
+  
+  .swiper-button-next {
+    right: 50% !important;
+    transform: translateX(50px) !important;
+  }
+}
+
+/* Swiper Pagination Custom Styles */
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: rgb(191 219 254) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: rgb(37 99 235) !important;
+  width: 24px !important;
+  border-radius: 5px !important;
+}

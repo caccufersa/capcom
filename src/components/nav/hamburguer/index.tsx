@@ -7,41 +7,75 @@ export function Hamburguer() {
     const [statusNav, setStatusNav] = useState(false)
 
     return (
-        <header className=" z-50 fixed top-4 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 max-w-5xl mx-auto flex items-center justify-center rounded-full bg-white md:h-16 h-12 border-2 border-zinc-300 shadow-md">
-            <nav className="flex justify-between md:gap-0 gap-4 items-center w-full px-12">
-                <a href="#welcome">
-                    <img src={capcomLogo} alt="Logo capcom" className="md:w-24 w-18" />
+        <>
+        <header className="z-50 fixed top-12 sm:top-14 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 max-w-5xl mx-auto flex items-center justify-center rounded-full bg-white md:h-16 h-14 border-2 border-slate-200 shadow-md">
+            <nav className="flex justify-between items-center w-full px-5 sm:px-8 md:px-12">
+                <a href="#welcome" className="flex-shrink-0">
+                    <img src={capcomLogo} alt="Logo capcom" className="md:w-24 w-20" />
                 </a>
-                <div className='flex gap-2 md:gap-16 sm:gap-8'>
-                    <button onClick={() => setStatusNav(!statusNav)} className="cursor-pointer transition-all duration-200 hover:scale-105">
-                        <TbMenu2 size={30} />
-                    </button>
-
-                    {statusNav && (
-                        <section className='relative left-5 '>
-                            <div className="border-2 border-zinc-300 absolute top-14 right-8 w-4 h-4 bg-white transform rotate-45 shadow-lg"></div>
-                            <nav className="border-2 border-zinc-300 bg-white px-5 py-7 absolute right-5 top-16 z-10 rounded-lg shadow-lg sm:w-64 w-54 flex flex-col justify-center gap-2">
-                                <a onClick={() => setStatusNav(false)} href="#infos" className="flex items-center justify-between font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">Sobre
-                                    <RiArrowRightSLine size={20} />
-                                </a>
-                                <a onClick={() => setStatusNav(false)} href="#minicourse" className="flex items-center justify-between font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">Minicursos
-                                    <RiArrowRightSLine size={20} />
-                                </a>
-                                <a onClick={() => setStatusNav(false)} href="#instructions" className="flex items-center justify-between font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">Inscrições
-                                    <RiArrowRightSLine size={20} />
-                                </a>
-                                <a onClick={() => setStatusNav(false)} href="#instructor" className="flex items-center justify-between font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">Instrutores
-                                    <RiArrowRightSLine size={20} />
-                                </a>
-                                <a onClick={() => setStatusNav(false)} href="#faq" className="flex items-center justify-between font-medium text-zince-700 md:text-lg text-base transition-all hover:scale-105 hover:text-blue-700">FAQ
-                                    <RiArrowRightSLine size={20} />
-                                </a>
-                            </nav>
-                        </section>
-                    )}
-                </div>
+                <button 
+                    onClick={() => setStatusNav(!statusNav)} 
+                    className="p-2 cursor-pointer transition-all duration-200 hover:bg-slate-50 rounded-lg"
+                    aria-label="Menu"
+                >
+                    <TbMenu2 size={24} className="text-slate-700" />
+                </button>
             </nav>
         </header>
+
+        {/* Menu dropdown - Fora do header para evitar movimento */}
+        {statusNav && (
+            <>
+                {/* Overlay para fechar ao clicar fora */}
+                <div 
+                    className="fixed inset-0 bg-black/20 z-40 backdrop-blur-sm"
+                    onClick={() => setStatusNav(false)}
+                />
+                
+                {/* Menu */}
+                <div className="fixed top-28 sm:top-30 right-6 sm:right-10 z-50 w-64 sm:w-72">
+                    {/* Seta decorativa */}
+                    <div className="absolute -top-2 right-6 w-4 h-4 bg-white border-l-2 border-t-2 border-slate-200 transform rotate-45" />
+                    
+                    {/* Container do menu */}
+                    <nav className="bg-white border-2 border-slate-200 rounded-xl shadow-xl p-2">
+                        <a 
+                            onClick={() => setStatusNav(false)} 
+                            href="#infos" 
+                            className="flex items-center justify-between px-4 py-3 font-medium text-slate-700 text-base rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                        >
+                            <span>Sobre</span>
+                            <RiArrowRightSLine size={20} />
+                        </a>
+                        <a 
+                            onClick={() => setStatusNav(false)} 
+                            href="#minicourse" 
+                            className="flex items-center justify-between px-4 py-3 font-medium text-slate-700 text-base rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                        >
+                            <span>Minicursos</span>
+                            <RiArrowRightSLine size={20} />
+                        </a>
+                        <a 
+                            onClick={() => setStatusNav(false)} 
+                            href="#instructions" 
+                            className="flex items-center justify-between px-4 py-3 font-medium text-slate-700 text-base rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                        >
+                            <span>Inscrições</span>
+                            <RiArrowRightSLine size={20} />
+                        </a>
+                        <a 
+                            onClick={() => setStatusNav(false)} 
+                            href="#faq" 
+                            className="flex items-center justify-between px-4 py-3 font-medium text-slate-700 text-base rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                        >
+                            <span>FAQ</span>
+                            <RiArrowRightSLine size={20} />
+                        </a>
+                    </nav>
+                </div>
+            </>
+        )}
+        </>
 
 
     )

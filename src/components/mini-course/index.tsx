@@ -1,92 +1,135 @@
 import { ListMinicourse } from "../../listMinicourse";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { InfosMinicouse } from "../infoMinicourse";
 
+const FILTERS = [
+    { label: "Quinta", value: "23/10" },
+    { label: "Sexta", value: "24/10" },
+    { label: "Todos", value: "Todos" },
+];
+
 export function Minicourse() {
-    const [sliderPerview, setSliderPerview] = useState<number>(3)
     const [filter, setFilter] = useState<string>('Todos')
-    const [modal, setModal] = useState(false)
-    const [idCourse, setIdCouse] = useState<number | null>(null);
+    const [modalOpen, setModalOpen] = useState(false)
+    const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
 
-    useEffect(() => {
-        function handleResize() {
-            if (window.innerWidth < 780) {
-                setSliderPerview(1)
-            } else if (window.innerWidth < 1030) {
-                setSliderPerview(2)
-            } else {
-                setSliderPerview(3)
-            }
-        }
+    const filteredCourses = useMemo(() => {
+        if (filter === 'Todos') return ListMinicourse
+        return ListMinicourse.filter((item) => item.date.includes(filter))
+    }, [filter])
 
-        handleResize()
+    function handleOpenModal(courseId: number) {
+        setSelectedCourseId(courseId)
+        setModalOpen(true)
+    }
 
-        window.addEventListener('resize', handleResize)
-
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
-
-    const filteredCouses = ListMinicourse.filter((item) => {
-        if (filter === 'Todos') return true
-        return item.date.includes(filter)
-    })
+    function handleCloseModal() {
+        setModalOpen(false)
+        setSelectedCourseId(null)
+    }
 
     return (
-        <section id="minicourse" className="min-h-screen flex items-center justify-center flex-col text-center w-full bg-blue-50/50 px-4 py-12">
-            <div className="w-full flex items-center flex-col my-8">
-                <h2 className="font-bold bg-gradient-to-l from-blue-900 to-blue-500 bg-clip-text text-transparent md:text-4xl text-2xl">Minicursos em Destaque</h2>
-                <p className="text-zinc-700 md:text-lg text-base md:max-w-none max-w-lg">Descubra alguns dos nossos minicursos mais populares e comece sua jornada de aprendizado.</p>
+        <section id="minicourse" className="bg-white py-16 md:py-20 pb-24 md:pb-20 flex items-center justify-center flex-col text-center w-full px-4 border-b border-slate-200">
+            <div className="container mx-auto max-w-6xl">
+                {/* Header */}
+                <div className="text-center mb-8 md:mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 mb-3">
+                        Minicursos em Destaque
+                    </h2>
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+                        Descubra alguns dos nossos minicursos mais populares e comece sua jornada de aprendizado
+                    </p>
+                </div>
+
+                {/* Filter Buttons */}
+                <div className="inline-flex items-center justify-center gap-2 sm:gap-3 mb-8 md:mb-12 bg-slate-100 p-1.5 rounded-xl">
+                    {FILTERS.map(({ label, value }) => (
+                        <button
+                            key={value}
+                            onClick={() => setFilter(value)}
+                            className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-medium transition-all border
+                            ${filter === value 
+                                ? 'bg-blue-600 text-white border-blue-600 shadow-md' 
+                                : 'bg-transparent text-slate-700 border-transparent hover:bg-white'
+                            }`}
+                            aria-pressed={filter === value}
+                        >
+                            {label}
+                        </button>
+                    ))}
+                </div>
             </div>
 
-            <div className="shadow-md bg-transparent border border-zinc-400 rounded-2xl w-full md:max-w-lg max-w-96 md:h-18 h-14 flex items-center justify-center flex-row gap-6">
-                <button
-                    onClick={() => setFilter('23/10')}
-                    className={`px-4 rounded-xl md:h-10 h-8 md:text-base text-sm  font-medium transition-all hover:scale-105 cursor-pointer
-                        ${filter === '23/10' ? 'bg-blue-600 text-white' : 'bg-blue-100/50 text-blue-700'}`}
-
-                >
-                    Quinta
-                </button>
-                <button
-                    onClick={() => setFilter('24/10')}
-                    className={`px-4 rounded-xl md:h-10 h-8 md:text-base text-sm  font-medium transition-all hover:scale-105 cursor-pointer
-                        ${filter === '24/10' ? 'bg-blue-600 text-white' : 'bg-blue-100/50 text-blue-700'}`}>
-                    Sexta
-                </button>
-                <button
-                    onClick={() => setFilter('Todos')}
-                    className={`px-4 rounded-xl md:h-10 h-8 md:text-base text-sm  font-medium transition-all hover:scale-105 cursor-pointer
-                        ${filter === 'Todos' ? 'bg-blue-600 text-white' : 'bg-blue-100/50 text-blue-700'}`}>
-                    Todos
-                </button>
-            </div>
-
-
-            <div className="w-full max-w-7xl py-4">
-                <Swiper
-                    slidesPerView={sliderPerview}
-                    pagination={{ clickable: true }}
-                    navigation
-                    modules={[Navigation, Pagination]}
-                >
-
-                    {filteredCouses.map((item) => (
-                        <SwiperSlide key={item.id} className="my-12">
-                            <div onClick={() => { setModal(true), setIdCouse(item.id) }} className="border-blue-500 border-l-4 bg-blue-400/10 mx-12 rounded-2xl max-w-98 px-4 md:h-73 h-68 flex justify-center text-left flex-col transition-all cursor-pointer shadow-md hover:shadow-2xl">
-                                <span className="text-zinc-700 text-sm">{item.date} • {item.courseLocation}</span>
-                                <h3 className="font-bold md:text-xl text-lg text-blue-950 py-2">{item.title}</h3>
-                                <p className="text-zinc-700 md:text-base text-sm max-w-92">{item.description}</p>
-                            </div>
+            <div className="relative w-full max-w-7xl py-6 pb-16 md:pb-6 px-2 sm:px-4 lg:px-16">
+                {filteredCourses.length === 0 ? (
+                    <p className="text-slate-600 text-sm sm:text-base">Nenhum minicurso encontrado para o dia selecionado.</p>
+                ) : (
+                <>
+                    {/* Gradient indicators for more content */}
+                    <div className="absolute left-0 top-0 bottom-16 md:bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none hidden lg:block" />
+                    <div className="absolute right-0 top-0 bottom-16 md:bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none hidden lg:block" />
+                    
+                    <Swiper
+                        pagination={{ 
+                            clickable: true,
+                            dynamicBullets: true
+                        }}
+                        navigation
+                        modules={[Navigation, Pagination]}
+                        spaceBetween={20}
+                        breakpoints={{
+                            0: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1180: { slidesPerView: 3 }
+                        }}
+                        className="minicourse-swiper"
+                    >
+                    {filteredCourses.map((item) => (
+                        <SwiperSlide key={item.id} className="pb-12">
+                            <article className="group border border-slate-200 bg-white rounded-xl h-full p-5 sm:p-6 flex flex-col gap-3 sm:gap-4 text-left transition-all duration-200 shadow-sm hover:shadow-md hover:border-slate-300">
+                                <header className="flex items-center justify-between text-xs sm:text-sm text-slate-600">
+                                    <span className="font-medium">{item.date}</span>
+                                    <span>{item.courseLocation}</span>
+                                </header>
+                                <h3 className="font-semibold text-base sm:text-lg md:text-xl text-slate-900 leading-snug">{item.title}</h3>
+                                
+                                {/* Tags */}
+                                {item.tags && item.tags.length > 0 && (
+                                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                                        {item.tags.map((tag, index) => (
+                                            <span 
+                                                key={index}
+                                                className="inline-flex items-center px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs font-medium bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border border-blue-200/50 transition-colors hover:border-blue-300"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                                
+                                <p className="text-slate-600 text-xs sm:text-sm md:text-base line-clamp-3">{item.description}</p>
+                                <footer className="mt-auto flex items-center justify-between pt-2 border-t border-slate-100">
+                                    <span className="text-xs sm:text-sm text-slate-700 font-medium">{item.instructor1.name}</span>
+                                    <button
+                                        onClick={() => handleOpenModal(item.id)}
+                                        className="text-xs sm:text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors px-3 py-1.5 hover:bg-blue-50 rounded-lg"
+                                        type="button"
+                                    >
+                                        Ver detalhes →
+                                    </button>
+                                </footer>
+                            </article>
                         </SwiperSlide>
                     ))}
                 </Swiper>
+                </>
+                )}
             </div>
-
-            {modal && <InfosMinicouse id={idCourse} closeModal={() => setModal(false)} />}
+            {modalOpen && (
+                <InfosMinicouse id={selectedCourseId} closeModal={handleCloseModal} />
+            )}
         </section>
     )
 }
