@@ -6,14 +6,20 @@ export function Infos() {
     const { isOpen, openMap, closeMap } = useMapModal();
 
     return (
-        <section id="infos" className="bg-slate-50 py-16 md:py-20 px-4 border-b border-slate-200">
-            <div className="container mx-auto max-w-6xl">
+        <section id="infos" className="relative py-16 md:py-20 px-4 border-b border-slate-200 overflow-hidden">
+            {/* Background sutil */}
+            <div className="absolute inset-0 bg-slate-50"></div>
+            <div className="absolute inset-0 opacity-30" style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, rgb(226 232 240) 1px, transparent 0)',
+                backgroundSize: '32px 32px'
+            }}></div>
+            <div className="container mx-auto max-w-6xl relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 mb-3">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3">
                         Informações Importantes
                     </h2>
-                    <p className="text-slate-600 text-sm sm:text-base md:text-lg">
+                    <p className="text-slate-600 text-sm sm:text-base md:text-lg font-light">
                         Tudo que você precisa saber sobre o evento
                     </p>
                 </div>

@@ -1,12 +1,50 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 summary {
   list-style: none;
   cursor: pointer;
 }
 
+/* Background pattern sutil e elegante */
+body {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+}
+
+/* Smooth scrolling e melhorias de performance */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Ajuste para header fixo */
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(248 250 252);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(203 213 225);
+  border-radius: 5px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(148 163 184);
 }
 
 /* Removed excessive animations for minimal design */

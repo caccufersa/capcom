@@ -8,6 +8,7 @@ import { Welcome } from "./components/welcome"
 import Countdown from "./components/countdown"
 import WhatsAppButton from "./components/whatsapp-button"
 import DeadlineBanner from "./components/deadline-banner"
+import { Sponsors } from "./components/sponsors"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Minicourse />
       <Instructions />
       <Faq />
+      <Sponsors />
       <Footer />
       <WhatsAppButton />
     </div>
