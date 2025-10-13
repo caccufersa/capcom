@@ -120,8 +120,8 @@ export default function Countdown() {
 
         {/* CTA minimalista */}
         <div className="text-center px-4">
-          <a 
-            href="https://sigaa.ufersa.edu.br/sigaa/public/extensao/busca_cursos.jsf"
+          <a
+            href="https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm sm:text-base w-full sm:w-auto max-w-sm"

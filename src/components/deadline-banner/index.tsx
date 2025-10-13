@@ -7,7 +7,7 @@ export default function DeadlineBanner() {
         </span>
         <span className="text-slate-300">•</span>
         <a 
-          href="https://sigaa.ufersa.edu.br/sigaa/public/extensao/busca_cursos.jsf"
+          href="https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 hover:text-blue-700 font-medium underline underline-offset-2 transition-colors whitespace-nowrap"

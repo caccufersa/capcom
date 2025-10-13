@@ -34,7 +34,7 @@ const steps: Steps[] = [
             </>
         ),
         link: {
-            href: "https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/  ",
+            href: "https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/",
             text: "Clique aqui",
         },
         image: tela1,
