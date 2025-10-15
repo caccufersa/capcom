@@ -72,7 +72,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
             description: 'Às vezes, a única coisa necessária para resolver um problema é uma mudança de perspectiva.'
         },
         courseLocation: 'Lab 7',
-        date: '23/10',
+        date: '24/10',
         description: 'Conceitos básicos de C#. Discutindo sua utilidade, vantagens, aplicações no mercado. Conhecendo a sintaxe e estrutura do código.',
         prerequisites: 'Noções de introdução à computação, ou especificamente as disciplinas Algoritmo e Programação I ou Introdução a Computação.',
         tags: ['C#', '.NET', 'POO', 'Backend']
@@ -154,7 +154,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
             email: 'isaul.souza@alunos.ufersa.edu.br'
         },
         courseLocation: 'Lab 4',
-        date: '23/10',
+        date: '24/10',
         description: 'Passando e entendendo sobre a transição de circuitos digitais para arquitetura e organização de computadores.',
         prerequisites: 'Não há pré-requisitos.',
         tags: ['Hardware', 'Arquitetura', 'Circuitos', 'Assembly']
@@ -171,7 +171,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
             email: 'talyssonemanoel@gmail.com'
         },
         courseLocation: 'Lab 2',
-        date: '24/10',
+        date: '23/10',
         description: 'Neste minicurso, vamos explorar os conceitos fundamentais que diferenciam a computação quântica da computação clássica — como superposição, emaranhamento e portas quânticas — de forma acessível e prática. Mais do que apenas teoria, você terá contato direto com o Qiskit, o kit de desenvolvimento open source da IBM, que permite criar, simular e até executar algoritmos em computadores quânticos reais pela nuvem.',
         prerequisites: 'Conhecimentos básicos de programação (preferencialmente em Python). Álgebra linear (vetores e matrizes) e noções de probabilidade.',
         tags: ['Python', 'Qiskit', 'Quantum', 'IBM']
@@ -187,7 +187,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
             email: 'artsonic89@gmail.com'
         },
         courseLocation: 'Lab 4',
-        date: '24/10',
+        date: '23/10',
         description: 'Um minicurso introdutório sobre utilizar git e github. Pretende-se ensinar aos alunos como confiantemente aprender a criar repositórios no github e como interagir com eles via o terminal do git, bem como onde buscar conteúdo para se aprofundarem no uso dessas que são duas das ferramentas mais importântes para a graduação.',
         prerequisites: 'Nenhum',
         tags: ['Git', 'GitHub', 'Versionamento', 'DevOps']
@@ -203,7 +203,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
             email: 'gustavo.lima83060@alunos.ufersa.edu.br'
         },
         courseLocation: 'Lab 1',
-        date: '23/10',
+        date: '24/10',
         description: 'Um minicurso prático e direto ao ponto para desenvolvedores que querem turbinar o inglês técnico. Você vai aprender o vocabulário essencial usado em programação, entrevistas e documentação, além de praticar situações reais do dia a dia de um dev: Como participar de reuniões técnicas e explicar seu código em inglês. Tudo de forma leve, interativa e aplicada ao mundo da tecnologia.',
         prerequisites: 'Noções básicas de programação e algoritmos e conhecimento básico de inglês',
         tags: ['Inglês', 'Soft Skills', 'Comunicação', 'Tech']
@@ -226,7 +226,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
             email: 'danielbronzo@hotmail.com'
         },
         courseLocation: 'Lab Laacoste',
-        date: '24/10',
+        date: '23/10',
         description: 'Dominando a impressão 3d, nesse minicurso os alunos serão capacitados a utilizar uma impressora 3d, de tecnologia FDM, tornando capaz de imprimir suas primeiras peças sozinhos.',
         prerequisites: 'Ter vontade de aprender',
         tags: ['3D Print', 'CAD', 'Maker', 'Hardware']

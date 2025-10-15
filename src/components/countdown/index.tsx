@@ -18,8 +18,8 @@ export default function Countdown() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      // Data do evento: 23/10/2025
-      const eventDate = new Date('2025-10-23T00:00:00').getTime();
+      // Data do evento: 23/10/2025 às 8h da manhã
+      const eventDate = new Date('2025-10-23T08:00:00').getTime();
       const now = new Date().getTime();
       const difference = eventDate - now;
 
@@ -132,7 +132,7 @@ export default function Countdown() {
             </svg>
           </a>
           <p className="text-xs sm:text-sm text-slate-500 mt-4">
-            Vagas limitadas • Inscrições até 20 de Outubro
+            Vagas limitadas • Inscrições até 22 de Outubro
           </p>
         </div>
       </div>

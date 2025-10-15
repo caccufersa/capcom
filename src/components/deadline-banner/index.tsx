@@ -3,7 +3,7 @@ export default function DeadlineBanner() {
     <div className="fixed top-0 left-0 right-0 z-[60] bg-white border-b border-slate-200 py-2 px-4">
       <div className="container mx-auto flex flex-row items-center justify-center gap-2 sm:gap-4 text-[11px] sm:text-sm">
         <span className="text-slate-600">
-          Inscrições até <span className="font-semibold text-slate-900">20/10</span>
+          Inscrições até <span className="font-semibold text-slate-900">22/10</span>
         </span>
         <span className="text-slate-300">•</span>
         <a 

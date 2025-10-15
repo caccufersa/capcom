@@ -10,6 +10,7 @@ export function Header() {
                 <div className='flex gap-2 sm:gap-3 md:gap-12'>
                     <a href="#infos" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Sobre</a>
                     <a href="#minicourse" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600 whitespace-nowrap">Minicursos</a>
+                    <a href="#marathon" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Maratona</a>
                     <a href="#instructions" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600 hidden sm:inline">Inscrições</a>
                     <a href="#faq" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">FAQ</a>
                 </div>

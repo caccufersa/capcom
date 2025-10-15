@@ -79,13 +79,13 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
                         <p className="font-bold md:text-2xl text-xl text-blue-950 text-left leading-tight mb-2">{course.title}</p>
                         <span className="text-sm text-blue-800/80">{course.date} • {course.courseLocation}</span>
                         
-                        {/* Tags no modal */}
+                        {/* Tags no modal - Design minimalista */}
                         {course.tags && course.tags.length > 0 && (
                             <div className="flex flex-wrap gap-2 mt-3">
                                 {course.tags.map((tag, index) => (
                                     <span 
                                         key={index}
-                                        className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-sm"
+                                        className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100"
                                     >
                                         {tag}
                                     </span>

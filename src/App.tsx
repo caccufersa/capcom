@@ -3,6 +3,7 @@ import { Footer } from "./components/footer"
 import { Nav } from "./components/nav/index.tsx"
 import { Infos } from "./components/infos"
 import { Instructions } from "./components/instructions"
+import { ProgrammingMarathon } from "./components/marathon"
 import { Minicourse } from "./components/mini-course"
 import { Welcome } from "./components/welcome"
 import Countdown from "./components/countdown"
@@ -19,6 +20,7 @@ function App() {
       <Countdown />
       <Infos />
       <Minicourse />
+      <ProgrammingMarathon />
       <Instructions />
       <Faq />
       <Sponsors />
