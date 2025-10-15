@@ -10,6 +10,7 @@ import Countdown from "./components/countdown"
 import WhatsAppButton from "./components/whatsapp-button"
 import DeadlineBanner from "./components/deadline-banner"
 import { Sponsors } from "./components/sponsors"
+import { GameJam } from "./components/gamejam/index.tsx"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Infos />
       <Minicourse />
       <ProgrammingMarathon />
+      <GameJam />
       <Instructions />
       <Faq />
       <Sponsors />

@@ -4,7 +4,7 @@ import { LuArrowUpRight, LuClock, LuFileText } from "react-icons/lu";
 import marathonImg1 from '../../assets/marathon-1.jpg';
 import marathonImg2 from '../../assets/marathon-2.jpg';
 
-const registrationFormUrl = "https://forms.gle/inscricao-capcom-maratona";
+const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeupidu6ZA5RzJrF283cepiX-2GEDyaegrfKhTLvdJiFMZqSQ/viewform?usp=header";
 const editalUrl = "#"; // Substituir pelo link do edital quando disponível
 
 export function ProgrammingMarathon() {
