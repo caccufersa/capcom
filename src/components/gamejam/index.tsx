@@ -41,7 +41,7 @@ export function GameJam() {
                         CAPCOM 2025
                     </div>
                     <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium mt-6">
-                        48 horas de pura criatividade. Desenvolva, compete e conquiste seu lugar no pódio!
+                        72 horas de pura criatividade. Desenvolva, compete e conquiste seu lugar no pódio!
                     </p>
                 </div>
 
@@ -61,7 +61,7 @@ export function GameJam() {
                                     </span>
                                 </div>
                                 <p className="text-slate-600 text-sm">
-                                    O tema da competição será revelado. A partir deste momento, a contagem das 48 horas começa.
+                                    O tema da competição será revelado. A partir deste momento, a contagem das 72 horas começa.
                                 </p>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ export function GameJam() {
                                 <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
                                     <h4 className="text-lg font-bold text-slate-900">Período de Desenvolvimento</h4>
                                     <span className="text-xs font-mono font-bold text-white bg-blue-500 px-3 py-1.5 rounded">
-                                        48 HORAS
+                                        72 HORAS
                                     </span>
                                 </div>
                                 <p className="text-slate-600 text-sm">
@@ -147,7 +147,7 @@ export function GameJam() {
                             </div>
                             <div className="flex-1">
                                 <h4 className="font-bold mb-1.5 text-white text-base">Desenvolva seu jogo</h4>
-                                <p className="text-blue-100 text-sm">48 horas para criar algo incrível</p>
+                                <p className="text-blue-100 text-sm">72 horas para criar algo incrível</p>
                             </div>
                         </div>
 

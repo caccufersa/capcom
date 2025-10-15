@@ -48,7 +48,7 @@ export function ProgrammingMarathon() {
             <div className="rounded-xl bg-slate-50 border border-slate-200 p-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 text-slate-900 mb-2">
                 <LuClock size={20} />
-                <span className="font-semibold text-lg">~3 horas</span>
+                <span className="font-semibold text-lg">4 horas</span>
               </div>
               <p className="text-sm text-slate-600">Tempo estimado de competição intensa</p>
             </div>
