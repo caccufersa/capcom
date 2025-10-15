@@ -1,4 +1,4 @@
-import { SiCplusplus, SiPython } from "react-icons/si";
+import { SiCplusplus, SiPython, SiKotlin, SiC } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 import { LuArrowUpRight, LuClock, LuFileText } from "react-icons/lu";
 import marathonImg1 from '../../assets/marathon-1.jpg';
@@ -22,8 +22,8 @@ export function ProgrammingMarathon() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
             Maratona de Programação
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-light">
-            4 horas de desafios. 3 linguagens. Questões que testam lógica, estruturas de dados e clareza de código.
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            A maratona de programação reúne equipes de até três alunos que, em cerca de três horas, resolvem problemas de lógica e algoritmos usando linguagens como C, C++, Java, Kotlin e Python. As soluções são avaliadas automaticamente quanto à correção e eficiência, com pontuação baseada em acertos e tempo total. Vence a equipe que resolve mais problemas no menor tempo, considerando penalidades por erros.
           </p>
         </div>
 
@@ -48,9 +48,9 @@ export function ProgrammingMarathon() {
             <div className="rounded-xl bg-slate-50 border border-slate-200 p-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 text-slate-900 mb-2">
                 <LuClock size={20} />
-                <span className="font-semibold text-lg">4 horas</span>
+                <span className="font-semibold text-lg">~3 horas</span>
               </div>
-              <p className="text-sm text-slate-600">Disputa contínua com checkpoints cronometrados</p>
+              <p className="text-sm text-slate-600">Tempo estimado de competição intensa</p>
             </div>
           </div>
 
@@ -59,12 +59,20 @@ export function ProgrammingMarathon() {
             <h3 className="text-lg font-semibold text-slate-900 mb-4">Linguagens aceitas</h3>
             <div className="flex flex-wrap gap-3 mb-6">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium">
+                <SiC className="text-blue-600" size={18} />
+                C
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium">
                 <SiCplusplus className="text-blue-600" size={18} />
                 C++
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium">
                 <DiJava className="text-blue-600" size={18} />
                 Java
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium">
+                <SiKotlin className="text-blue-600" size={18} />
+                Kotlin
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium">
                 <SiPython className="text-blue-600" size={18} />
@@ -76,29 +84,29 @@ export function ProgrammingMarathon() {
               <div className="flex gap-3">
                 <span className="text-slate-400 font-mono">01</span>
                 <div>
-                  <p className="font-medium text-slate-900">Aquecimento</p>
-                  <p>Questões curtas de sintaxe e operações básicas</p>
+                  <p className="font-medium text-slate-900">Avaliação automática</p>
+                  <p>Soluções testadas quanto à correção e eficiência</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <span className="text-slate-400 font-mono">02</span>
                 <div>
-                  <p className="font-medium text-slate-900">Algoritmos</p>
-                  <p>Busca, ordenação, grafos e programação dinâmica</p>
+                  <p className="font-medium text-slate-900">Pontuação</p>
+                  <p>Baseada em acertos, tempo total e penalidades por erros</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <span className="text-slate-400 font-mono">03</span>
                 <div>
-                  <p className="font-medium text-slate-900">Desafio final</p>
-                  <p>Caso aplicado com requisitos complexos</p>
+                  <p className="font-medium text-slate-900">Vitória</p>
+                  <p>Equipe que resolve mais problemas no menor tempo</p>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-300">
               <p className="text-xs text-slate-500 leading-relaxed">
-                Equipes de até 3 pessoas. Suporte acadêmico garantido durante toda a competição.
+                Equipes de até 3 alunos. Problemas de lógica e algoritmos com diferentes níveis de dificuldade.
               </p>
             </div>
           </div>
