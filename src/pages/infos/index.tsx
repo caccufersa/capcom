@@ -1,6 +1,6 @@
 import { FiUsers, FiCalendar } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
-import { MapModal, useMapModal } from "../map-modal";
+import { MapModal, useMapModal } from "../../components/map-modal";
 
 export function Infos() {
     const { isOpen, openMap, closeMap } = useMapModal();

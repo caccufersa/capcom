@@ -2,7 +2,7 @@ import { ListMinicourse } from "../../listMinicourse";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useMemo, useState } from "react";
-import { InfosMinicouse } from "../infoMinicourse";
+import { InfosMinicouse } from "../../pages/infoMinicourse";
 
 const FILTERS = [
     { label: "Quinta", value: "23/10" },
@@ -92,7 +92,7 @@ export function Minicourse() {
                         className="minicourse-swiper"
                     >
                     {filteredCourses.map((item) => (
-                        <SwiperSlide key={item.id} className="pb-12 px-1">
+                        <SwiperSlide key={item.id} className="pb-12 px-1 pt-2">
                             <article 
                                 className="group relative bg-white rounded-2xl h-full overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer border border-slate-200 hover:border-blue-400" 
                                 style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.03)' }}
@@ -124,7 +124,7 @@ export function Minicourse() {
                                             {item.tags.map((tag, index) => (
                                                 <span 
                                                     key={index}
-                                                    className="inline-flex items-center px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-medium bg-white text-slate-700 border border-slate-200 transition-colors hover:border-slate-300 hover:bg-slate-50"
+                                                    className="inline-flex items-center px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-semibold bg-blue-50 text-cyan-800"
                                                 >
                                                     {tag}
                                                 </span>

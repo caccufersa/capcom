@@ -18,8 +18,8 @@ export default function Countdown() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      // Data do evento: 23/10/2025
-      const eventDate = new Date('2025-10-23T00:00:00').getTime();
+      // Data do evento: 23/10/2025 às 08:00
+      const eventDate = new Date('2025-10-23T08:00:00').getTime();
       const now = new Date().getTime();
       const difference = eventDate - now;
 
@@ -54,86 +54,97 @@ export default function Countdown() {
   }
 
   return (
-    <section className="relative bg-white py-16 md:py-20 border-b border-slate-200 overflow-hidden">
-      {/* Background pattern sutil */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(226, 232, 240, .3) 25%, rgba(226, 232, 240, .3) 26%, transparent 27%, transparent 74%, rgba(226, 232, 240, .3) 75%, rgba(226, 232, 240, .3) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(226, 232, 240, .3) 25%, rgba(226, 232, 240, .3) 26%, transparent 27%, transparent 74%, rgba(226, 232, 240, .3) 75%, rgba(226, 232, 240, .3) 76%, transparent 77%, transparent)',
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
-      <div className="container mx-auto px-4 max-w-5xl relative z-10">
-        {/* Header minimalista */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-base sm:text-lg md:text-xl uppercase tracking-wider text-blue-600 font-medium mb-4 md:mb-6">
-            23 e 24 de Outubro, 2025
-          </p>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-extralight text-slate-900">
-            O evento começa em
+    <section className="relative bg-gradient-to-b from-slate-50 to-white py-16 md:py-20 px-4">
+      <div className="container mx-auto max-w-4xl">
+        {/* Elegant Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-900 text-white text-xs font-medium mb-4 rounded-full">
+            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+            23 de Outubro, 2025 · 8:00
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 mb-2">
+            Faltam apenas
           </h2>
+          <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto"></div>
         </div>
 
-        {/* Countdown minimalista - todos na mesma linha */}
-        <div className="flex justify-center items-center gap-2 sm:gap-4 md:gap-8 mb-12">
-          <div className="text-center">
-            <div className="text-3xl sm:text-5xl md:text-7xl font-extralight text-slate-900 mb-1 sm:mb-2 tabular-nums">
-              {String(timeLeft.days).padStart(2, '0')}
+        {/* Minimal Countdown */}
+        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 mb-10">
+          {/* Dias */}
+          <div className="group">
+            <div className="relative">
+              <div className="text-5xl sm:text-6xl md:text-7xl font-extralight text-slate-900 tabular-nums transition-all group-hover:scale-105">
+                {String(timeLeft.days).padStart(2, '0')}
+              </div>
+              <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div className="text-[10px] sm:text-xs md:text-sm uppercase tracking-wider text-slate-500 font-medium">
+            <div className="text-[10px] sm:text-xs text-slate-500 mt-2 uppercase tracking-[0.2em] font-light text-center">
               Dias
             </div>
           </div>
 
-          <div className="text-2xl sm:text-3xl md:text-5xl font-light text-slate-300 mb-6">:</div>
+          <div className="text-3xl sm:text-4xl md:text-5xl font-extralight text-slate-300 pb-6">:</div>
 
-          <div className="text-center">
-            <div className="text-3xl sm:text-5xl md:text-7xl font-light text-slate-900 mb-1 sm:mb-2 tabular-nums">
-              {String(timeLeft.hours).padStart(2, '0')}
+          {/* Horas */}
+          <div className="group">
+            <div className="relative">
+              <div className="text-5xl sm:text-6xl md:text-7xl font-extralight text-slate-900 tabular-nums transition-all group-hover:scale-105">
+                {String(timeLeft.hours).padStart(2, '0')}
+              </div>
+              <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div className="text-[10px] sm:text-xs md:text-sm uppercase tracking-wider text-slate-500 font-medium">
+            <div className="text-[10px] sm:text-xs text-slate-500 mt-2 uppercase tracking-[0.2em] font-light text-center">
               Horas
             </div>
           </div>
 
-          <div className="text-2xl sm:text-3xl md:text-5xl font-light text-slate-300 mb-6">:</div>
+          <div className="text-3xl sm:text-4xl md:text-5xl font-extralight text-slate-300 pb-6">:</div>
 
-          <div className="text-center">
-            <div className="text-3xl sm:text-5xl md:text-7xl font-light text-slate-900 mb-1 sm:mb-2 tabular-nums">
-              {String(timeLeft.minutes).padStart(2, '0')}
+          {/* Minutos */}
+          <div className="group">
+            <div className="relative">
+              <div className="text-5xl sm:text-6xl md:text-7xl font-extralight text-slate-900 tabular-nums transition-all group-hover:scale-105">
+                {String(timeLeft.minutes).padStart(2, '0')}
+              </div>
+              <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div className="text-[10px] sm:text-xs md:text-sm uppercase tracking-wider text-slate-500 font-medium">
-              Minutos
+            <div className="text-[10px] sm:text-xs text-slate-500 mt-2 uppercase tracking-[0.2em] font-light text-center">
+              Min
             </div>
           </div>
 
-          <div className="text-2xl sm:text-3xl md:text-5xl font-light text-slate-300 mb-6">:</div>
+          <div className="text-3xl sm:text-4xl md:text-5xl font-extralight text-slate-300 pb-6">:</div>
 
-          <div className="text-center">
-            <div className="text-3xl sm:text-5xl md:text-7xl font-light text-slate-900 mb-1 sm:mb-2 tabular-nums">
-              {String(timeLeft.seconds).padStart(2, '0')}
+          {/* Segundos */}
+          <div className="group">
+            <div className="relative">
+              <div className="text-5xl sm:text-6xl md:text-7xl font-extralight text-slate-900 tabular-nums transition-all group-hover:scale-105">
+                {String(timeLeft.seconds).padStart(2, '0')}
+              </div>
+              <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div className="text-[10px] sm:text-xs md:text-sm uppercase tracking-wider text-slate-500 font-medium">
-              Segundos
+            <div className="text-[10px] sm:text-xs text-slate-500 mt-2 uppercase tracking-[0.2em] font-light text-center">
+              Seg
             </div>
           </div>
         </div>
 
-        {/* CTA minimalista */}
-        <div className="text-center px-4">
-          <a
+        {/* Minimal CTA */}
+        <div className="text-center space-y-4">
+          <p className="text-slate-600 text-sm font-light">
+            Vagas limitadas · Inscrições até 22 de Outubro
+          </p>
+          <a 
             href="https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm sm:text-base w-full sm:w-auto max-w-sm"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-all hover:gap-3 group"
           >
             Garantir minha vaga
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </a>
-          <p className="text-xs sm:text-sm text-slate-500 mt-4">
-            Vagas limitadas • Inscrições até 20 de Outubro
-          </p>
         </div>
       </div>
     </section>

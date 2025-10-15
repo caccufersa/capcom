@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --banner-offset: 40px;
+}
 
 summary {
   list-style: none;
@@ -8,19 +12,23 @@ summary {
 
 /* Background pattern sutil e elegante */
 body {
-  background-color: #f8fafc;
-  background-image: 
-    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
-  background-size: 32px 32px;
+  background-color: #f6f9ff;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(66, 133, 244, 0.08) 0, rgba(66, 133, 244, 0) 50%),
+    radial-gradient(circle at 88% 18%, rgba(234, 67, 53, 0.08) 0, rgba(234, 67, 53, 0) 46%),
+    radial-gradient(circle at 18% 80%, rgba(52, 168, 83, 0.08) 0, rgba(52, 168, 83, 0) 44%),
+    radial-gradient(circle at 84% 78%, rgba(251, 188, 5, 0.08) 0, rgba(251, 188, 5, 0) 42%),
+    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.06) 1px, transparent 0);
+  background-size: 460px 460px, 520px 520px, 420px 420px, 480px 480px, 32px 32px;
   background-attachment: fixed;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Nunito', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
 }
 
 /* Smooth scrolling e melhorias de performance */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 120px; /* Ajuste para header fixo */
+  scroll-padding-top: 100px; /* Ajuste para header fixo */
 }
 
 * {
@@ -150,3 +158,241 @@ html {
   width: 24px !important;
   border-radius: 5px !important;
 }
+
+/* Maratona Background Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(10px, -20px) scale(1.05);
+  }
+  50% {
+    transform: translate(-5px, -40px) scale(1);
+  }
+  75% {
+    transform: translate(-15px, -20px) scale(0.95);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-15px, 25px) scale(1.08);
+  }
+  50% {
+    transform: translate(10px, 50px) scale(1);
+  }
+  75% {
+    transform: translate(20px, 25px) scale(0.92);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(15px, 30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-10px, 60px) scale(0.9);
+  }
+}
+
+@keyframes navGlow {
+  0% {
+    transform: translateX(-45%);
+  }
+  50% {
+    transform: translateX(45%);
+  }
+  100% {
+    transform: translateX(-45%);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-delayed {
+  0% {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+  }
+  100% {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 25s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 30s ease-in-out infinite;
+}
+
+.animate-draw {
+  animation: draw 8s ease-in-out infinite;
+}
+
+.animate-draw-delayed {
+  animation: draw-delayed 10s ease-in-out infinite 2s;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Modal Animations - Suaves e Harmoniosas */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-bottom-4 {
+  animation-name: slide-in-from-bottom;
+}
+
+.duration-200 {
+  animation-duration: 200ms;
+}
+
+.duration-300 {
+  animation-duration: 300ms;
+}
+
+.ease-out {
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Scroll Suave e Personalizado para Modais */
+.max-h-\[90vh\]::-webkit-scrollbar {
+  width: 6px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth scroll behavior dentro do modal */
+.overflow-y-auto {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Metallic gradient animations */
+@keyframes bg-position {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-size-200 {
+  background-size: 200% auto;
+}
+
+.bg-pos-0 {
+  background-position: 0% 50%;
+}
+
+.bg-pos-100 {
+  background-position: 100% 50%;
+}
+
+/* Staggered animations for cards */
+@keyframes slide-in-stagger {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

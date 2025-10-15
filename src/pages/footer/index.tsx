@@ -3,19 +3,19 @@ import caccLogo from '../../assets/_Centro Acadêmico de Ciência da Computaçã
 import { FaInstagram } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { GrMapLocation } from "react-icons/gr";
-import { MapModal, useMapModal } from "../map-modal";
+import { MapModal, useMapModal } from "../../components/map-modal";
 
 export function Footer() {
     const { isOpen, openMap, closeMap } = useMapModal();
 
     return (
         <>
-        <footer className="bg-gradient-to-l from-blue-900 to-blue-500 w-full py-12 px-4 sm:px-8 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <footer className="bg-gradient-to-l from-blue-900 to-blue-300 w-full py-12 px-4 sm:px-8 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
             <div className="container mx-auto max-w-7xl">
                 <div className="flex flex-col lg:flex-row items-start justify-center lg:justify-evenly gap-10 lg:gap-12">
                     
                     {/* Logos */}
-                    <div className='flex items-center justify-center gap-6 sm:gap-10 flex-shrink-0 lg:self-center'>    
+                    <div className='flex items-center justify-center gap-6 sm:gap-10 flex-shrink-0 lg:self-center w-full lg:w-auto'>    
                         <img src={epcLogo} alt="Logo Escola Piloto de Computação" className='w-20 sm:w-24 h-20 sm:h-24 object-contain rounded-full' />
                         <img src={caccLogo} alt="Logo Centro Acadêmico de Ciência da Computação" className='w-24 sm:w-32 h-auto object-contain' />
                     </div>
