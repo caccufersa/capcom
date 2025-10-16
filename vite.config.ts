@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: '/', // Domínio customizado (capcom.page) via GitHub Pages
+  base: './', // Use relative paths so the site works on subpath hosting (GitHub Pages, custom folders)
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
