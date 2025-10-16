@@ -5,8 +5,9 @@ import tela4 from '../../assets/Tela4.png';
 import tela5 from '../../assets/Tela5.png';
 import tela6 from '../../assets/Tela6.png';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import { useState, useEffect } from 'react'; 
+import { Pagination } from "swiper/modules";
+import { useState, useEffect, useRef } from 'react';
+import type { Swiper as SwiperType } from 'swiper';
 
 interface Steps {
     id: number;
@@ -29,7 +30,7 @@ const steps: Steps[] = [
                 </span>'
                 . Em seguida, faça login na sua conta gov.br.
                 <p className="pt-3 text-zinc-800 font-bold">
-                     Realizar Inscrição em Cursos e Eventos de Extensão  Entrar com gov.br
+                    Realizar Inscrição em Cursos e Eventos de Extensão  Entrar com gov.br
                 </p>
             </>
         ),
@@ -50,7 +51,7 @@ const steps: Steps[] = [
                     Inscrições abertas
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                     Inscrições abertas
+                    Inscrições abertas
                 </p>
             </>
         ),
@@ -67,7 +68,7 @@ const steps: Steps[] = [
                     Inscrever-se
                 </span>', no icone de pessoa.
                 <p className="pt-3 text-zinc-800 font-bold">
-                     Inscrever-se
+                    Inscrever-se
                 </p>
             </>
         ),
@@ -87,7 +88,7 @@ const steps: Steps[] = [
                     Confirmar Inscrição
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                     Confirmar Inscrição
+                    Confirmar Inscrição
                 </p>
             </>
         ),
@@ -116,7 +117,7 @@ const steps: Steps[] = [
                     Visualizar as mini atividades
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                     Página inicial  Inscrições abertas  Visualizar as mini atividades
+                    Página inicial  Inscrições abertas  Visualizar as mini atividades
                 </p>
             </>
         ),
@@ -133,7 +134,7 @@ const steps: Steps[] = [
                     Inscrever-se
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                     Inscrever-se
+                    Inscrever-se
                 </p>
             </>
         ),
@@ -153,7 +154,7 @@ const steps: Steps[] = [
                     Confirmar Inscrição
                 </span>'.
                 <p className="pt-3 text-zinc-800 font-bold">
-                     Confirmar Inscrição
+                    Confirmar Inscrição
                 </p>
             </>
         ),
@@ -166,6 +167,7 @@ const steps: Steps[] = [
 export function Instructions() {
     const [expandedImage, setExpandedImage] = useState<string | null>(null);
     const [isClosing, setIsClosing] = useState(false);
+    const swiperRef = useRef<SwiperType | null>(null);
 
     useEffect(() => {
         if (!expandedImage) {
@@ -194,12 +196,16 @@ export function Instructions() {
                 </div>
 
                 {/* Swiper Container */}
-                <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 md:p-12 shadow-sm">
+                <div className="relative bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 md:p-12 shadow-sm">
                     <Swiper
+                        onSwiper={(swiper) => {
+                            swiperRef.current = swiper;
+                        }}
                         slidesPerView={1}
+                        slidesPerGroup={1}
+                        speed={300}
                         pagination={{ clickable: true }}
-                        navigation
-                        modules={[Navigation, Pagination]}
+                        modules={[Pagination]}
                         className="instructions-swiper"
                     >
                         {steps.map((step) => (
@@ -238,30 +244,48 @@ export function Instructions() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+
+                    {/* Botões de Navegação Customizados */}
+                    <div
+                        className="swiper-button-prev-custom group absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-white/60 hover:bg-white/90 backdrop-blur-sm rounded-full cursor-pointer transition-colors duration-300"
+                        onClick={() => swiperRef.current?.slidePrev()}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-slate-700 group-hover:text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </div>
+                    <div
+                        className="swiper-button-next-custom group absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-white/60 hover:bg-white/90 backdrop-blur-sm rounded-full cursor-pointer transition-colors duration-300"
+                        onClick={() => swiperRef.current?.slideNext()}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-slate-700 group-hover:text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
                 </div>
             </div>
-            
+
             {expandedImage && (
-                <div 
+                <div
                     className={`fixed inset-0 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'} bg-black bg-opacity-90 flex items-center justify-center z-50 p-4`}
                     onClick={handleClose}
                 >
                     <div className="relative max-w-full max-h-full" onClick={e => e.stopPropagation()}>
-                        <button 
+                        <button
                             className="absolute -top-12 right-0 text-white text-3xl font-bold hover:text-gray-300 transition-colors"
                             onClick={handleClose}
                         >
                             ×
                         </button>
-                        <img 
-                            className={`max-w-full max-h-[85vh] object-contain rounded-lg shadow-xl ${isClosing ? 'animate-scale-out' : 'animate-scale-in'}`} 
-                            src={expandedImage} 
-                            alt="Imagem ampliada" 
+                        <img
+                            className={`max-w-full max-h-[85vh] object-contain rounded-lg shadow-xl ${isClosing ? 'animate-scale-out' : 'animate-scale-in'}`}
+                            src={expandedImage}
+                            alt="Imagem ampliada"
                         />
                     </div>
                 </div>
             )}
-            
+
             <style >{`
                 @keyframes fadeIn {
                     from { opacity: 0; }

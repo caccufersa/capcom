@@ -63,6 +63,78 @@ export const ListMinicourse: ListMinicourseProps[] = [
     },
     {
         id: 2,
+        title: 'Crie seu primeiro site com HTML e CSS',
+        instructor1: {
+            name: 'Poliana de Araújo Alves',
+            insta: 'https://www.instagram.com/polianasaldanha_/',
+            description: 'Estudante de Ciência da Computação da UFERSA',
+            img: PolianaImg,
+            email: 'polianaaraujo210@gmail.com'
+        },
+        courseLocation: 'Lab 1',
+        date: '23/10',
+        description: 'Introdução a programação web a partir da elaboração de um site simples utilizando a linguagem de marcação HTML e utilizando CSS para sua estilização.',
+        prerequisites: 'Não possui pré-requisitos todos podem participar.',
+        tags: ['HTML', 'CSS', 'Web', 'Frontend']
+    },
+    {
+        id: 3,
+        title: 'Git e Github: Uma introdução a versionamento de código',
+        instructor1: {
+            name: 'Artur Segantini Guedes',
+            insta: 'https://www.instagram.com/artur_sals/',
+            description: '90% dos apostadores desistem antes de atingir o grande prêmio',
+            img: ArturSegantiniImg,
+            email: 'artsonic89@gmail.com'
+        },
+        courseLocation: 'Lab 4',
+        date: '23/10',
+        description: 'Um minicurso introdutório sobre utilizar git e github. Pretende-se ensinar aos alunos como confiantemente aprender a criar repositórios no github e como interagir com eles via o terminal do git, bem como onde buscar conteúdo para se aprofundarem no uso dessas que são duas das ferramentas mais importântes para a graduação.',
+        prerequisites: 'Nenhum',
+        tags: ['Git', 'GitHub', 'Versionamento', 'DevOps']
+    },
+    {
+        id: 4,
+        title: 'Dominando a arte da impressão 3d',
+        instructor1: {
+            name: 'Rafael Kepler Bronzo',
+            insta: 'https://www.instagram.com/rafaelbronzo/',
+            description: 'A persistência é o caminho do êxito.',
+            img: RafaelBronzoImg,
+            email: 'rafaelldd@hotmail.com'
+        },
+        instructor2: {
+            name: 'Daniel Kleber Bronzo',
+            insta: 'https://www.instagram.com/daniel_bronzo/',
+            description: 'A persistência é o caminho do êxito.',
+            img: RafaelBronzoImg,
+            email: 'danielbronzo@hotmail.com'
+        },
+        courseLocation: 'Lab Laacoste',
+        date: '23/10',
+        description: 'Dominando a impressão 3d, nesse minicurso os alunos serão capacitados a utilizar uma impressora 3d, de tecnologia FDM, tornando capaz de imprimir suas primeiras peças sozinhos.',
+        prerequisites: 'Ter vontade de aprender',
+        tags: ['3D Print', 'CAD', 'Maker', 'Hardware']
+    },
+    {
+        id: 5,
+        title: 'Introdução a Computação Quântica com Qiskit',
+        instructor1: {
+            name: 'Talysson Emanoel Medeiros da Costa',
+            insta: 'https://www.instagram.com/talysson.emanoel/',
+            github: 'https://github.com/talyssonemanoel',
+            description: 'Sou estudante/pesquisador em Computação, com foco em Computação Quântica e IA. Membro da Liga Acadêmica de Computação e Informação Quântica e participante do programa Qiskit Advocate, atuo na disseminação e ensino introdutório de computação quântica.',
+            img: TalyssonImg,
+            email: 'talyssonemanoel@gmail.com'
+        },
+        courseLocation: 'Lab 2',
+        date: '23/10',
+        description: 'Neste minicurso, vamos explorar os conceitos fundamentais que diferenciam a computação quântica da computação clássica — como superposição, emaranhamento e portas quânticas — de forma acessível e prática. Mais do que apenas teoria, você terá contato direto com o Qiskit, o kit de desenvolvimento open source da IBM, que permite criar, simular e até executar algoritmos em computadores quânticos reais pela nuvem.',
+        prerequisites: 'Conhecimentos básicos de programação (preferencialmente em Python). Álgebra linear (vetores e matrizes) e noções de probabilidade.',
+        tags: ['Python', 'Qiskit', 'Quantum', 'IBM']
+    },
+    {
+        id: 6,
         title: 'Primeiros passos com C#',
         instructor1: {
             name: 'João Gabriel de Araújo Peixoto',
@@ -78,7 +150,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['C#', '.NET', 'POO', 'Backend']
     },
     {
-        id: 3,
+        id: 7,
         title: 'Criação de apps com Flutter',
         instructor1: {
             name: 'Nickolas Emanuel de Oliveira Silva',
@@ -101,7 +173,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['Flutter', 'Dart', 'Mobile', 'Cross-platform']
     },
     {
-        id: 4,
+        id: 9,
         title: 'Introdução ao desenvolvimento de jogos com a Godot Engine 4',
         instructor1: {
             name: 'João Lucas Galdino Duarte',
@@ -127,23 +199,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['Godot', 'Game Dev', 'GDScript', '2D/3D']
     },
     {
-        id: 5,
-        title: 'Crie seu primeiro site com HTML e CSS',
-        instructor1: {
-            name: 'Poliana de Araújo Alves',
-            insta: 'https://www.instagram.com/polianasaldanha_/',
-            description: 'Estudante de Ciência da Computação da UFERSA',
-            img: PolianaImg,
-            email: 'polianaaraujo210@gmail.com'
-        },
-        courseLocation: 'Lab 1',
-        date: '23/10',
-        description: 'Introdução a programação web a partir da elaboração de um site simples utilizando a linguagem de marcação HTML e utilizando CSS para sua estilização.',
-        prerequisites: 'Não possui pré-requisitos todos podem participar.',
-        tags: ['HTML', 'CSS', 'Web', 'Frontend']
-    },
-    {
-        id: 6,
+        id: 10,
         title: 'O Caminho do Hardware: Circuitos, Arquitetura e Organização',
         instructor1: {
             name: 'Isaul Felipe Dos Santos Souza',
@@ -160,40 +216,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['Hardware', 'Arquitetura', 'Circuitos', 'Assembly']
     },
     {
-        id: 7,
-        title: 'Introdução a Computação Quântica com Qiskit',
-        instructor1: {
-            name: 'Talysson Emanoel Medeiros da Costa',
-            insta: 'https://www.instagram.com/talysson.emanoel/',
-            github: 'https://github.com/talyssonemanoel',
-            description: 'Sou estudante/pesquisador em Computação, com foco em Computação Quântica e IA. Membro da Liga Acadêmica de Computação e Informação Quântica e participante do programa Qiskit Advocate, atuo na disseminação e ensino introdutório de computação quântica.',
-            img: TalyssonImg,
-            email: 'talyssonemanoel@gmail.com'
-        },
-        courseLocation: 'Lab 2',
-        date: '23/10',
-        description: 'Neste minicurso, vamos explorar os conceitos fundamentais que diferenciam a computação quântica da computação clássica — como superposição, emaranhamento e portas quânticas — de forma acessível e prática. Mais do que apenas teoria, você terá contato direto com o Qiskit, o kit de desenvolvimento open source da IBM, que permite criar, simular e até executar algoritmos em computadores quânticos reais pela nuvem.',
-        prerequisites: 'Conhecimentos básicos de programação (preferencialmente em Python). Álgebra linear (vetores e matrizes) e noções de probabilidade.',
-        tags: ['Python', 'Qiskit', 'Quantum', 'IBM']
-    },
-    {
         id: 8,
-        title: 'Git e Github: Uma introdução a versionamento de código',
-        instructor1: {
-            name: 'Artur Segantini Guedes',
-            insta: 'https://www.instagram.com/artur_sals/',
-            description: '90% dos apostadores desistem antes de atingir o grande prêmio',
-            img: ArturSegantiniImg,
-            email: 'artsonic89@gmail.com'
-        },
-        courseLocation: 'Lab 4',
-        date: '23/10',
-        description: 'Um minicurso introdutório sobre utilizar git e github. Pretende-se ensinar aos alunos como confiantemente aprender a criar repositórios no github e como interagir com eles via o terminal do git, bem como onde buscar conteúdo para se aprofundarem no uso dessas que são duas das ferramentas mais importântes para a graduação.',
-        prerequisites: 'Nenhum',
-        tags: ['Git', 'GitHub', 'Versionamento', 'DevOps']
-    },
-    {
-        id: 9,
         title: 'Inglês para DEVs - Code and Talk',
         instructor1: {
             name: 'Gustavo Fernandes de Lima',
@@ -208,28 +231,4 @@ export const ListMinicourse: ListMinicourseProps[] = [
         prerequisites: 'Noções básicas de programação e algoritmos e conhecimento básico de inglês',
         tags: ['Inglês', 'Soft Skills', 'Comunicação', 'Tech']
     },
-    {
-        id: 10,
-        title: 'Dominando a arte da impressão 3d',
-        instructor1: {
-            name: 'Rafael Kepler Bronzo',
-            insta: 'https://www.instagram.com/rafaelbronzo/',
-            description: 'A persistência é o caminho do êxito.',
-            img: RafaelBronzoImg,
-            email: 'rafaelldd@hotmail.com'
-        },
-        instructor2: {
-            name: 'Daniel Kleber Bronzo',
-            insta: 'https://www.instagram.com/daniel_bronzo/',
-            description: 'A persistência é o caminho do êxito.',
-            img: RafaelBronzoImg,
-            email: 'danielbronzo@hotmail.com'
-        },
-        courseLocation: 'Lab Laacoste',
-        date: '23/10',
-        description: 'Dominando a impressão 3d, nesse minicurso os alunos serão capacitados a utilizar uma impressora 3d, de tecnologia FDM, tornando capaz de imprimir suas primeiras peças sozinhos.',
-        prerequisites: 'Ter vontade de aprender',
-        tags: ['3D Print', 'CAD', 'Maker', 'Hardware']
-    },
-
 ]

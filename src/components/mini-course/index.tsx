@@ -1,8 +1,9 @@
 import { ListMinicourse } from "../../listMinicourse";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
 import { InfosMinicouse } from "../../components/infoMinicourse";
+import type { Swiper as SwiperType } from 'swiper';
 
 const FILTERS = [
     { label: "Quinta", value: "23/10" },
@@ -14,6 +15,7 @@ export function Minicourse() {
     const [filter, setFilter] = useState<string>('Todos')
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
+    const swiperRef = useRef<SwiperType | null>(null);
 
     const filteredCourses = useMemo(() => {
         if (filter === 'Todos') return ListMinicourse
@@ -71,17 +73,17 @@ export function Minicourse() {
                 {filteredCourses.length === 0 ? (
                     <p className="text-slate-600 text-sm sm:text-base">Nenhum minicurso encontrado para o dia selecionado.</p>
                 ) : (
-                <>
-                    {/* Gradient indicators for more content */}
-                    <div className="absolute left-0 top-0 bottom-16 md:bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none hidden lg:block" />
-                    <div className="absolute right-0 top-0 bottom-16 md:bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none hidden lg:block" />
-                    
+                <div className="relative">
                     <Swiper
+                        onSwiper={(swiper) => {
+                            swiperRef.current = swiper;
+                        }}
                         pagination={{ 
                             clickable: true,
-                            dynamicBullets: true
+                            dynamicBullets: false,
+                            bulletClass: 'swiper-pagination-bullet !w-2 !h-2 !bg-slate-300 !opacity-100 !mx-1',
+                            bulletActiveClass: 'swiper-pagination-bullet-active !bg-slate-900'
                         }}
-                        navigation
                         modules={[Navigation, Pagination]}
                         spaceBetween={20}
                         breakpoints={{
@@ -89,7 +91,7 @@ export function Minicourse() {
                             768: { slidesPerView: 2 },
                             1180: { slidesPerView: 3 }
                         }}
-                        className="minicourse-swiper"
+                        className="minicourse-swiper pb-12"
                     >
                     {filteredCourses.map((item) => (
                         <SwiperSlide key={item.id} className="pb-12 px-1 pt-2">
@@ -171,7 +173,28 @@ export function Minicourse() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                </>
+                
+                {/* Minimal Navigation Buttons */}
+                <button 
+                    className="absolute top-1/2 -left-6 -translate-y-1/2 -translate-x-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all"
+                    onClick={() => swiperRef.current?.slidePrev()}
+                    style={{ top: 'calc(50% - 24px)' }}
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                
+                <button 
+                    className="absolute top-1/2 -right-6 -translate-y-1/2 translate-x-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all"
+                    onClick={() => swiperRef.current?.slideNext()}
+                    style={{ top: 'calc(50% - 24px)' }}
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+                </div>
                 )}
             </div>
             {modalOpen && (

@@ -14,13 +14,13 @@ const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeupidu6ZA
 
 // --- Ícones para uma UI mais consistente ---
 const ChevronLeftIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
 );
 const ChevronRightIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
 );
 const CloseIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
 );
 
 export function ProgrammingMarathon() {
@@ -116,22 +116,49 @@ export function ProgrammingMarathon() {
       id="marathon"
       className="relative bg-white py-16 md:py-20 px-4 border-b border-slate-200 overflow-hidden"
     >
+      <style>{`
+      @keyframes blink {
+        from, to { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      .animate-blink-cursor {
+        animation: blink 1s step-end infinite;
+      }
+    `}</style>
+
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none opacity-50 z-0"
       />
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-12">
-          <span className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-4">
-            Competição clássica
+          <span className="inline-block font-mono px-4 py-2 rounded-md bg-slate-100 text-slate-500 text-sm tracking-wider uppercase mb-6 animate-fade-in-down">
+          // Inicie o desafio
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-            Maratona de Programação
+
+          <h2 className="text-5xl sm:text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-none animate-fade-in-up">
+            <span className="block bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-sm">
+              MARATONA
+            </span>
+            <span className="block text-slate-800 flex items-center justify-center">
+              DE PROGRAMAÇÃO
+              {/* Passo 2: Substitua "animate-pulse" pela nova classe "animate-blink-cursor".
+            */}
+              <span className="ml-2 inline-block w-2 sm:w-3 md:w-4 h-12 sm:h-14 md:h-20 bg-slate-800 animate-blink-cursor"></span>
+            </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-            A maratona de programação reúne equipes de até três alunos que, em cerca de três horas, resolvem problemas de lógica e algoritmos usando linguagens como C, C++, Java, Kotlin e Python. As soluções são avaliadas automaticamente quanto à correção e eficiência, com pontuação baseada em acertos e tempo total. Vence a equipe que resolve mais problemas no menor tempo, considerando penalidades por erros.
+
+          <p className="text-slate-700 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed">
+            A maratona de programação reúne <span className="font-semibold text-blue-700">equipes de até três alunos</span> que,
+            em cerca de <span className="font-semibold text-blue-700">três horas</span>, resolvem problemas de lógica e algoritmos usando linguagens como
+            <span className="font-semibold text-blue-700"> C, C++, Java, Kotlin e Python</span>.
+            As soluções são <span className="font-semibold text-green-700">avaliadas automaticamente</span> quanto à correção e eficiência,
+            com pontuação baseada em acertos e tempo total.
+            Vence a equipe que resolve <span className="font-bold text-slate-900">mais problemas no menor tempo</span>, considerando penalidades por erros.
           </p>
         </div>
+        );
+
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
 
           {/* ================================================================== */}
@@ -171,8 +198,8 @@ export function ProgrammingMarathon() {
                   aria-label={`Ver imagem ${i + 1}`}
                   onClick={() => goTo(i)}
                   className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-                    ${i === currentIndex 
-                      ? 'border-blue-500 scale-110 shadow-lg' 
+                    ${i === currentIndex
+                      ? 'border-blue-500 scale-110 shadow-lg'
                       : 'border-transparent opacity-60 hover:opacity-100 hover:scale-105'
                     }`}
                 >
@@ -297,7 +324,17 @@ export function ProgrammingMarathon() {
             href={registrationFormUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base rounded-lg shadow-lg shadow-blue-600/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-300"
+            className="
+    inline-flex items-center justify-center gap-2
+    bg-slate-300 text-slate-900 font-semibold 
+    px-6 py-3
+    border-2 border-solid
+    border-t-slate-100 border-l-slate-100
+    border-b-slate-500 border-r-slate-500
+    active:border-t-slate-500 active:border-l-slate-500
+    active:border-b-slate-100 active:border-r-slate-100
+    transition-none
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             aria-label="Inscrever equipe na Maratona"
             title="Inscrever equipe"
           >

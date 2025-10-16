@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import 'swiper/swiper-bundle.css'
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
