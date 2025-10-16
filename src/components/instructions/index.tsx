@@ -247,18 +247,18 @@ export function Instructions() {
 
                     {/* Botões de Navegação Customizados */}
                     <div
-                        className="swiper-button-prev-custom group absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-white/60 hover:bg-white/90 backdrop-blur-sm rounded-full cursor-pointer transition-colors duration-300"
+                        className="swiper-button-prev-custom group absolute top-[40%] sm:top-1/2 left-1 sm:left-4 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full cursor-pointer transition-all duration-300 shadow-md"
                         onClick={() => swiperRef.current?.slidePrev()}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-slate-700 group-hover:text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-slate-700 group-hover:text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </div>
                     <div
-                        className="swiper-button-next-custom group absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-white/60 hover:bg-white/90 backdrop-blur-sm rounded-full cursor-pointer transition-colors duration-300"
+                        className="swiper-button-next-custom group absolute top-[40%] sm:top-1/2 right-1 sm:right-4 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full cursor-pointer transition-all duration-300 shadow-md"
                         onClick={() => swiperRef.current?.slideNext()}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-slate-700 group-hover:text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-slate-700 group-hover:text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
                     </div>

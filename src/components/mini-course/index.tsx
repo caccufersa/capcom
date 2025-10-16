@@ -176,7 +176,7 @@ export function Minicourse() {
                 
                 {/* Minimal Navigation Buttons */}
                 <button 
-                    className="absolute top-1/2 -left-6 -translate-y-1/2 -translate-x-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all"
+                    className="hidden md:flex absolute top-1/2 -left-6 -translate-y-1/2 -translate-x-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-sm border border-slate-200 items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all"
                     onClick={() => swiperRef.current?.slidePrev()}
                     style={{ top: 'calc(50% - 24px)' }}
                 >
@@ -186,7 +186,7 @@ export function Minicourse() {
                 </button>
                 
                 <button 
-                    className="absolute top-1/2 -right-6 -translate-y-1/2 translate-x-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all"
+                    className="hidden md:flex absolute top-1/2 -right-6 -translate-y-1/2 translate-x-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-sm border border-slate-200 items-center justify-center text-slate-500 hover:text-slate-700 hover:shadow-md transition-all"
                     onClick={() => swiperRef.current?.slideNext()}
                     style={{ top: 'calc(50% - 24px)' }}
                 >
