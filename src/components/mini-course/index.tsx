@@ -2,7 +2,7 @@ import { ListMinicourse } from "../../listMinicourse";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useMemo, useState } from "react";
-import { InfosMinicouse } from "../infoMinicourse";
+import { InfosMinicouse } from "../../components/infoMinicourse";
 
 const FILTERS = [
     { label: "Quinta", value: "23/10" },
@@ -31,7 +31,7 @@ export function Minicourse() {
     }
 
     return (
-        <section id="minicourse" className="relative bg-white py-16 md:py-20 pb-24 md:pb-20 flex items-center justify-center flex-col text-center w-full px-4 border-b border-slate-200 overflow-hidden">
+        <section id="minicourse" className="relative bg-white py-12 md:py-16 pb-20 md:pb-16 flex items-center justify-center flex-col text-center w-full px-4 border-b border-slate-200 overflow-hidden">
             {/* Background decorativo sutil */}
             <div className="absolute inset-0 opacity-30">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-50 rounded-full filter blur-3xl"></div>
@@ -92,48 +92,43 @@ export function Minicourse() {
                         className="minicourse-swiper"
                     >
                     {filteredCourses.map((item) => (
-                        <SwiperSlide key={item.id} className="pb-12 px-1">
+                        <SwiperSlide key={item.id} className="pb-12 px-1 pt-2">
                             <article 
-                                className="group relative bg-white rounded-2xl h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer border border-slate-200/60 hover:border-blue-300" 
-                                style={{ boxShadow: '0 1px 2px rgba(0,0,0,0.04)' }}
+                                className="group relative bg-white rounded-2xl h-full overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer border border-slate-200 hover:border-blue-400" 
+                                style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.03)' }}
                                 onClick={() => handleOpenModal(item.id)}
                             >
-                                {/* Card Header Minimalista */}
-                                <div className="relative bg-gradient-to-b from-slate-50/50 to-white px-5 sm:px-6 pt-5 sm:pt-6 pb-4">
+                                {/* Card Header com Background Sutil */}
+                                <div className="relative bg-slate-50 px-5 sm:px-6 pt-5 sm:pt-6 pb-4 border-b border-slate-100">
                                     <div className="flex items-start justify-between mb-3">
-                                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                             </svg>
                                             <span className="font-medium">{item.date}</span>
                                         </div>
-                                        <div className="flex items-center gap-1 text-xs text-slate-500">
-                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-500">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                             </svg>
-                                            <span className="truncate max-w-[80px]">{item.courseLocation}</span>
+                                            <span>{item.courseLocation}</span>
                                         </div>
                                     </div>
                                     
-                                    <h3 className="font-semibold text-base sm:text-lg text-slate-900 leading-snug mb-3 group-hover:text-blue-600 transition-colors">{item.title}</h3>
+                                    <h3 className="font-semibold text-base sm:text-lg text-slate-900 leading-snug mb-3">{item.title}</h3>
                                     
-                                    {/* Tags Minimalistas */}
+                                    {/* Tags Refinadas */}
                                     {item.tags && item.tags.length > 0 && (
                                         <div className="flex flex-wrap gap-1.5">
-                                            {item.tags.slice(0, 3).map((tag, index) => (
+                                            {item.tags.map((tag, index) => (
                                                 <span 
                                                     key={index}
-                                                    className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] sm:text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200/50"
+                                                    className="inline-flex items-center px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-semibold bg-blue-50 text-cyan-800"
                                                 >
                                                     {tag}
                                                 </span>
                                             ))}
-                                            {item.tags.length > 3 && (
-                                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] sm:text-xs font-medium text-slate-500">
-                                                    +{item.tags.length - 3}
-                                                </span>
-                                            )}
                                         </div>
                                     )}
                                 </div>

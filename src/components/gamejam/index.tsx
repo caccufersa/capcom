@@ -41,7 +41,7 @@ export function GameJam() {
                         CAPCOM 2025
                     </div>
                     <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium mt-6">
-                        72 horas de pura criatividade. Desenvolva, compete e conquiste seu lugar no pódio!
+                        72 horas de pura criatividade. Desenvolva, compita e conquiste seu lugar no pódio!
                     </p>
                 </div>
 
