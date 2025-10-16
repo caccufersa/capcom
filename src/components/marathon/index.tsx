@@ -73,37 +73,63 @@ export function ProgrammingMarathon() {
     };
     resize();
     const characters = '01{}[]()<>/\\|~!@#$%^&*-=+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const baseFontSize = 14;
+    const baseFontSize = Math.max(12, Math.min(14, window.innerWidth / 80)); // Ajuste responsivo do tamanho da fonte
     let columns = Math.floor(canvas.width / baseFontSize);
-    let drops: number[] = Array(columns).fill(0).map(() => Math.random() * -80);
+    // Distribuição mais uniforme das gotas para garantir loop contínuo
+    let drops: number[] = Array(columns).fill(0).map(() => Math.random() * -canvas.height);
     let running = true;
+    
     function loop() {
       if (!running || !ctx || !canvas) return;
-      ctx.fillStyle = 'rgba(255,255,255,0.02)';
+      // Fade mais suave para melhorar o efeito de loop
+      ctx.fillStyle = 'rgba(255,255,255,0.03)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       const fontSize = baseFontSize;
       ctx.font = `${fontSize}px monospace`;
+      
       for (let i = 0; i < drops.length; i++) {
         const x = i * fontSize;
         const y = drops[i] * fontSize;
         const char = characters[Math.floor(Math.random() * characters.length)];
-        ctx.fillStyle = 'rgba(37, 99, 235, 1)';
+        
+        // Cores mais vibrantes para melhor visibilidade
+        ctx.fillStyle = 'rgba(37, 99, 235, 0.9)';
         ctx.fillText(char, x, y);
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.7)';
         ctx.fillText(char, x, y - fontSize * 0.6);
-        if (y > canvas.height + fontSize && Math.random() > 0.99) {
-          drops[i] = 0;
+        
+        // Melhoria no loop: reinicia as gotas de forma mais consistente
+        if (y > canvas.height + fontSize) {
+          // Probabilidade variável para criar um efeito mais natural
+          if (Math.random() > 0.985) {
+            drops[i] = 0;
+          } else {
+            // Reinicia em posições negativas para criar um fluxo contínuo
+            drops[i] = -5 - Math.random() * 15;
+          }
         }
-        drops[i] += 0.28 + Math.random() * 0.5;
+        
+        // Velocidade variável para um efeito mais natural
+        const speed = 0.3 + Math.random() * 0.4;
+        drops[i] += speed;
       }
       requestAnimationFrame(loop);
     }
+    
     loop();
+    
     const onResize = () => {
       resize();
-      columns = Math.floor(canvas.width / baseFontSize);
-      drops = Array(columns).fill(0).map(() => Math.random() * -50);
+      // Recalcula o tamanho da fonte baseado na largura da tela
+      const newBaseFontSize = Math.max(12, Math.min(14, window.innerWidth / 80));
+      columns = Math.floor(canvas.width / newBaseFontSize);
+      // Preserva as gotas existentes quando possível para manter a continuidade
+      const oldDrops = [...drops];
+      drops = Array(columns).fill(0).map((_, i) => 
+        i < oldDrops.length ? oldDrops[i] : Math.random() * -canvas.height
+      );
     };
+    
     window.addEventListener('resize', onResize);
     return () => {
       running = false;
@@ -114,7 +140,7 @@ export function ProgrammingMarathon() {
   return (
     <section
       id="marathon"
-      className="relative bg-white py-16 md:py-20 px-4 border-b border-slate-200 overflow-hidden"
+      className="relative bg-white py-12 md:py-20 px-3 sm:px-4 border-b border-slate-200 overflow-hidden"
     >
       <style>{`
       @keyframes blink {
@@ -123,6 +149,14 @@ export function ProgrammingMarathon() {
       }
       .animate-blink-cursor {
         animation: blink 1s step-end infinite;
+      }
+      @media (max-width: 640px) {
+        .responsive-text {
+          font-size: clamp(2.5rem, 8vw, 3.5rem);
+        }
+        .responsive-subtitle {
+          font-size: clamp(1rem, 4vw, 1.125rem);
+        }
       }
     `}</style>
 
@@ -136,19 +170,17 @@ export function ProgrammingMarathon() {
           // Inicie o desafio
           </span>
 
-          <h2 className="text-5xl sm:text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-none animate-fade-in-up">
+          <h2 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 sm:mb-8 tracking-tighter leading-none animate-fade-in-up responsive-text">
             <span className="block bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-sm">
               MARATONA
             </span>
             <span className="block text-slate-800 flex items-center justify-center">
               DE PROGRAMAÇÃO
-              {/* Passo 2: Substitua "animate-pulse" pela nova classe "animate-blink-cursor".
-            */}
-              <span className="ml-2 inline-block w-2 sm:w-3 md:w-4 h-12 sm:h-14 md:h-20 bg-slate-800 animate-blink-cursor"></span>
+              <span className="ml-2 inline-block w-2 sm:w-3 md:w-4 h-10 sm:h-14 md:h-20 bg-slate-800 animate-blink-cursor"></span>
             </span>
           </h2>
 
-          <p className="text-slate-700 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed">
+          <p className="text-slate-700 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed responsive-subtitle">
             A maratona de programação reúne <span className="font-semibold text-blue-700">equipes de até três alunos</span> que,
             em cerca de <span className="font-semibold text-blue-700">três horas</span>, resolvem problemas de lógica e algoritmos usando linguagens como
             <span className="font-semibold text-blue-700"> C, C++, Java, Kotlin e Python</span>.
@@ -166,12 +198,12 @@ export function ProgrammingMarathon() {
           {/* ================================================================== */}
           <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm relative group flex flex-col bg-slate-50/50">
             {/* Imagem Principal */}
-            <div className="flex-grow flex items-center justify-center p-4 relative min-h-[20rem]">
+            <div className="flex-grow flex items-center justify-center p-3 sm:p-4 relative min-h-[16rem] sm:min-h-[20rem]">
               <img
                 key={currentIndex} // Força o re-render para a animação funcionar
                 src={images[currentIndex]}
                 alt={`Foto ${currentIndex + 1} da Maratona`}
-                className="max-h-[24rem] max-w-full object-contain rounded-xl cursor-zoom-in animate-fade-in"
+                className="max-h-[20rem] sm:max-h-[24rem] max-w-full object-contain rounded-xl cursor-zoom-in animate-fade-in"
                 onClick={() => setLightboxIndex(currentIndex)}
               />
               {/* Setas de navegação (aparecem no hover) */}
@@ -191,7 +223,7 @@ export function ProgrammingMarathon() {
               </button>
             </div>
             {/* Thumbnails */}
-            <div className="w-full flex justify-center gap-3 p-4 bg-white/50 border-t border-slate-200">
+            <div className="w-full flex justify-center gap-2 sm:gap-3 p-3 sm:p-4 bg-white/50 border-t border-slate-200">
               {images.map((src, i) => (
                 <button
                   key={i}
