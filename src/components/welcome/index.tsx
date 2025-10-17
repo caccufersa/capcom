@@ -14,6 +14,8 @@ export function Welcome() {
                             src={ilustration} 
                             alt="Ilustração CAPCOM" 
                             className="w-full max-w-lg drop-shadow-xl"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
 
