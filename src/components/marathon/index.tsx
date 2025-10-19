@@ -13,15 +13,13 @@ import marathonImg4 from '../../assets/marathon-4.jpg';
 const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeupidu6ZA5RzJrF283cepiX-2GEDyaegrfKhTLvdJiFMZqSQ/viewform?usp=header";
 
 // --- Ícones para uma UI mais consistente ---
-const ChevronLeftIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
 );
-const ChevronRightIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
 );
-const CloseIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
-);
+// CloseIcon was unused; removed to silence linter warning.
 
 export function ProgrammingMarathon() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -174,127 +172,151 @@ export function ProgrammingMarathon() {
             <span className="block bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-sm">
               MARATONA
             </span>
-            <span className="block text-slate-800 flex items-center justify-center">
+            <span className="text-slate-800 flex items-center justify-center">
               DE PROGRAMAÇÃO
               <span className="ml-2 inline-block w-2 sm:w-3 md:w-4 h-10 sm:h-14 md:h-20 bg-slate-800 animate-blink-cursor"></span>
             </span>
           </h2>
 
-          <p className="text-slate-700 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed responsive-subtitle">
-            A maratona de programação reúne <span className="font-semibold text-blue-700">equipes de até três alunos</span> que,
-            em cerca de <span className="font-semibold text-blue-700">três horas</span>, resolvem problemas de lógica e algoritmos usando linguagens como
-            <span className="font-semibold text-blue-700"> C, C++, Java, Kotlin e Python</span>.
-            As soluções são <span className="font-semibold text-green-700">avaliadas automaticamente</span> quanto à correção e eficiência,
+          <p className="text-slate-700 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed responsive-subtitle font-bold">
+            A maratona de programação reúne <span className="font-bold text-blue-700">equipes de até três alunos</span> que,
+            em cerca de <span className="font-bold text-blue-700">três horas</span>, resolvem problemas de lógica e algoritmos usando linguagens como
+            <span className="font-bold text-blue-700"> C, C++, Java, Kotlin e Python</span>.
+            As soluções são <span className="font-bold text-green-700">avaliadas automaticamente</span> quanto à correção e eficiência,
             com pontuação baseada em acertos e tempo total.
             Vence a equipe que resolve <span className="font-bold text-slate-900">mais problemas no menor tempo</span>, considerando penalidades por erros.
           </p>
         </div>
-        );
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
 
           {/* ================================================================== */}
           {/* ======================= GALERIA MELHORADA ======================== */}
           {/* ================================================================== */}
-          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm relative group flex flex-col bg-slate-50/50">
-            {/* Imagem Principal */}
-            <div className="flex-grow flex items-center justify-center p-3 sm:p-4 relative min-h-[16rem] sm:min-h-[20rem]">
-              <img
-                key={currentIndex} // Força o re-render para a animação funcionar
-                src={images[currentIndex]}
-                alt={`Foto ${currentIndex + 1} da Maratona`}
-                className="max-h-[20rem] sm:max-h-[24rem] max-w-full object-contain rounded-xl cursor-zoom-in animate-fade-in"
-                onClick={() => setLightboxIndex(currentIndex)}
-              />
-              {/* Setas de navegação (aparecem no hover) */}
-              <button
-                aria-label="Imagem anterior"
-                onClick={() => goTo((currentIndex - 1 + images.length) % images.length)}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-800 rounded-full p-2.5 shadow-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <ChevronLeftIcon />
-              </button>
-              <button
-                aria-label="Próxima imagem"
-                onClick={() => goTo((currentIndex + 1) % images.length)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-800 rounded-full p-2.5 shadow-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <ChevronRightIcon />
-              </button>
-            </div>
-            {/* Thumbnails */}
-            <div className="w-full flex justify-center gap-2 sm:gap-3 p-3 sm:p-4 bg-white/50 border-t border-slate-200">
-              {images.map((src, i) => (
-                <button
-                  key={i}
-                  aria-label={`Ver imagem ${i + 1}`}
-                  onClick={() => goTo(i)}
-                  className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-                    ${i === currentIndex
-                      ? 'border-blue-500 scale-110 shadow-lg'
-                      : 'border-transparent opacity-60 hover:opacity-100 hover:scale-105'
-                    }`}
-                >
-                  <img src={src} alt={`Miniatura ${i + 1}`} className="w-full h-full object-cover" />
-                </button>
-              ))}
-            </div>
-          </div>
+          <div className="bg-gray-200 border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 p-2 font-sans flex flex-col group">
+  {/* Área da Imagem Principal */}
+  <div className="flex-grow flex items-center justify-center p-4 relative bg-black border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100 min-h-[16rem] sm:min-h-[20rem]">
+    {/* A imagem não tem mais cantos arredondados */}
+    <img
+      key={currentIndex} // Mantido para re-render
+      src={images[currentIndex]}
+      alt={`Foto ${currentIndex + 1} da Maratona`}
+      className="max-h-[20rem] sm:max-h-[24rem] max-w-full object-contain cursor-pointer"
+      onClick={() => setLightboxIndex(currentIndex)}
+    />
+    
+    {/* Setas de navegação com estilo de botão clássico.
+      - Sempre visíveis, sem 'group-hover'.
+      - Bordas 'outset' para parecerem botões físicos.
+      - Efeito 'active' para simular o clique.
+      - NOTA: Os componentes ChevronLeftIcon e ChevronRightIcon precisam aceitar a prop 'className'.
+    */}
+    <button
+      aria-label="Imagem anterior"
+      onClick={() => goTo((currentIndex - 1 + images.length) % images.length)}
+      className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 z-10 p-2 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500"
+    >
+      <ChevronLeftIcon className="w-6 h-6" />
+    </button>
+    <button
+      aria-label="Próxima imagem"
+      onClick={() => goTo((currentIndex + 1) % images.length)}
+      className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 z-10 p-2 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500"
+    >
+      <ChevronRightIcon className="w-6 h-6" />
+    </button>
+  </div>
+  
+  {/* Container das Thumbnails.
+    - Separado por uma borda "inset" para parecer uma seção diferente.
+  */}
+  <div className="w-full flex justify-center gap-2 sm:gap-3 p-2 border-t-2 border-t-gray-400 border-l-gray-400">
+    {images.map((src, i) => (
+      <button
+        key={i}
+        aria-label={`Ver imagem ${i + 1}`}
+        onClick={() => goTo(i)}
+        className={`relative w-16 h-12 overflow-hidden bg-black p-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
+          ${i === currentIndex
+            // O thumbnail ativo tem uma borda "inset", como se estivesse pressionado.
+            ? 'border-2 border-t-blue-700 border-l-blue-700 border-b-blue-300 border-r-blue-300'
+            // O inativo tem uma borda "outset" sutil.
+            : 'border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400'
+          }`}
+      >
+        <img src={src} alt={`Miniatura ${i + 1}`} className="w-full h-full object-cover" />
+      </button>
+    ))}
+  </div>
+</div>
 
-          {/* Lightbox (Tela Cheia) Modernizado */}
-          {lightboxIndex !== null && createPortal(
-            <div className="fixed inset-0 z-[2147483646] flex items-center justify-center animate-fade-in" onClick={() => setLightboxIndex(null)}>
-              <div className="absolute inset-0 bg-black/92 backdrop-blur-md" />
-              {/* Botão de fechar */}
-              <button
-                className="absolute top-4 right-4 text-white/90 hover:text-white transition-colors z-[2147483647] p-3 bg-black/20 rounded-md"
+{/* Lightbox (Tela Cheia) Estilo Anos 90 COM CORREÇÃO */}
+{lightboxIndex !== null && createPortal(
+  // O fundo agora é um cinza opaco, sem blur ou transparência.
+  <div className="fixed inset-0 z-[2147483646] flex items-center justify-center bg-gray-800/75" onClick={() => setLightboxIndex(null)}>
+    
+    {/* A "janela" da imagem, com fundo cinza e bordas 'outset' */}
+    <div 
+        className="bg-gray-200 border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 p-2 relative"
+        onClick={(e) => e.stopPropagation()}
+    >
+        {/* Barra de Título Falsa - um toque clássico! */}
+        <div className="bg-blue-800 text-white font-bold p-1 mb-2 flex justify-between items-center">
+            <span>Visualizador de Imagem</span>
+            <button
+                className="bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 w-5 h-5 flex items-center justify-center font-mono active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
                 onClick={() => setLightboxIndex(null)}
                 aria-label="Fechar imagem"
-              >
-                <CloseIcon />
-              </button>
-              {/* Botão de navegação - Anterior */}
-              <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-white/90 hover:text-white transition-colors z-[2147483647] p-3 bg-black/20 rounded-md"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setLightboxIndex(prev => {
-                    if (prev === null) return null;
-                    return (prev - 1 + images.length) % images.length;
-                  });
-                }}
-                aria-label="Imagem anterior"
-              >
-                <ChevronLeftIcon />
-              </button>
-              {/* Imagem em tela cheia */}
-              <div className="relative z-[2147483647] flex flex-col items-center gap-4">
-                <img
-                  key={`lightbox-${lightboxIndex}`}
-                  src={images[lightboxIndex]}
-                  alt={`Foto ${lightboxIndex + 1} da Maratona`}
-                  className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl animate-fade-in"
-                  onClick={(e) => e.stopPropagation()}
-                />
-                <div className="text-white/80 font-medium">{lightboxIndex + 1} / {images.length}</div>
-              </div>
-              {/* Botão de navegação - Próxima */}
-              <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/90 hover:text-white transition-colors z-[2147483647] p-3 bg-black/20 rounded-md"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setLightboxIndex(prev => {
-                    if (prev === null) return null;
-                    return (prev + 1) % images.length;
-                  });
-                }}
-                aria-label="Próxima imagem"
-              >
-                <ChevronRightIcon />
-              </button>
-            </div>,
-            document.body
-          )}
+            >
+                X
+            </button>
+        </div>
+        
+        {/* Imagem e Navegação */}
+        <div className="relative">
+            <img
+              src={images[lightboxIndex]}
+              alt={`Foto ${lightboxIndex + 1} da Maratona`}
+              className="max-h-[80vh] max-w-[90vw] object-contain border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100"
+            />
+        </div>
+        
+        {/* Barra de Status com contador e botões */}
+        <div className="mt-2 pt-2 border-t-2 border-t-gray-400 flex justify-between items-center">
+            <span className="text-sm text-black px-2">Imagem {lightboxIndex + 1} de {images.length}</span>
+            <div className="flex gap-2">
+                <button
+                     className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
+                     onClick={(e) => {
+                       e.stopPropagation();
+                       // CORREÇÃO: Adicionada verificação de 'null'
+                       setLightboxIndex(prev => {
+                         if (prev === null) return null;
+                         return (prev - 1 + images.length) % images.length;
+                       });
+                     }}
+                >
+                    &lt; Anterior
+                </button>
+                 <button
+                     className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
+                     onClick={(e) => {
+                       e.stopPropagation();
+                       // CORREÇÃO: Adicionada verificação de 'null'
+                       setLightboxIndex(prev => {
+                         if (prev === null) return null;
+                         return (prev + 1) % images.length;
+                       });
+                     }}
+                >
+                    Próxima &gt;
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>,
+  document.body
+)}
           {/* Adicionando keyframes para a animação */}
           <style>{`
             @keyframes fadeIn {
@@ -310,40 +332,67 @@ export function ProgrammingMarathon() {
           {/* ================================================================== */}
 
           {/* Coluna de Informações (sem alterações) */}
-          <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8">
-            <h3 className="text-lg font-semibold text-slate-900 mb-4">Linguagens aceitas</h3>
-            <div className="flex flex-wrap gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium"><SiC className="text-blue-600" size={18} /> C</span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium"><SiCplusplus className="text-blue-600" size={18} /> C++</span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium"><DiJava className="text-blue-600" size={18} /> Java</span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium"><SiKotlin className="text-blue-600" size={18} /> Kotlin</span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 bg-white text-slate-700 text-sm font-medium"><SiPython className="text-blue-600" size={18} /> Python</span>
-            </div>
+          <div className="bg-gray-200 rounded-none border-2 border-l-gray-400 border-t-gray-400 border-r-gray-100 border-b-gray-100 p-6 font-sans">
+  <h3 className="text-lg font-bold text-black mb-4">Linguagens Aceitas</h3>
+  <div className="flex flex-wrap gap-3">
+    {/* Botão "outset" clássico */}
+    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+      <SiC className="text-blue-600" size={18} /> C
+    </span>
+    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+      <SiCplusplus className="text-blue-600" size={18} /> C++
+    </span>
+    {/* Usei vermelho pro Java, mais clássico */}
+    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+      <DiJava className="text-red-600" size={18} /> Java
+    </span>
+    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+      <SiKotlin className="text-purple-600" size={18} /> Kotlin
+    </span>
+    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+      <SiPython className="text-yellow-500" size={18} /> Python
+    </span>
+  </div>
 
-            <div className="mb-6 pb-6 border-b border-slate-200">
-              <h4 className="text-base font-semibold text-slate-900 mb-3">Cronograma da competição</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-start gap-3"><span className="text-blue-600 font-semibold min-w-[110px]">13h às 13h45</span> <span className="text-slate-600">Cadastro de equipes e aquecimento</span></div>
-                <div className="flex items-start gap-3"><span className="text-blue-600 font-semibold min-w-[110px]">14h às 17h</span> <span className="text-slate-600">Competição</span></div>
-                <div className="flex items-start gap-3"><span className="text-blue-600 font-semibold min-w-[110px]">17h às 17h30</span> <span className="text-slate-600">Premiação</span></div>
-              </div>
+            <div className="mt-6 mb-6 pb-6 border-b border-slate-200 md:mt-10">
+              <h4 className="text-base font-semibold text-blue-600 mb-4">Cronograma da competição</h4>
+              <ul className="divide-y divide-slate-100">
+                <li className="flex items-start gap-4 py-3">
+                  <time className="flex-shrink-0 w-32 text-sm text-slate-600 font-mono">13:00 — 13:45</time>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-slate-900">Cadastro de equipes e aquecimento</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 py-3">
+                  <time className="flex-shrink-0 w-32 text-sm text-slate-600 font-mono">14:00 — 17:00</time>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-slate-900">Competição</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4 py-3">
+                  <time className="flex-shrink-0 w-32 text-sm text-slate-600 font-mono">17:00 — 17:30</time>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-slate-900">Premiação</p>
+                  </div>
+                </li>
+              </ul>
             </div>
 
             <div className="space-y-4 text-sm text-slate-600 mb-6">
-              <div className="flex gap-3"><span className="text-slate-400 font-mono">01</span><div><p className="font-medium text-slate-900">Avaliação automática</p><p>Soluções testadas quanto à correção e eficiência</p></div></div>
-              <div className="flex gap-3"><span className="text-slate-400 font-mono">02</span><div><p className="font-medium text-slate-900">Pontuação</p><p>Baseada em acertos, tempo total e penalidades por erros</p></div></div>
-              <div className="flex gap-3"><span className="text-slate-400 font-mono">03</span><div><p className="font-medium text-slate-900">Vitória</p><p>Equipe que resolve mais problemas no menor tempo</p></div></div>
+              <div className="flex gap-3"><span className="text-slate-400 font-mono">01</span><div><p className="font-medium text-blue-600">Avaliação automática</p><p className="text-black font-bold">Soluções testadas quanto à correção e eficiência</p></div></div>
+              <div className="flex gap-3"><span className="text-slate-400 font-mono">02</span><div><p className="font-medium text-blue-600">Pontuação</p><p className="text-black font-bold">Baseada em acertos, tempo total e penalidades por erros</p></div></div>
+              <div className="flex gap-3"><span className="text-slate-400 font-mono">03</span><div><p className="font-medium text-blue-600">Vitória</p><p className="text-black font-bold">Equipe que resolve mais problemas no menor tempo</p></div></div>
             </div>
 
             <div className="mb-6 pt-6 border-t border-slate-200">
-              <h4 className="text-base font-semibold text-slate-900 mb-3">Restrições</h4>
+              <h4 className="text-base font-semibold text-blue-600 mb-3">Restrições</h4>
               <div className="space-y-3 text-sm text-slate-600">
-                <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span>Não é permitido o uso de material digital ou acesso à internet.</span></div>
-                <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span>Não é permitido portar aparelhos eletrônicos (celulares, smart watches, fones de ouvido, etc.).</span></div>
+                <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span className="text-black font-bold">Não é permitido o uso de material digital ou acesso à internet.</span></div>
+                <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span className="text-black font-bold">Não é permitido portar aparelhos eletrônicos (celulares, smart watches, fones de ouvido, etc.).</span></div>
               </div>
             </div>
             <div className="pt-4 border-t border-slate-300">
-              <p className="text-xs text-slate-500 leading-relaxed">Equipes de até 3 alunos. Problemas de lógica e algoritmos com diferentes níveis de dificuldade.</p>
+              <p className="text-xs text-black font-bold leading-relaxed">Equipes de até 3 alunos. Problemas de lógica e algoritmos com diferentes níveis de dificuldade.</p>
             </div>
           </div>
         </div>
