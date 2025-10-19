@@ -164,7 +164,7 @@ function TalkEventCard({ time, title, description }: EventCardProps) {
 function GameJamEventCard({ time, title, description }: CardProps) {
      return (
         <div
-            className="bg-white p-5 md:p-6 rounded-xl border-2 border-slate-900
+            className="bg-white p-5 md:p-6 rounded-xl border-2 border-slate-900 text-center
                        transition-all duration-300 ease-out // Transição suave
                        hover:-translate-y-0.5 hover:-translate-x-0.5" // Hover específico mantido
             style={{ boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', fontFamily: 'sans-serif' }}
