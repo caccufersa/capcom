@@ -1,5 +1,5 @@
-import { FaTrophy } from "react-icons/fa";
-import { SiItchdotio } from "react-icons/si";
+import { SiItchdotio} from "react-icons/si";
+import { FaPlane } from "react-icons/fa";
 import Balatro from "./background";
 import GAMEJAM_THEME from '../../assets/Tema-CAPCOM.png';
 
@@ -7,10 +7,7 @@ export function GameJam() {
     return (
         <section id="gamejam" className="relative bg-white py-16 md:py-24 px-4 border-b border-slate-200 overflow-hidden">
             
-            {/* * CORREÇÃO: O Balatro (fundo animado) foi movido para ANTES da imagem.
-              * Agora o Balatro fica na camada z-0 (por trás) e a imagem 
-              * (também z-0) é desenhada por cima dele.
-            */}
+            {/* Fundo animado Balatro */}
             <div className="absolute inset-0 opacity-30 pointer-events-none">
                 <Balatro
                     spinRotation={-1.5}
@@ -26,23 +23,29 @@ export function GameJam() {
                 />
             </div>
             
-            {/* Div da Imagem (agora vem DEPOIS do Balatro) */}
+            {/* Div da Imagem ou Texto do Tema (Background) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
                 {GAMEJAM_THEME ? (
+                    // Se a imagem do tema existir, ela é usada
                     <img
                         src={GAMEJAM_THEME}
-                        alt=""
+                        alt="Tema da Game Jam: Conectar e Expandir"
                         aria-hidden="true"
                         className="max-w-none w-[clamp(18rem,60vw,90rem)] opacity-10 select-none pointer-events-none"
                         style={{ transform: 'translateY(-5%)' }}
                     />
                 ) : (
+                    // Fallback com o tema explícito e fonte Bungee
                     <span
                         aria-hidden="true"
-                        className="uppercase font-black text-[clamp(4.5rem,10vw,12rem)] tracking-widest text-blue-600 opacity-10 select-none leading-none"
-                        style={{ transform: 'translateY(-5%)', WebkitTextStroke: '1px rgba(255,255,255,0.5)' }}
+                        className="uppercase font-black text-[clamp(3.5rem,8vw,10rem)] tracking-wide text-blue-600 opacity-10 select-none leading-none text-center"
+                        style={{ 
+                            transform: 'translateY(-5%)', 
+                            WebkitTextStroke: '1px rgba(255,255,255,0.5)',
+                            fontFamily: '"Bungee", cursive' // Fonte "bonita" e impactante
+                        }}
                     >
-                        TEMA SURPRESA
+                        Conectar e Expandir
                     </span>
                 )}
             </div>
@@ -51,26 +54,46 @@ export function GameJam() {
             <div className="container mx-auto max-w-6xl relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12 md:mb-16">
-                    <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-blue-600 text-white rounded-full">
-                        <FaTrophy size={18} />
-                        <span className="text-xs font-bold uppercase tracking-wider">Competição</span>
-                    </div>
-                    <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-blue-600 mb-4 uppercase tracking-wide" 
-                        style={{ 
-                            fontFamily: '"Bungee", cursive',
-                            textShadow: '5px 5px 0px #FFFFFF, 10px 10px 0px rgba(37, 99, 235, 0.4)',
-                            letterSpacing: '0.05em'
-                        }}>
-                        Game Jam
-                    </h2>
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-6 inline-block px-8 py-3 bg-white border-4 border-blue-600" 
-                         style={{ fontFamily: '"Orbitron", sans-serif', boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', letterSpacing: '0.1em' }}>
-                        CAPCOM 2025
-                    </div>
-                    <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium mt-6">
-                        72 horas de pura criatividade. Desenvolva, compita e conquiste seu lugar no pódio!
-                    </p>
-                </div>
+
+    {/* 2. Título Principal "Game Jam" */}
+    <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-blue-600 mb-4 uppercase tracking-wide" 
+        style={{ 
+            fontFamily: '"Bungee", cursive',
+            textShadow: '5px 5px 0px #FFFFFF, 10px 10px 0px rgba(37, 99, 235, 0.4)',
+            letterSpacing: '0.05em'
+        }}>
+        Game Jam
+    </h2>
+    
+    {/* 3. NOVO BLOCO DO TEMA */}
+    <div className="mb-6"> {/* Wrapper para espaçamento */}
+    <div className="inline-block bg-slate-50 border-y-2 border-slate-200 px-5 py-2 shadow-sm">
+        <span className="text-xs sm:text-sm uppercase font-semibold text-slate-500 tracking-wider">Tema Oficial:</span>
+        
+        {/* MUDANÇA: Adicionado inline-flex, items-center e gap-2 */}
+        <span 
+            className="ml-2 text-lg sm:text-xl font-bold text-blue-600 font-mono tracking-tight inline-flex items-center gap-2"
+        >
+            {/* O texto fica aqui */}
+            <span>"Conectar e Expandir"</span>
+            
+            {/* O ícone fica como um "irmão" ao lado, alinhado pelo flex */}
+            <FaPlane />
+        </span>
+    </div>
+</div>
+
+    {/* 4. Subtítulo do Evento "CAPCOM 2025" */}
+    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-6 inline-block px-8 py-3 bg-white border-4 border-blue-600" 
+    style={{ fontFamily: '"Orbitron", sans-serif', boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', letterSpacing: '0.1em' }}>
+    CAPCOM 2025
+</div>
+
+    {/* 5. Descrição */}
+    <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium mt-6">
+        72 horas de pura criatividade. Desenvolva, compita e conquiste seu lugar no pódio!
+    </p>
+</div>
 
                 {/* Timeline - Cronograma */}
                 <div className="mb-12">
@@ -88,7 +111,7 @@ export function GameJam() {
                                     </span>
                                 </div>
                                 <p className="text-slate-600 text-sm">
-                                    O tema da competição será revelado. A partir deste momento, a contagem das 72 horas começa.
+                                    O tema da competição foi revelado: <strong className="text-slate-800">"Conectar e Expandir"</strong>. A contagem de 72 horas começou.
                                 </p>
                             </div>
                         </div>
@@ -208,9 +231,11 @@ export function GameJam() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base rounded-lg shadow-lg shadow-blue-600/20"
                         >
+                            {/* *** CORREÇÃO AQUI *** */}
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
+                            {/* *** FIM DA CORREÇÃO *** */}
                             Baixar Edital Completo
                         </a>
                         <a 
