@@ -2,15 +2,17 @@
 
 import React, { type ReactNode, type ComponentType } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { FiUsers, FiCode } from "react-icons/fi";
+import { FiUsers, FiCode, FiExternalLink} from "react-icons/fi";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { PiChalkboardTeacher, PiSpeakerSimpleHighLight } from "react-icons/pi";
+import IBM from "../../assets/patrocinadores/IBM.webp";
+import ElDorado from "../../assets/patrocinadores/eldorado.webp";
+
 
 // --- COMPONENTE DE BACKGROUND "FLOATING DATA NODES" ---
 const FloatingDataBackground = () => {
-    // ... (código do FloatingDataBackground - sem alterações) ...
     const NUM_NODES = 30;
-    const nodes = Array.from({ length: NUM_NODES }).map((_, i) => ({ /* ... node data ... */
+    const nodes = Array.from({ length: NUM_NODES }).map((_, i) => ({
         id: i,
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
@@ -20,13 +22,13 @@ const FloatingDataBackground = () => {
         animationDuration: `${15 + Math.random() * 15}s`,
         moveX: `${Math.random() > 0.5 ? '' : '-'}${Math.random() * 30}px`,
         moveY: `${Math.random() > 0.5 ? '' : '-'}${Math.random() * 30}px`,
-     }));
+    }));
 
     return (
-        <div className="absolute inset-0 -z-10 overflow-hidden bg-gradient-to-b from-white to-blue-50"
+        <div className="absolute inset-0 z-10 overflow-hidden bg-gradient-to-b from-white to-blue-50"
              style={{ perspective: '1000px' }}
         >
-             <style>{`
+            <style>{`
                 @keyframes float-node {
                     0% { transform: translate3d(0, 0, var(--start-z)) scale(0.8); opacity: 0; }
                     20%, 80% { opacity: 0.7; transform: translate3d(var(--move-x), var(--move-y), var(--start-z)) scale(1); }
@@ -58,12 +60,11 @@ const FloatingDataBackground = () => {
 // --- FIM DO COMPONENTE DE BACKGROUND ---
 
 
-// --- 1. DADOS DO CRONOGRAMA ---
+// --- 1. DADOS DO CRONOGRAMA (ATUALIZADO) ---
 const scheduleDay1 = [
     { icon: PiChalkboardTeacher, time: "8h às 12h", title: "Minicursos", description: "Aprimore suas habilidades técnicas com nossos minicursos práticos.", theme: "course" },
-    { icon: FiUsers, time: "13h às 13h45", title: "Credenciamento e Aquecimento", description: "Registro dos participantes e preparação para a maratona.", theme: "registration" },
-    { icon: FiCode, time: "14h às 17h", title: "Maratona de Programação", description: "Desafie seus limites em nossa competição de programação em equipe.", theme: "marathon" },
-    // Premiação removida
+    { icon: FiUsers, time: "Durante o evento", title: "Capacitação em IA", description: "Cursos gratuitos de Inteligência Artificial oferecidos pela IBM e Instituto Eldorado em parceria com a CAPCOM.", theme: "ibm_sponsor" },
+    { icon: FiCode, time: "13h às 17h30", title: "Maratona de Programação", description: "Desafie seus limites em nossa competição de programação em equipe.", theme: "marathon" },
 ];
 
 const scheduleDay2 = [
@@ -72,20 +73,71 @@ const scheduleDay2 = [
     { icon: PiChalkboardTeacher, time: "14h às 18h", title: "Minicursos", description: "Mais uma rodada de minicursos para fechar o evento com chave de ouro.", theme: "course" }
 ];
 
-// --- 2. COMPONENTES DE CARD PERSONALIZADOS (HOVERS REFINADOS) ---
+// --- 2. COMPONENTES DE CARD PERSONALIZADOS (NOVO CARD ATUALIZADO) ---
 
 // Tipos base
 type CardProps = { time: string; title: string; description: string }
 type EventCardProps = CardProps & { icon?: ComponentType<any> }
 
-/** Card 1: Minicursos ("Blueprint") - Hover Refinado */
+/** ATUALIZADO Card: Patrocinador IBM (Design inspirado no HTML) */
+function IBMSponsorCard({ title, description }: EventCardProps) {
+    const courses = [
+        { title: "IA generativa para dev de software", duration: "1h" },
+        { title: "Desenvolva seu primeiro robô de bate-papo", duration: "1h" },
+        { title: "Modelos IBM Granite para Dev de Software", duration: "1.5h" },
+        { title: "Classificando dados usando IBM Granite", duration: "1.5h" }
+    ];
+
+    return (
+        <div className="rounded-lg bg-white p-5 shadow-lg relative border border-gray-200
+                       transition-all duration-300 ease-out
+                       hover:shadow-xl hover:border-blue-400/50 hover:-translate-y-0.5 hover:scale-[1.01]"
+        >
+            <div className="relative z-10">
+                <div className="flex justify-center items-center gap-4 border-b border-gray-200 pb-4 mb-4">
+                    <img src={IBM} alt="IBM SkillsBuild" className="h-7" />
+                    <img src={ElDorado} alt="Instituto Eldorado" className="h-9" />
+                </div>
+                
+                <div className="text-center mb-4">
+                    <h3 className="text-xl font-bold text-slate-900 leading-tight">{title}</h3>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">Parceria Estratégica</p>
+                </div>
+
+                <p className="text-slate-600 text-sm md:text-base mb-4 text-center">{description}</p>
+                
+                <div className="bg-gray-50 rounded-md p-3 border border-gray-200 mb-4">
+                    <h4 className="text-center font-bold text-gray-800 text-sm mb-2">Cursos Disponíveis</h4>
+                    <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-gray-600">
+                        {courses.map(course => (
+                             <p key={course.title}>• {course.title} ({course.duration})</p>
+                        ))}
+                    </div>
+                </div>
+
+                 <a
+                    href="https://informativo.eldorado.org.br/ibm-skills-build-ia-ufersa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-white font-bold
+                               bg-[#0f124b] hover:bg-blue-800 transition-colors duration-200"
+                >
+                    <FiExternalLink />
+                    Faça sua Inscrição
+                </a>
+            </div>
+        </div>
+    );
+}
+
+
 function CourseEventCard({ time, title, description }: EventCardProps) {
-    const blueprintStyle = { /* ... */ };
-     return (
+    const blueprintStyle = { };
+    return (
         <div
             className="rounded-lg border-2 border-blue-600 bg-white p-5 shadow-lg relative
-                       transition-all duration-300 ease-out // Transição suave
-                       hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-0.5 hover:scale-[1.01]" // Efeitos de hover
+                       transition-all duration-300 ease-out
+                       hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
             <div className="absolute inset-0 opacity-50" style={blueprintStyle}></div>
             <div className="relative z-10">
@@ -101,33 +153,11 @@ function CourseEventCard({ time, title, description }: EventCardProps) {
     );
 }
 
-/** Card 2: Credenciamento ("Clipboard") - Hover Refinado */
-function RegistrationEventCard({ time, title, description }: EventCardProps) {
-    return (
-        <div className="rounded-lg bg-gray-200 p-2 shadow-lg relative
-                        transition-all duration-300 ease-out // Transição suave
-                        hover:shadow-xl hover:shadow-slate-500/20 hover:-translate-y-0.5 hover:scale-[1.01]" // Efeitos de hover
-        >
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-700 border-2 border-slate-800 rounded-t-md">
-                <div className="w-4 h-1.5 bg-slate-500 rounded-full mx-auto mt-1.5"></div>
-            </div>
-            <div className="bg-white rounded-sm p-4 pt-8 shadow-inner text-center">
-                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{title}</h3>
-                <p className="text-slate-600 text-sm md:text-base mb-3">{description}</p>
-                <time className="block text-sm font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 border border-slate-200 rounded w-fit mx-auto">
-                    {time}
-                </time>
-            </div>
-        </div>
-    );
-}
-
-/** Card 3: Maratona ("Retrô 90s") - Hover Mantido */
 function MarathonEventCard({ time, title, description }: CardProps) {
-     return (
+    return (
         <div className="bg-gray-200 rounded-none border-2 border-l-gray-400 border-t-gray-400 border-r-gray-100 border-b-gray-100 p-5 md:p-6 font-sans
-                        transition-all duration-300 ease-out // Transição suave
-                        hover:shadow-md" // Hover específico mantido
+                       transition-all duration-300 ease-out
+                       hover:shadow-md"
         >
             <time className="block text-sm font-bold text-blue-700 mb-1 font-mono">
                 &gt; {time}
@@ -140,19 +170,16 @@ function MarathonEventCard({ time, title, description }: CardProps) {
     );
 }
 
-// Card 4: Premiação REMOVIDO
-
-/** Card 5: Palestra ("Keynote Premium") - Hover Refinado */
 function TalkEventCard({ time, title, description }: EventCardProps) {
-     return (
+    return (
         <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-xl
-                        transition-all duration-300 ease-out // Transição suave
-                        hover:shadow-2xl hover:shadow-slate-900/10 hover:-translate-y-0.5 hover:scale-[1.01]" // Efeitos de hover
+                       transition-all duration-300 ease-out
+                       hover:shadow-2xl hover:shadow-slate-900/10 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
              <div className="mb-4">
                  <h3 className="text-xl md:text-2xl font-black text-slate-900">{title}</h3>
                  <time className="block text-sm font-mono font-bold text-blue-600 text-right -mt-5">
-                     {time}
+                      {time}
                  </time>
              </div>
             <p className="text-slate-600 text-sm md:text-base leading-relaxed">{description}</p>
@@ -160,13 +187,12 @@ function TalkEventCard({ time, title, description }: EventCardProps) {
     );
 }
 
-/** Card 6: GameJam ("Chunky / Arcade") - Hover Mantido */
 function GameJamEventCard({ time, title, description }: CardProps) {
-     return (
+    return (
         <div
             className="bg-white p-5 md:p-6 rounded-xl border-2 border-slate-900 text-center
-                       transition-all duration-300 ease-out // Transição suave
-                       hover:-translate-y-0.5 hover:-translate-x-0.5" // Hover específico mantido
+                       transition-all duration-300 ease-out
+                       hover:-translate-y-0.5 hover:-translate-x-0.5"
             style={{ boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', fontFamily: 'sans-serif' }}
         >
             <time className="block text-sm font-bold text-blue-600 mb-1">{time}</time>
@@ -179,9 +205,8 @@ function GameJamEventCard({ time, title, description }: CardProps) {
     );
 }
 
-// --- 3. ROTEADOR DE CARDS E TIMELINE ---
+// --- 3. ROTEADOR DE CARDS E TIMELINE (ATUALIZADO) ---
 
-/** Componente Roteador (SEM ÍCONES CENTRAIS - COM ANIMAÇÃO DE SCROLL) */
 type TimelineItemProps = { item: { icon: ComponentType<any>; time: string; title: string; description: string; theme: string }; index: number }
 function TimelineItem({ item, index }: TimelineItemProps) {
     const { ref, inView } = useInView({
@@ -190,7 +215,6 @@ function TimelineItem({ item, index }: TimelineItemProps) {
     });
 
     const side = index % 2 === 0 ? 'right' : 'left';
-    // const { icon: IconComponent, time, title, description, theme } = item; // IconComponent não é mais necessário aqui
     const { time, title, description, theme } = item;
 
 
@@ -202,8 +226,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
     switch(theme) {
         case "marathon":    CardComponent = <MarathonEventCard time={time} title={title} description={description} />; break;
         case "gamejam":     CardComponent = <GameJamEventCard time={time} title={title} description={description} />; break;
-        // case "aviation_award": CardComponent = <AviationAwardEventCard time={time} title={title} description={description} icon={IconComponent} />; break; // REMOVIDO
-        case "registration":CardComponent = <RegistrationEventCard time={time} title={title} description={description} />; break;
+        case "ibm_sponsor": CardComponent = <IBMSponsorCard time={time} title={title} description={description} />; break;
         case "talk":        CardComponent = <TalkEventCard time={time} title={title} description={description} />; break;
         case "course":      CardComponent = <CourseEventCard time={time} title={title} description={description} />; break;
         default:            CardComponent = <CourseEventCard time={time} title={title} description={description} />;
@@ -227,7 +250,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
                     }
                 ></div>
                 <div className={`relative z-20 transition-all duration-500 ease-out delay-200
-                                 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                                  ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                  >
                     {CardComponent}
                  </div>
@@ -248,11 +271,11 @@ function TimelineItem({ item, index }: TimelineItemProps) {
 /** Container da Linha do Tempo */
 type TimelineContainerProps = { children?: ReactNode }
 function TimelineContainer({ children }: TimelineContainerProps) {
-     return (
+    return (
         <div className="relative flex flex-col space-y-8">
             <div className="absolute top-0 bottom-0 w-0.5 bg-slate-300
-                            left-4 -translate-x-1/2
-                            md:left-1/2 md:-translate-x-1/2">
+                                left-4 -translate-x-1/2
+                                md:left-1/2 md:-translate-x-1/2">
             </div>
             {children}
         </div>
@@ -262,8 +285,8 @@ function TimelineContainer({ children }: TimelineContainerProps) {
 /** Divisor de Dias */
 type DayDividerProps = { day: string; date: string }
 function DayDivider({ day, date }: DayDividerProps) {
-     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
-     return (
+    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
+    return (
         <div
             ref={ref}
             className={`flex items-center justify-center my-10 md:my-12 transition-all duration-500 ease-out ${inView ? 'opacity-100' : 'opacity-0'}`}
@@ -287,7 +310,6 @@ export function Schedule() {
     });
 
     return (
-        // Fundo gradiente ESTÁTICO
         <section id="cronograma" className="relative py-16 md:py-24 px-4 overflow-hidden bg-gradient-to-b from-white to-blue-50">
 
              {/* Background Animado */}
@@ -297,11 +319,11 @@ export function Schedule() {
              <style>{`
                  /* Animação Scanline (Credenciamento) */
                  @keyframes scanline {
-                    0% { transform: translateY(-100%); }
-                    100% { transform: translateY(200%); }
+                     0% { transform: translateY(-100%); }
+                     100% { transform: translateY(200%); }
                  }
                  .animate-scanline {
-                     animation: scanline 1.5s linear infinite;
+                      animation: scanline 1.5s linear infinite;
                  }
 
                  /* ANIMAÇÃO: Rising Snow / Cloud Reveal */
@@ -372,3 +394,4 @@ export function Schedule() {
 
 // Backwards-compatible export
 export const Infos = Schedule;
+

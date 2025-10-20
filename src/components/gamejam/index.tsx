@@ -1,11 +1,16 @@
 import { FaTrophy } from "react-icons/fa";
 import { SiItchdotio } from "react-icons/si";
 import Balatro from "./background";
+import GAMEJAM_THEME from '../../assets/Tema-CAPCOM.png';
 
 export function GameJam() {
     return (
         <section id="gamejam" className="relative bg-white py-16 md:py-24 px-4 border-b border-slate-200 overflow-hidden">
-            {/* Background animado */}
+            
+            {/* * CORREÇÃO: O Balatro (fundo animado) foi movido para ANTES da imagem.
+              * Agora o Balatro fica na camada z-0 (por trás) e a imagem 
+              * (também z-0) é desenhada por cima dele.
+            */}
             <div className="absolute inset-0 opacity-30 pointer-events-none">
                 <Balatro
                     spinRotation={-1.5}
@@ -21,6 +26,28 @@ export function GameJam() {
                 />
             </div>
             
+            {/* Div da Imagem (agora vem DEPOIS do Balatro) */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                {GAMEJAM_THEME ? (
+                    <img
+                        src={GAMEJAM_THEME}
+                        alt=""
+                        aria-hidden="true"
+                        className="max-w-none w-[clamp(18rem,60vw,90rem)] opacity-10 select-none pointer-events-none"
+                        style={{ transform: 'translateY(-5%)' }}
+                    />
+                ) : (
+                    <span
+                        aria-hidden="true"
+                        className="uppercase font-black text-[clamp(4.5rem,10vw,12rem)] tracking-widest text-blue-600 opacity-10 select-none leading-none"
+                        style={{ transform: 'translateY(-5%)', WebkitTextStroke: '1px rgba(255,255,255,0.5)' }}
+                    >
+                        TEMA SURPRESA
+                    </span>
+                )}
+            </div>
+            
+            {/* Conteúdo principal com z-10 para ficar na frente de tudo */}
             <div className="container mx-auto max-w-6xl relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12 md:mb-16">

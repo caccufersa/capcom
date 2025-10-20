@@ -2,8 +2,10 @@ import { IoBookOutline } from "react-icons/io5";
 import { MdMenuBook } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 import ilustration from '../../assets/ilustrationGirl.webp'
+import { MapModal, useMapModal } from '../map-modal';
 
 export function Welcome() {
+    const { isOpen, openMap, closeMap } = useMapModal();
     return (
         <section id="welcome" className="pt-[5.75rem] sm:pt-[6.5rem] pb-16 sm:pb-20 w-full relative flex items-center justify-center min-h-screen px-4">
             <div className="container mx-auto max-w-7xl">
@@ -59,17 +61,24 @@ export function Welcome() {
                                 <IoCalendarOutline className="text-blue-600" size={20} />
                                 <span><span className="font-semibold text-slate-900">23 e 24</span> de Outubro</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <button
+                                onClick={(e) => { e.preventDefault(); openMap(); }}
+                                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openMap(); } }}
+                                aria-label="Abrir mapa do LCC - UFERSA"
+                                className="flex items-center gap-2 cursor-pointer text-left text-sm sm:text-base"
+                            >
+                                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 <span><span className="font-semibold text-slate-900">LCC</span> UFERSA</span>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            {/* Map modal for quick access from the welcome stats */}
+            <MapModal isOpen={isOpen} onClose={closeMap} />
         </section>
     )
 }
