@@ -94,9 +94,10 @@ function IBMSponsorCard({ title, description }: EventCardProps) {
                        hover:shadow-xl hover:border-blue-400/50 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
             <div className="relative z-10">
-                <div className="flex justify-center items-center gap-4 border-b border-gray-200 pb-4 mb-4">
-                    <img src={IBM} alt="IBM SkillsBuild" className="h-7" />
-                    <img src={ElDorado} alt="Instituto Eldorado" className="h-9" />
+                {/* Logos: allow wrapping on small screens and use object-contain so they don't get cropped */}
+                <div className="flex flex-wrap sm:flex-nowrap justify-center items-center gap-4 border-b border-gray-200 pb-4 mb-4">
+                    <img src={IBM} alt="IBM SkillsBuild" className="h-7 w-auto object-contain max-h-9" />
+                    <img src={ElDorado} alt="Instituto Eldorado" className="h-9 w-auto object-contain max-h-12" />
                 </div>
                 
                 <div className="text-center mb-4">

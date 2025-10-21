@@ -67,12 +67,12 @@ export function GameJam() {
     
     {/* 3. NOVO BLOCO DO TEMA */}
     <div className="mb-6"> {/* Wrapper para espaçamento */}
-    <div className="inline-block bg-slate-50 border-y-2 border-slate-200 px-5 py-2 shadow-sm">
+    <div className="inline-block bg-slate-50 border-y-2 border-slate-200 px-8 py-3 shadow-sm">
         <span className="text-xs sm:text-sm uppercase font-semibold text-slate-500 tracking-wider">Tema Oficial:</span>
         
         {/* MUDANÇA: Adicionado inline-flex, items-center e gap-2 */}
         <span 
-            className="ml-2 text-lg sm:text-xl font-bold text-blue-600 font-mono tracking-tight inline-flex items-center gap-2"
+            className="ml-2 text-lg sm:text-xl text-blue-600 font-extrabold tracking-tight inline-flex items-center gap-2"
         >
             {/* O texto fica aqui */}
             <span>"Conectar e Expandir"</span>
@@ -83,11 +83,7 @@ export function GameJam() {
     </div>
 </div>
 
-    {/* 4. Subtítulo do Evento "CAPCOM 2025" */}
-    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-6 inline-block px-8 py-3 bg-white border-4 border-blue-600" 
-    style={{ fontFamily: '"Orbitron", sans-serif', boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', letterSpacing: '0.1em' }}>
-    CAPCOM 2025
-</div>
+  
 
     {/* 5. Descrição */}
     <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium mt-6">
