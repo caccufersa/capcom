@@ -38,6 +38,29 @@ export interface InstructorProps {
 export const ListMinicourse: ListMinicourseProps[] = [
     {
         id: 1,
+        title: 'Criação de apps com Flutter',
+        instructor1: {
+            name: 'Nickolas Emanuel de Oliveira Silva',
+            insta: 'https://www.instagram.com/nickolas_emanuel_/',
+            email: "nickolasemanuel10@gmail.com",
+            description: "Desenvolvedor Front-end Multiplataforma.",
+            img: NickolasEmanuel,
+            linkedin: "https://www.linkedin.com/in/n%C3%ADckolas-emanuel-02924b223/"
+        },
+        instructor2: {
+            name: 'Arthur Peixoto de Almeida',
+            email: "ggpeaol@gmail.com",
+            description: "Ex-Jogador amador de fortnite, 2x semi finalista do interclasse da escola, desenvolvedor junior aprendiz de programação e loucamente apaixonado",
+            img: ArthurPeixoto
+        },
+        courseLocation: 'Lab 2',
+        date: '23/10',
+        description: 'Conceitos básicos do framework. Conhecendo a estrutura do funcionamento, widgets básicos, formas de processar os dados para criar um aplicativo multiplataforma.',
+        prerequisites: 'Noções de orientação a objetos.',
+        tags: ['Flutter', 'Dart', 'Mobile', 'Cross-platform']
+    },
+    {
+        id: 2,
         title: 'Conhecendo robótica com LEGO EV3',
         instructor1: {
             name: 'João Lucas Galdino Duarte',
@@ -62,7 +85,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['Robótica', 'LEGO', 'Scratch', 'Hardware']
     },
     {
-        id: 2,
+        id: 3,
         title: 'Crie seu primeiro site com HTML e CSS',
         instructor1: {
             name: 'Poliana de Araújo Alves',
@@ -78,7 +101,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['HTML', 'CSS', 'Web', 'Frontend']
     },
     {
-        id: 3,
+        id: 4,
         title: 'Git e Github: Uma introdução a versionamento de código',
         instructor1: {
             name: 'Artur Segantini Guedes',
@@ -94,7 +117,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['Git', 'GitHub', 'Versionamento', 'DevOps']
     },
     {
-        id: 4,
+        id: 5,
         title: 'Dominando a arte da impressão 3d',
         instructor1: {
             name: 'Rafael Kepler Bronzo',
@@ -127,14 +150,30 @@ export const ListMinicourse: ListMinicourseProps[] = [
             img: TalyssonImg,
             email: 'talyssonemanoel@gmail.com'
         },
-        courseLocation: 'Lab 2',
-        date: '23/10',
+        courseLocation: 'Lab 6',
+        date: '24/10',
         description: 'Neste minicurso, vamos explorar os conceitos fundamentais que diferenciam a computação quântica da computação clássica — como superposição, emaranhamento e portas quânticas — de forma acessível e prática. Mais do que apenas teoria, você terá contato direto com o Qiskit, o kit de desenvolvimento open source da IBM, que permite criar, simular e até executar algoritmos em computadores quânticos reais pela nuvem.',
         prerequisites: 'Conhecimentos básicos de programação (preferencialmente em Python). Álgebra linear (vetores e matrizes) e noções de probabilidade.',
         tags: ['Python', 'Qiskit', 'Quantum', 'IBM']
     },
     {
         id: 6,
+        title: 'Inglês para DEVs - Code and Talk',
+        instructor1: {
+            name: 'Gustavo Fernandes de Lima',
+            github: 'https://github.com/gustavofernandesz',
+            description: 'Gosto de música inglês e programação',
+            img: GustavoImg,
+            email: 'gustavo.lima83060@alunos.ufersa.edu.br'
+        },
+        courseLocation: 'Lab 1',
+        date: '24/10',
+        description: 'Um minicurso prático e direto ao ponto para desenvolvedores que querem turbinar o inglês técnico. Você vai aprender o vocabulário essencial usado em programação, entrevistas e documentação, além de praticar situações reais do dia a dia de um dev: Como participar de reuniões técnicas e explicar seu código em inglês. Tudo de forma leve, interativa e aplicada ao mundo da tecnologia.',
+        prerequisites: 'Noções básicas de programação e algoritmos e conhecimento básico de inglês',
+        tags: ['Inglês', 'Soft Skills', 'Comunicação', 'Tech']
+    },
+    {
+        id: 7,
         title: 'Primeiros passos com C#',
         instructor1: {
             name: 'João Gabriel de Araújo Peixoto',
@@ -148,29 +187,6 @@ export const ListMinicourse: ListMinicourseProps[] = [
         description: 'Conceitos básicos de C#. Discutindo sua utilidade, vantagens, aplicações no mercado. Conhecendo a sintaxe e estrutura do código.',
         prerequisites: 'Noções de introdução à computação, ou especificamente as disciplinas Algoritmo e Programação I ou Introdução a Computação.',
         tags: ['C#', '.NET', 'POO', 'Backend']
-    },
-    {
-        id: 7,
-        title: 'Criação de apps com Flutter',
-        instructor1: {
-            name: 'Nickolas Emanuel de Oliveira Silva',
-            insta: 'https://www.instagram.com/nickolas_emanuel_/',
-            email: "nickolasemanuel10@gmail.com",
-            description: "Desenvolvedor Front-end Multiplataforma.",
-            img: NickolasEmanuel,
-            linkedin: "https://www.linkedin.com/in/n%C3%ADckolas-emanuel-02924b223/"
-        },
-        instructor2: {
-            name: 'Arthur Peixoto de Almeida',
-            email: "ggpeaol@gmail.com",
-            description: "Ex-Jogador amador de fortnite, 2x semi finalista do interclasse da escola, desenvolvedor junior aprendiz de programação e loucamente apaixonado",
-            img: ArthurPeixoto
-        },
-        courseLocation: 'Lab 6',
-        date: '24/10',
-        description: 'Conceitos básicos do framework. Conhecendo a estrutura do funcionamento, widgets básicos, formas de processar os dados para criar um aplicativo multiplataforma.',
-        prerequisites: 'Noções de orientação a objetos.',
-        tags: ['Flutter', 'Dart', 'Mobile', 'Cross-platform']
     },
     {
         id: 9,
@@ -215,20 +231,5 @@ export const ListMinicourse: ListMinicourseProps[] = [
         prerequisites: 'Não há pré-requisitos.',
         tags: ['Hardware', 'Arquitetura', 'Circuitos', 'Assembly']
     },
-    {
-        id: 8,
-        title: 'Inglês para DEVs - Code and Talk',
-        instructor1: {
-            name: 'Gustavo Fernandes de Lima',
-            github: 'https://github.com/gustavofernandesz',
-            description: 'Gosto de música inglês e programação',
-            img: GustavoImg,
-            email: 'gustavo.lima83060@alunos.ufersa.edu.br'
-        },
-        courseLocation: 'Lab 1',
-        date: '24/10',
-        description: 'Um minicurso prático e direto ao ponto para desenvolvedores que querem turbinar o inglês técnico. Você vai aprender o vocabulário essencial usado em programação, entrevistas e documentação, além de praticar situações reais do dia a dia de um dev: Como participar de reuniões técnicas e explicar seu código em inglês. Tudo de forma leve, interativa e aplicada ao mundo da tecnologia.',
-        prerequisites: 'Noções básicas de programação e algoritmos e conhecimento básico de inglês',
-        tags: ['Inglês', 'Soft Skills', 'Comunicação', 'Tech']
-    },
+    
 ]
