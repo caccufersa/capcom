@@ -140,7 +140,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['3D Print', 'CAD', 'Maker', 'Hardware']
     },
     {
-        id: 5,
+        id: 6,
         title: 'Introdução a Computação Quântica com Qiskit',
         instructor1: {
             name: 'Talysson Emanoel Medeiros da Costa',
@@ -157,7 +157,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['Python', 'Qiskit', 'Quantum', 'IBM']
     },
     {
-        id: 6,
+        id: 7,
         title: 'Inglês para DEVs - Code and Talk',
         instructor1: {
             name: 'Gustavo Fernandes de Lima',
@@ -173,7 +173,7 @@ export const ListMinicourse: ListMinicourseProps[] = [
         tags: ['Inglês', 'Soft Skills', 'Comunicação', 'Tech']
     },
     {
-        id: 7,
+        id: 8,
         title: 'Primeiros passos com C#',
         instructor1: {
             name: 'João Gabriel de Araújo Peixoto',
