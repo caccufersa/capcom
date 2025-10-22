@@ -3,7 +3,7 @@ import caccLogo from '../../assets/_Centro Acadêmico de Ciência da Computaçã
 import { FaInstagram } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { GrMapLocation } from "react-icons/gr";
-import { MapModal, useMapModal } from "../map-modal";
+import { MapModal, useMapModal } from "../../components/map-modal";
 
 export function Footer() {
     const { isOpen, openMap, closeMap } = useMapModal();

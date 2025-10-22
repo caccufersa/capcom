@@ -2,7 +2,7 @@
 
 import React, { type ReactNode, type ComponentType } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { FiUsers, FiCode, FiExternalLink} from "react-icons/fi";
+import { FiUsers, FiCode, FiExternalLink } from "react-icons/fi";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { PiChalkboardTeacher, PiSpeakerSimpleHighLight } from "react-icons/pi";
 import IBM from "../../assets/patrocinadores/IBM.webp";
@@ -26,7 +26,7 @@ const FloatingDataBackground = () => {
 
     return (
         <div className="absolute inset-0 z-10 overflow-hidden bg-gradient-to-b from-white to-blue-50"
-             style={{ perspective: '1000px' }}
+            style={{ perspective: '1000px' }}
         >
             <style>{`
                 @keyframes float-node {
@@ -99,24 +99,24 @@ function IBMSponsorCard({ title, description }: EventCardProps) {
                     <img src={IBM} alt="IBM SkillsBuild" className="h-7 w-auto object-contain max-h-9" />
                     <img src={ElDorado} alt="Instituto Eldorado" className="h-9 w-auto object-contain max-h-12" />
                 </div>
-                
+
                 <div className="text-center mb-4">
                     <h3 className="text-xl font-bold text-slate-900 leading-tight">{title}</h3>
                     <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">Parceria Estratégica</p>
                 </div>
 
                 <p className="text-slate-600 text-sm md:text-base mb-4 text-center">{description}</p>
-                
+
                 <div className="bg-gray-50 rounded-md p-3 border border-gray-200 mb-4">
                     <h4 className="text-center font-bold text-gray-800 text-sm mb-2">Cursos Disponíveis</h4>
                     <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-gray-600">
                         {courses.map(course => (
-                             <p key={course.title}>• {course.title} ({course.duration})</p>
+                            <p key={course.title}>• {course.title} ({course.duration})</p>
                         ))}
                     </div>
                 </div>
 
-                 <a
+                <a
                     href="https://informativo.eldorado.org.br/ibm-skills-build-ia-ufersa"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -133,7 +133,7 @@ function IBMSponsorCard({ title, description }: EventCardProps) {
 
 
 function CourseEventCard({ time, title, description }: EventCardProps) {
-    const blueprintStyle = { };
+    const blueprintStyle = {};
     return (
         <div
             className="rounded-lg border-2 border-blue-600 bg-white p-5 shadow-lg relative
@@ -177,12 +177,12 @@ function TalkEventCard({ time, title, description }: EventCardProps) {
                        transition-all duration-300 ease-out
                        hover:shadow-2xl hover:shadow-slate-900/10 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
-             <div className="mb-4">
-                 <h3 className="text-xl md:text-2xl font-black text-slate-900">{title}</h3>
-                 <time className="block text-sm font-mono font-bold text-blue-600 text-right -mt-5">
-                      {time}
-                 </time>
-             </div>
+            <div className="mb-4">
+                <h3 className="text-xl md:text-2xl font-black text-slate-900">{title}</h3>
+                <time className="block text-sm font-mono font-bold text-blue-600 text-right -mt-5">
+                    {time}
+                </time>
+            </div>
             <p className="text-slate-600 text-sm md:text-base leading-relaxed">{description}</p>
         </div>
     );
@@ -224,13 +224,13 @@ function TimelineItem({ item, index }: TimelineItemProps) {
         : "md:col-start-2 md:text-left";
 
     let CardComponent;
-    switch(theme) {
-        case "marathon":    CardComponent = <MarathonEventCard time={time} title={title} description={description} />; break;
-        case "gamejam":     CardComponent = <GameJamEventCard time={time} title={title} description={description} />; break;
+    switch (theme) {
+        case "marathon": CardComponent = <MarathonEventCard time={time} title={title} description={description} />; break;
+        case "gamejam": CardComponent = <GameJamEventCard time={time} title={title} description={description} />; break;
         case "ibm_sponsor": CardComponent = <IBMSponsorCard time={time} title={title} description={description} />; break;
-        case "talk":        CardComponent = <TalkEventCard time={time} title={title} description={description} />; break;
-        case "course":      CardComponent = <CourseEventCard time={time} title={title} description={description} />; break;
-        default:            CardComponent = <CourseEventCard time={time} title={title} description={description} />;
+        case "talk": CardComponent = <TalkEventCard time={time} title={title} description={description} />; break;
+        case "course": CardComponent = <CourseEventCard time={time} title={title} description={description} />; break;
+        default: CardComponent = <CourseEventCard time={time} title={title} description={description} />;
     }
 
     const connectorClasses = side === 'left'
@@ -252,19 +252,19 @@ function TimelineItem({ item, index }: TimelineItemProps) {
                 ></div>
                 <div className={`relative z-20 transition-all duration-500 ease-out delay-200
                                   ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                 >
+                >
                     {CardComponent}
-                 </div>
+                </div>
             </div>
-             <div className={`
+            <div className={`
                     hidden md:block absolute top-6 h-px w-8 bg-slate-300
                     transition-all duration-500 ease-out delay-300
                     ${connectorClasses}
                     ${inView ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}
                     ${side === 'left' ? 'origin-right' : 'origin-left'}
                 `}
-                style={{top: '1.5rem'}}
-             ></div>
+                style={{ top: '1.5rem' }}
+            ></div>
         </div>
     );
 }
@@ -313,11 +313,11 @@ export function Schedule() {
     return (
         <section id="cronograma" className="relative py-16 md:py-24 px-4 overflow-hidden bg-gradient-to-b from-white to-blue-50">
 
-             {/* Background Animado */}
-             <FloatingDataBackground />
+            {/* Background Animado */}
+            <FloatingDataBackground />
 
-             {/* INÍCIO: CSS para as Animações dos CARDS */}
-             <style>{`
+            {/* INÍCIO: CSS para as Animações dos CARDS */}
+            <style>{`
                  /* Animação Scanline (Credenciamento) */
                  @keyframes scanline {
                      0% { transform: translateY(-100%); }

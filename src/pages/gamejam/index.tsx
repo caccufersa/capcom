@@ -1,14 +1,12 @@
-import { SiItchdotio} from "react-icons/si";
+import { SiItchdotio } from "react-icons/si";
 import { FaPlane } from "react-icons/fa";
 import Balatro from "./background";
-import GAMEJAM_THEME from '../../assets/Tema-CAPCOM.png';
 
 export function GameJam() {
     return (
         <section id="gamejam" className="relative bg-white py-16 md:py-24 px-4 border-b border-slate-200 overflow-hidden">
-            
-            {/* Fundo animado Balatro */}
-            <div className="absolute inset-0 opacity-30 pointer-events-none">
+
+            <div className="absolute  inset-0 opacity-30 pointer-events-none">
                 <Balatro
                     spinRotation={-1.5}
                     spinSpeed={4.0}
@@ -22,79 +20,48 @@ export function GameJam() {
                     mouseInteraction={true}
                 />
             </div>
-            
-            {/* Div da Imagem ou Texto do Tema (Background) */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                {GAMEJAM_THEME ? (
-                    // Se a imagem do tema existir, ela é usada
-                    <img
-                        src={GAMEJAM_THEME}
-                        alt="Tema da Game Jam: Conectar e Expandir"
-                        aria-hidden="true"
-                        className="max-w-none w-[clamp(18rem,60vw,90rem)] opacity-10 select-none pointer-events-none"
-                        style={{ transform: 'translateY(-5%)' }}
-                    />
-                ) : (
-                    // Fallback com o tema explícito e fonte Bungee
-                    <span
-                        aria-hidden="true"
-                        className="uppercase font-black text-[clamp(3.5rem,8vw,10rem)] tracking-wide text-blue-600 opacity-10 select-none leading-none text-center"
-                        style={{ 
-                            transform: 'translateY(-5%)', 
-                            WebkitTextStroke: '1px rgba(255,255,255,0.5)',
-                            fontFamily: '"Bungee", cursive' // Fonte "bonita" e impactante
-                        }}
-                    >
-                        Conectar e Expandir
-                    </span>
-                )}
-            </div>
-            
-            {/* Conteúdo principal com z-10 para ficar na frente de tudo */}
             <div className="container mx-auto max-w-6xl relative z-10">
-                {/* Header */}
                 <div className="text-center mb-12 md:mb-16">
 
-    {/* 2. Título Principal "Game Jam" */}
-    <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-blue-600 mb-4 uppercase tracking-wide" 
-        style={{ 
-            fontFamily: '"Bungee", cursive',
-            textShadow: '5px 5px 0px #FFFFFF, 10px 10px 0px rgba(37, 99, 235, 0.4)',
-            letterSpacing: '0.05em'
-        }}>
-        Game Jam
-    </h2>
-    
-    {/* 3. NOVO BLOCO DO TEMA */}
-    <div className="mb-6"> {/* Wrapper para espaçamento */}
-    <div className="inline-block bg-slate-50 border-y-2 border-slate-200 px-8 py-3 shadow-sm">
-        <span className="text-xs sm:text-sm uppercase font-semibold text-slate-500 tracking-wider">Tema Oficial:</span>
-        
-        {/* MUDANÇA: Adicionado inline-flex, items-center e gap-2 */}
-        <span 
-            className="ml-2 text-lg sm:text-xl text-blue-600 font-extrabold tracking-tight inline-flex items-center gap-2"
-        >
-            {/* O texto fica aqui */}
-            <span>"Conectar e Expandir"</span>
-            
-            {/* O ícone fica como um "irmão" ao lado, alinhado pelo flex */}
-            <FaPlane />
-        </span>
-    </div>
-</div>
+                    <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-blue-600 mb-4 uppercase tracking-wide"
+                        style={{
+                            fontFamily: '"Bungee", cursive',
+                            textShadow: '5px 5px 0px #FFFFFF, 10px 10px 0px rgba(37, 99, 235, 0.4)',
+                            letterSpacing: '0.05em'
+                        }}>
+                        Game Jam
+                    </h2>
 
-  
+                    {/* 3. NOVO BLOCO DO TEMA */}
+                    <div className="mb-6"> {/* Wrapper para espaçamento */}
+                        <div className="inline-block bg-slate-50 border-y-2 border-slate-200 px-8 py-3 shadow-sm">
+                            <span className="text-xs sm:text-sm uppercase font-semibold text-slate-500 tracking-wider">Tema Oficial:</span>
 
-    {/* 5. Descrição */}
-    <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium mt-6">
-        72 horas de pura criatividade. Desenvolva, compita e conquiste seu lugar no pódio!
-    </p>
-</div>
+                            {/* MUDANÇA: Adicionado inline-flex, items-center e gap-2 */}
+                            <span
+                                className="ml-2 text-lg sm:text-xl text-blue-600 font-extrabold tracking-tight inline-flex items-center gap-2"
+                            >
+                                {/* O texto fica aqui */}
+                                <span>"Conectar e Expandir"</span>
+
+                                {/* O ícone fica como um "irmão" ao lado, alinhado pelo flex */}
+                                <FaPlane />
+                            </span>
+                        </div>
+                    </div>
+
+
+
+                    {/* 5. Descrição */}
+                    <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium mt-6">
+                        72 horas de pura criatividade. Desenvolva, compita e conquiste seu lugar no pódio!
+                    </p>
+                </div>
 
                 {/* Timeline - Cronograma */}
                 <div className="mb-12">
                     <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">Cronograma da Competição</h3>
-                    
+
                     <div className="max-w-3xl mx-auto space-y-4">
                         {/* Fase 1 - Revelação do Tema */}
                         <div className="relative pl-8 pb-8 border-l-2 border-slate-300">
@@ -165,7 +132,7 @@ export function GameJam() {
                 {/* Regras da Competição */}
                 <div className="bg-blue-600 p-8 sm:p-10 mb-12 text-white border-8 border-white shadow-xl" style={{ boxShadow: '0 0 0 4px #2563EB' }}>
                     <h3 className="text-3xl sm:text-4xl font-bold mb-10 text-center" style={{ fontFamily: '"Bungee", cursive', letterSpacing: '0.05em' }}>Como Funciona</h3>
-                    
+
                     <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto mb-8">
                         <div className="flex gap-4 items-start">
                             <div className="flex-shrink-0">
@@ -211,7 +178,7 @@ export function GameJam() {
                     <div className="border-t-4 border-white pt-6">
                         <div className="max-w-2xl mx-auto bg-white text-slate-900 p-4 border-4 border-blue-800">
                             <p className="text-sm leading-relaxed">
-                                <span className="font-bold">⚠️ Regras importantes:</span> Todas as assets e código devem ser criados durante a competição. 
+                                <span className="font-bold">⚠️ Regras importantes:</span> Todas as assets e código devem ser criados durante a competição.
                                 Engines, frameworks e bibliotecas públicas são permitidos.
                             </p>
                         </div>
@@ -221,8 +188,8 @@ export function GameJam() {
                 {/* CTA */}
                 <div className="text-center">
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a 
-                            href="https://drive.google.com/file/d/1AU2VeJT0sMCtYalhWsRcsvZ5srhGuEDO/view?usp=drive_link" 
+                        <a
+                            href="https://drive.google.com/file/d/1AU2VeJT0sMCtYalhWsRcsvZ5srhGuEDO/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base rounded-lg shadow-lg shadow-blue-600/20"
@@ -234,8 +201,8 @@ export function GameJam() {
                             {/* *** FIM DA CORREÇÃO *** */}
                             Baixar Edital Completo
                         </a>
-                        <a 
-                            href="https://itch.io/jam/gamejam-capcom-i" 
+                        <a
+                            href="https://itch.io/jam/gamejam-capcom-i"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-blue-200 text-slate-700 font-semibold hover:border-blue-400 hover:bg-blue-50 transition-colors text-sm sm:text-base rounded-lg"

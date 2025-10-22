@@ -2,7 +2,7 @@ import { IoBookOutline } from "react-icons/io5";
 import { MdMenuBook } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 import ilustration from '../../assets/ilustrationGirl.webp'
-import { MapModal, useMapModal } from '../map-modal';
+import { MapModal, useMapModal } from '../../components/map-modal';
 
 export function Welcome() {
     const { isOpen, openMap, closeMap } = useMapModal();
@@ -12,9 +12,9 @@ export function Welcome() {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Ilustração */}
                     <div className="flex justify-center lg:order-1 order-1">
-                        <img 
-                            src={ilustration} 
-                            alt="Ilustração CAPCOM" 
+                        <img
+                            src={ilustration}
+                            alt="Ilustração CAPCOM"
                             className="w-full max-w-lg drop-shadow-xl"
                             loading="lazy"
                             decoding="async"
@@ -26,25 +26,25 @@ export function Welcome() {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-[1.1] tracking-tight">
                             CAPCOM <span className="text-blue-600">2025</span>
                         </h1>
-                        
+
                         <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed font-light">
                             Mais do que um evento acadêmico, a CAPCOM é um <span className="font-medium text-slate-900">ambiente de integração, colaboração e inovação</span>.
                         </p>
-                        
+
                         <p className="text-base sm:text-lg text-slate-500 mb-10 leading-relaxed font-light">
                             Participe de oficinas, minicursos e atividades práticas que vão te envolver em experiências dinâmicas de aprendizado, despertando sua curiosidade e conectando você ao universo das tecnologias emergentes que transformam o nosso mundo.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
-                            <a 
-                                href="#minicourse" 
+                            <a
+                                href="#minicourse"
                                 className="px-8 py-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 text-base shadow-lg shadow-blue-600/20"
                             >
                                 <IoBookOutline size={22} />
                                 Explorar Minicursos
                             </a>
-                            <a 
-                                href="#instructions" 
+                            <a
+                                href="#instructions"
                                 className="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 rounded-lg font-medium hover:border-slate-300 hover:shadow-md transition-all inline-flex items-center justify-center gap-2 text-base"
                             >
                                 Como Participar

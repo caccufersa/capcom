@@ -1,5 +1,5 @@
 import { MdOutlineClose, MdOutlineMail } from "react-icons/md";
-import { ListMinicourse } from "../../listMinicourse";
+import { ListMinicourse } from "../../../listMinicourse";
 import { FaInstagram, FaItchIo, FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
 import { useMemo } from "react";

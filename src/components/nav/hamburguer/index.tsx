@@ -51,41 +51,41 @@ export function Hamburguer() {
                     
                     {/* Container do menu */}
                     <nav className="bg-white border border-slate-200 rounded-xl shadow-lg p-1.5">
-                        <a 
-                            onClick={() => setStatusNav(false)} 
-                            href="#cronograma" 
+                        <a
+                            onClick={() => setStatusNav(false)}
+                            href="#cronograma"
                             className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
                         >
                             <span>Cronograma</span>
                             <RiArrowRightSLine size={18} />
                         </a>
-                        <a 
-                            onClick={() => setStatusNav(false)} 
-                            href="#minicourse" 
+                        <a
+                            onClick={() => setStatusNav(false)}
+                            href="#minicursos"
                             className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
                         >
                             <span>Minicursos</span>
                             <RiArrowRightSLine size={18} />
                         </a>
-                        <a 
-                            onClick={() => setStatusNav(false)} 
-                            href="#marathon" 
+                        <a
+                            onClick={() => setStatusNav(false)}
+                            href="#maratona"
                             className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
                         >
                             <span>Maratona</span>
                             <RiArrowRightSLine size={18} />
                         </a>
-                        <a 
-                            onClick={() => setStatusNav(false)} 
-                            href="#gamejam" 
+                        <a
+                            onClick={() => setStatusNav(false)}
+                            href="#gamejam"
                             className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
                         >
                             <span>Game Jam</span>
                             <RiArrowRightSLine size={18} />
                         </a>
-                        <a 
-                            onClick={() => setStatusNav(false)} 
-                            href="#instructions" 
+                        <a
+                            onClick={() => setStatusNav(false)}
+                            href="#instructions"
                             className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
                         >
                             <span>Inscrições</span>

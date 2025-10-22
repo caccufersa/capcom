@@ -58,7 +58,7 @@ export function ProgrammingMarathon() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    const section = document.getElementById('marathon');
+    const section = document.getElementById('maratona');
     const resize = () => {
       const rect = section?.getBoundingClientRect();
       if (rect) {
@@ -135,9 +135,9 @@ export function ProgrammingMarathon() {
     };
   }, []);
 
-  return (
+    return (
     <section
-      id="marathon"
+      id="maratona"
       className="relative bg-white py-12 md:py-20 px-3 sm:px-4 border-b border-slate-200 overflow-hidden"
     >
       <style>{`
