@@ -4,6 +4,7 @@ import { LuBan } from "react-icons/lu";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from 'react-dom';
 import { HiOutlineDownload } from 'react-icons/hi';
+import { BiBook } from 'react-icons/bi';
 import marathonImg1 from '../../assets/marathon-1.jpg';
 import marathonImg2 from '../../assets/marathon-2.jpg';
 import marathonImg3 from '../../assets/marathon-3.jpg';
@@ -400,6 +401,19 @@ export function ProgrammingMarathon() {
               <div className="space-y-3 text-sm text-slate-600">
                 <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span className="text-black font-bold">Não é permitido o uso de material digital ou acesso à internet.</span></div>
                 <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span className="text-black font-bold">Não é permitido portar aparelhos eletrônicos (celulares, smart watches, fones de ouvido, etc.).</span></div>
+              </div>
+            </div>
+            
+            <div className="mb-2">
+              <h4 className="text-base font-semibold text-blue-600 mb-2">Observação</h4>
+              <div className="flex items-start gap-3  p-3 rounded-md">
+                <div className="flex-shrink-0 mt-0.5">
+                  <BiBook className="w-5 h-5 text-slate-500" aria-hidden />
+                </div>
+                <div>
+                  <p className="text-sm text-slate-800 font-extrabold">As equipes podem levar material escrito para consulta<br></br>(por exemplo: livros, cadernos, apostilas).</p>
+                  <p className="text-xs text-slate-600 mt-1">Recomendado: marque suas páginas e notas para consulta rápida.</p>
+                </div>
               </div>
             </div>
             <div className="pt-4 border-t border-slate-300">
