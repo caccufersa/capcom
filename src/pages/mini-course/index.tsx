@@ -144,7 +144,7 @@ export function Minicourse() {
                             {filteredCourses.map((item, idx) => (
                                 <SwiperSlide key={item.id} className="pb-12 px-1 pt-6">
                                     <article
-                                        className="group relative bg-white rounded-2xl h-full overflow-visible transition-transform duration-500 hover:-translate-y-3 hover:scale-[1.01] hover:shadow-2xl cursor-pointer border border-slate-200 animate-fade-up hover:z-30 hover:ring-2 hover:ring-blue-400 hover:ring-offset-2 hover:ring-offset-white"
+                                        className="minicourse-card group relative bg-white rounded-2xl h-full overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-400 cursor-pointer border border-slate-200 animate-fade-up"
                                         style={{ animationDelay: `${idx * 80}ms`, boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.03)' }}
                                         onClick={() => handleOpenModal(item.id)}
                                     >

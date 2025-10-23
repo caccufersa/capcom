@@ -150,10 +150,21 @@ export function ProgrammingMarathon() {
       }
       @media (max-width: 640px) {
         .responsive-text {
-          font-size: clamp(2.5rem, 8vw, 3.5rem);
+          /* Slightly smaller minimum and more aggressive scaling for small devices */
+          font-size: clamp(1.8rem, 8.5vw, 3.2rem);
+          line-height: 1.05;
+          word-break: break-word;
+          hyphens: auto;
         }
         .responsive-subtitle {
-          font-size: clamp(1rem, 4vw, 1.125rem);
+          /* Reduce subtitle size on very small screens and increase readability */
+          font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+          line-height: 1.25;
+        }
+        /* Ensure the big heading doesn't overflow horizontally */
+        h2.responsive-text > span.block {
+          display: block;
+          white-space: normal;
         }
       }
     `}</style>

@@ -164,7 +164,7 @@ const steps: Steps[] = [
 ]
 
 //Para expandir as imagens
-export function Instructions() {
+export function Subscribe() {
     const [expandedImage, setExpandedImage] = useState<string | null>(null);
     const [isClosing, setIsClosing] = useState(false);
     const swiperRef = useRef<SwiperType | null>(null);
@@ -183,7 +183,7 @@ export function Instructions() {
     };
 
     return (
-        <section id='instructions' className="bg-white py-16 md:py-20 w-full flex flex-col items-center justify-center px-4 border-b border-slate-200">
+    <section id='subscribe' className="bg-white py-16 md:py-20 w-full flex flex-col items-center justify-center px-4 border-b border-slate-200">
             <div className="container mx-auto max-w-6xl">
                 {/* Header */}
                 <div className="text-center mb-12">
@@ -206,7 +206,7 @@ export function Instructions() {
                         speed={300}
                         pagination={{ clickable: true }}
                         modules={[Pagination]}
-                        className="instructions-swiper"
+                        className="subscribe-swiper"
                     >
                         {steps.map((step) => (
                             <SwiperSlide key={step.id} className='pb-16'>

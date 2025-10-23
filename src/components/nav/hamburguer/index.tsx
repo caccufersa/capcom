@@ -85,7 +85,7 @@ export function Hamburguer() {
                         </a>
                         <a
                             onClick={() => setStatusNav(false)}
-                            href="#instructions"
+                            href="#subscribe"
                             className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
                         >
                             <span>Inscrições</span>

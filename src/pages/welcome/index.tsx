@@ -44,7 +44,7 @@ export function Welcome() {
                                 Explorar Minicursos
                             </a>
                             <a
-                                href="#instructions"
+                                href="#subscribe"
                                 className="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 rounded-lg font-medium hover:border-slate-300 hover:shadow-md transition-all inline-flex items-center justify-center gap-2 text-base"
                             >
                                 Como Participar

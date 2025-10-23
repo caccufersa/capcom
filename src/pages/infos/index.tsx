@@ -63,7 +63,7 @@ const FloatingDataBackground = () => {
 // --- 1. DADOS DO CRONOGRAMA (ATUALIZADO) ---
 const scheduleDay1 = [
     { icon: PiChalkboardTeacher, time: "8h às 12h", title: "Minicursos", description: "Aprimore suas habilidades técnicas com nossos minicursos práticos.", theme: "course" },
-    { icon: FiUsers, time: "Durante o evento", title: "Capacitação em IA", description: "Cursos gratuitos de Inteligência Artificial oferecidos pela IBM e Instituto Eldorado em parceria com a CAPCOM.", theme: "ibm_sponsor" },
+    { icon: FiUsers, time: "14h às 18h — LAB IV.", title: "Capacitação em IA", description: "Cursos gratuitos de Inteligência Artificial oferecidos pela IBM e Instituto Eldorado em parceria com a CAPCOM", theme: "ibm_sponsor" },
     { icon: FiCode, time: "13h às 17h30", title: "Maratona de Programação", description: "Desafie seus limites em nossa competição de programação em equipe.", theme: "marathon" },
 ];
 
@@ -80,7 +80,7 @@ type CardProps = { time: string; title: string; description: string }
 type EventCardProps = CardProps & { icon?: ComponentType<any> }
 
 /** ATUALIZADO Card: Patrocinador IBM (Design inspirado no HTML) */
-function IBMSponsorCard({ title, description }: EventCardProps) {
+function IBMSponsorCard({ time, title, description }: EventCardProps) {
     const courses = [
         { title: "IA generativa para dev de software", duration: "1h" },
         { title: "Desenvolva seu primeiro robô de bate-papo", duration: "1h" },
@@ -101,8 +101,8 @@ function IBMSponsorCard({ title, description }: EventCardProps) {
                 </div>
 
                 <div className="text-center mb-4">
+                    <time className="inline-block text-sm font-extrabold text-blue-500 bg-white px-3 py-1 border border-blue-200 rounded mb-2">{time}</time>
                     <h3 className="text-xl font-bold text-slate-900 leading-tight">{title}</h3>
-                    <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">Parceria Estratégica</p>
                 </div>
 
                 <p className="text-slate-600 text-sm md:text-base mb-4 text-center">{description}</p>
@@ -121,7 +121,7 @@ function IBMSponsorCard({ title, description }: EventCardProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-white font-bold
-                               bg-[#0f124b] hover:bg-blue-800 transition-colors duration-200"
+                               bg-blue-500 hover:bg-blue-600 transition-colors duration-200"
                 >
                     <FiExternalLink />
                     Faça sua Inscrição
