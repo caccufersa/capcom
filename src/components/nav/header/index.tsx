@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import capcomLogo from '../../../assets/capcom-logo.png';
-
+import { BiPhotoAlbum } from 'react-icons/bi';
 export function Header() {
     return (
         <header className="z-50 fixed top-4 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 max-w-5xl mx-auto flex items-center justify-center rounded-full bg-white h-12 sm:h-14 border border-slate-200 shadow-sm">
@@ -13,9 +13,9 @@ export function Header() {
                     <a href="/#minicursos" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600 whitespace-nowrap">Minicursos</a>
                     <a href="/#maratona" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Maratona</a>
                     <a href="/#gamejam" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Game Jam</a>
-                    <Link to="/gallery" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Galeria</Link>
                     <a href="/#subscribe" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600 hidden sm:inline">Inscrições</a>
                     <a href="/#faq" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">FAQ</a>
+                    <Link to="/galeria" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600"><BiPhotoAlbum className="inline mr-1" />Galeria</Link>
                 </div>
             </nav>
         </header>
