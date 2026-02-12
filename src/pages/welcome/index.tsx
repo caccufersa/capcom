@@ -1,7 +1,7 @@
 import { IoBookOutline } from "react-icons/io5";
 import { MdMenuBook } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
-import ilustration from '../../assets/ilustrationGirl.webp'
+import ilustration from '../../assets/ilustrationGirl.webp';
 import { MapModal, useMapModal } from '../../components/map-modal';
 
 export function Welcome() {
