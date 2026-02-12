@@ -47,7 +47,6 @@ export function Gallery() {
         </p>
       </header>
 
-      {/* Year Selector */}
       <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 max-w-xl mx-auto">
         {GALLERY_YEARS.map((year) => (
           <button
@@ -78,7 +77,7 @@ export function Gallery() {
                   <img
                     src={src}
                     alt={`Registro do Capcom ${activeYear} - foto ${index + 1}`}
-                    className="h-40 sm:h-64 w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-40 sm:h-64 w-full object-cover transition duration-500 group-hover:scale-101"
                     loading="lazy"
                   />
                   <span className="absolute right-2 top-2 sm:right-3 sm:top-3 rounded-full bg-white/90 px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-slate-700 shadow">

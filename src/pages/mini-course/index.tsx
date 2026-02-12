@@ -17,8 +17,6 @@ export function Minicourse() {
     const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
     const swiperRef = useRef<SwiperType | null>(null);
 
-    // Helper to show 'First Second' (e.g. "Poliana de Araujo" -> "Poliana de")
-    // Do not truncate with ellipsis — show the first two name tokens when available.
     const shortName = (full = '') => {
         const parts = String(full).trim().split(/\s+/).filter(Boolean);
         if (parts.length === 0) return '';
@@ -31,12 +29,10 @@ export function Minicourse() {
         return ListMinicourse.filter((item) => item.date.includes(filter))
     }, [filter])
 
-    // Reset swiper to first slide when filter changes
     useEffect(() => {
         swiperRef.current?.slideTo?.(0)
     }, [filter])
 
-    // Pulse the result badge when the number of results changes
     const [resultPulse, setResultPulse] = useState(false)
     const prevCountRef = useRef<number>(filteredCourses.length)
     useEffect(() => {
@@ -65,7 +61,6 @@ export function Minicourse() {
                 <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-100 rounded-full filter blur-3xl"></div>
             </div>
             <div className="container mx-auto max-w-6xl relative z-10">
-                {/* Header */}
                 <div className="text-center mb-8 md:mb-12">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
                         Minicursos em Destaque
@@ -75,15 +70,13 @@ export function Minicourse() {
                     </p>
                 </div>
 
-                {/* Result counter */}
                 <div className="flex items-center justify-center mb-4 md:mb-6">
-                    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-medium ${resultPulse ? 'animate-pulse-slow' : ''}`}>
+                    <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-medium ${resultPulse ? 'animate-pulse-slow' : ''}`}> 
                         <strong className="text-blue-600">{filteredCourses.length}</strong>
                         minicurso{filteredCourses.length !== 1 ? 's' : ''} disponíveis
                     </span>
                 </div>
 
-                {/* Minimal filter pills with time subtitle */}
                 <div className="flex items-center justify-center gap-3 mb-6 md:mb-8">
                     {FILTERS.map(({ label, value, time }) => (
                         <button
@@ -98,8 +91,6 @@ export function Minicourse() {
                         </button>
                     ))}
                 </div>
-
-                {/* spacer removed (moved result counter above) */}
             </div>
 
             <div className="relative w-full max-w-7xl py-6 pb-16 md:pb-6 px-2 sm:px-4 lg:px-16">

@@ -42,10 +42,8 @@ export function Faq() {
 
     return (
         <section id="faq" className="relative bg-slate-50 py-16 md:py-20 px-4 border-b border-slate-200">
-            {/* Detalhe visual discreto */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent opacity-50"></div>
             <div className="container mx-auto max-w-4xl relative z-10">
-                {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
                         Perguntas Frequentes
@@ -55,7 +53,6 @@ export function Faq() {
                     </p>
                 </div>
 
-                {/* FAQ Items */}
                 <div className="space-y-3">
                     {faqs.map((faq, index) => (
                         <details key={index} className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all overflow-hidden">

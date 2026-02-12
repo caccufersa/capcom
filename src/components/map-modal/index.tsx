@@ -23,16 +23,12 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
-      {/* Overlay */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
       
-      {/* Modal */}
-      {/* 1. Mudei o overflow-hidden para 'relative' para o loading funcionar */}
       <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
-        {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-6 border-b border-slate-200">
           <div>
             <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">Localização do Evento</h3>
@@ -47,25 +43,21 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
           </button>
         </div>
 
-        {/* Mapa */}
-        {/* 2. O wrapper do mapa agora só contém o iframe */}
         <div className="relative w-full h-[400px] sm:h-[500px]">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.1646587642877!2d-37.326613400000006!3d-5.206761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ba07ec488f7071%3A0x195359523efeb3d7!2sLCC!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
             width="100%"
             height="100%"
-            style={{ border: 0 }}
+            style={{ border: 1 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Mapa do LCC - UFERSA"
             onLoad={handleMapLoad}
-            // 3. O fade-in do mapa continua aqui
             className={isMapLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}
           />
         </div>
 
-        {/* Footer */}
         <div className="p-4 sm:p-6 border-t border-slate-200 bg-slate-50">
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
@@ -88,7 +80,6 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
           </p>
         </div>
 
-        {/* 4. Indicador de loading centralizado sobre TUDO */}
         {isMapLoading && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm">
             <div 
@@ -103,10 +94,8 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
   );
 }
 
-// O hook useMapModal permanece o mesmo
 export function useMapModal() {
   const [isOpen, setIsOpen] = useState(false);
-
   const openMap = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
     setIsOpen(true);

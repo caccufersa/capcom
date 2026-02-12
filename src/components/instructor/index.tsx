@@ -7,7 +7,6 @@ export function Instructor() {
     return (
         <section id="instructor" className="bg-white py-16 md:py-20 w-full flex flex-col items-center justify-center px-4 border-b border-slate-200">
             <div className="container mx-auto max-w-6xl">
-                {/* Header */}
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-blue-50 rounded-full border border-blue-100">
                         <LuGraduationCap size={16} className="text-blue-600" />
@@ -21,7 +20,6 @@ export function Instructor() {
                     </p>
                 </div>
 
-                {/* Benefits Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-slate-300 transition-all">
                         <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
@@ -48,7 +46,6 @@ export function Instructor() {
                     </div>
                 </div>
 
-                {/* CTA Button */}
                 <div className="text-center">
                     <a 
                         href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" 

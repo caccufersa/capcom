@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 export function Hamburguer() {
     const [statusNav, setStatusNav] = useState(false)
 
-    // Close on Escape
     useEffect(() => {
         function onKey(e: KeyboardEvent) {
             if (e.key === 'Escape') setStatusNav(false)
@@ -35,22 +34,17 @@ export function Hamburguer() {
             </nav>
         </header>
 
-        {/* Menu dropdown - Fora do header para evitar movimento */}
         {statusNav && (
             <>
-                {/* Overlay para fechar ao clicar fora */}
                 <div 
                     className="fixed inset-0 bg-black/20 z-40 backdrop-blur-sm"
                     onClick={() => setStatusNav(false)}
                     aria-hidden="true"
                 />
                 
-                {/* Menu */}
+        
                 <div id="mobile-menu" className="fixed top-20 right-6 sm:right-10 z-50 w-56 sm:w-64">
-                    {/* Seta decorativa */}
                     <div className="absolute -top-2 right-6 w-4 h-4 bg-white border-l border-t border-slate-200 transform rotate-45" />
-                    
-                    {/* Container do menu */}
                     <nav className="bg-white border border-slate-200 rounded-xl shadow-lg p-1.5">
                         <a
                             onClick={() => setStatusNav(false)}

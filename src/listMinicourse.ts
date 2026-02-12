@@ -1,15 +1,15 @@
-import WhesleyImg from './assets/instructors/whesley.jpg';
-import GaldinoImg from './assets/instructors/Galdino.jpg';
-import SarahEloisaImg from './assets/instructors/sarahEloisa.jpg';
-import JoaoGabrielImg from './assets/instructors/JoaoGabriel.jpg';
-import NickolasEmanuel from "./assets/instructors/nikolasEmanuel.jpg";
-import ArthurPeixoto from "./assets/instructors/arthurPeixoto.jpg";
-import PolianaImg from "./assets/instructors/Poliana Araújo.jpeg";
-import IsaulImg from "./assets/instructors/Isaul Felipe.jpg";
-import TalyssonImg from "./assets/instructors/Talysson Emanoel.jpg";
-import ArturSegantiniImg from "./assets/instructors/me - Artur Guedes.webp";
-import GustavoImg from "./assets/instructors/Gustavo.webp";
-import RafaelBronzoImg from "./assets/instructors/Rafael Bronzo.jpg";
+import WhesleyImg from './assets/instrutores/whesley.jpg';
+import GaldinoImg from './assets/instrutores/Galdino.jpg';
+import SarahEloisaImg from './assets/instrutores/sarahEloisa.jpg';
+import JoaoGabrielImg from './assets/instrutores/JoaoGabriel.jpg';
+import NickolasEmanuel from "./assets/instrutores/nikolasEmanuel.jpg";
+import ArthurPeixoto from "./assets/instrutores/arthurPeixoto.jpg";
+import PolianaImg from "./assets/instrutores/Poliana Araújo.jpeg";
+import IsaulImg from "./assets/instrutores/Isaul Felipe.jpg";
+import TalyssonImg from "./assets/instrutores/Talysson Emanoel.jpg";
+import ArturSegantiniImg from "./assets/instrutores/Artur Guedes.webp";
+import GustavoImg from "./assets/instrutores/Gustavo.webp";
+import RafaelBronzoImg from "./assets/instrutores/Rafael Bronzo.jpg";
 
 export interface ListMinicourseProps {
     id: number;

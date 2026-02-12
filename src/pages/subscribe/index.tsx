@@ -1,9 +1,9 @@
-import tela1 from '../../assets/Tela1.png';
-import tela2 from '../../assets/Tela2.png';
-import tela3 from '../../assets/Tela3.png';
-import tela4 from '../../assets/Tela4.png';
-import tela5 from '../../assets/Tela5.png';
-import tela6 from '../../assets/Tela6.png';
+import tela1 from '../../assets/telas-tutorial/Tela1.png';
+import tela2 from '../../assets/telas-tutorial/Tela2.png';
+import tela3 from '../../assets/telas-tutorial/Tela3.png';
+import tela4 from '../../assets/telas-tutorial/Tela4.png';
+import tela5 from '../../assets/telas-tutorial/Tela5.png';
+import tela6 from '../../assets/telas-tutorial/Tela6.png';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { useState, useEffect, useRef } from 'react';
@@ -163,7 +163,6 @@ const steps: Steps[] = [
     },
 ]
 
-//Para expandir as imagens
 export function Subscribe() {
     const [expandedImage, setExpandedImage] = useState<string | null>(null);
     const [isClosing, setIsClosing] = useState(false);
@@ -185,7 +184,6 @@ export function Subscribe() {
     return (
     <section id='subscribe' className="bg-white py-16 md:py-20 w-full flex flex-col items-center justify-center px-4 border-b border-slate-200">
             <div className="container mx-auto max-w-6xl">
-                {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-900 mb-3">
                         Como me inscrevo?
@@ -195,7 +193,6 @@ export function Subscribe() {
                     </p>
                 </div>
 
-                {/* Swiper Container */}
                 <div className="relative bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 md:p-12 shadow-sm">
                     <Swiper
                         onSwiper={(swiper) => {
@@ -245,7 +242,6 @@ export function Subscribe() {
                         ))}
                     </Swiper>
 
-                    {/* Botões de Navegação Customizados */}
                     <div
                         className="swiper-button-prev-custom group absolute top-[40%] sm:top-1/2 left-1 sm:left-4 -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full cursor-pointer transition-all duration-300 shadow-md"
                         onClick={() => swiperRef.current?.slidePrev()}

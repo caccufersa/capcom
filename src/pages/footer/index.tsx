@@ -11,25 +11,20 @@ export function Footer() {
     return (
         <>
         <footer className="relative w-full py-8 sm:py-12 px-4 sm:px-8">
-            {/* Refined minimal background: deeper gradient + subtle inset shadow + top divider */}
             <div aria-hidden className="absolute inset-0 -z-10">
                 <div
                     className="absolute inset-0 bg-gradient-to-t from-[#0f1724] via-[#0b2440] to-[#0b2a55]"
                     style={{ boxShadow: 'inset 0 -20px 50px rgba(2,6,23,0.6)' }}
                 />
-                {/* thin divider for separation */}
                 <div className="absolute top-0 left-0 w-full h-px bg-white/6" />
             </div>
             <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-evenly gap-8 sm:gap-10 lg:gap-12">
-                    
-                    {/* Logos */}
                     <div className='flex items-center justify-center gap-4 sm:gap-6 lg:gap-8 flex-shrink-0 lg:self-center w-full lg:w-auto'>    
                         <img src={epcLogo} alt="Logo Escola Piloto de Computação" className='w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 object-contain rounded-full' />
                         <img src={caccLogo} alt="Logo Centro Acadêmico de Ciência da Computação" className='w-24 sm:w-28 lg:w-32 h-auto object-contain' />
                     </div>
                     
-                    {/* Contatos */}
                     <div className='flex flex-col items-center lg:items-start w-full lg:w-auto px-4 sm:px-0'>
                         <h3 className='text-slate-100 font-semibold text-base sm:text-lg md:text-xl mb-3 sm:mb-4'>Contatos</h3>
                         <div className='flex flex-col gap-2.5 sm:gap-3 w-full max-w-sm lg:max-w-none'>
@@ -68,7 +63,6 @@ export function Footer() {
                         </div>
                     </div>
                     
-                    {/* Localização */}
                     <div className='flex items-start justify-center w-full lg:w-auto px-4 sm:px-0'>
                         <button 
                             onClick={openMap}
@@ -89,7 +83,6 @@ export function Footer() {
             </div>
         </footer>
 
-        {/* Modal do Mapa */}
         <MapModal isOpen={isOpen} onClose={closeMap} />
         </>
     )

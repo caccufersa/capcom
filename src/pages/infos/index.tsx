@@ -8,8 +8,6 @@ import { PiChalkboardTeacher, PiSpeakerSimpleHighLight } from "react-icons/pi";
 import IBM from "../../assets/patrocinadores/IBM.webp";
 import ElDorado from "../../assets/patrocinadores/eldorado.webp";
 
-
-// --- COMPONENTE DE BACKGROUND "FLOATING DATA NODES" ---
 const FloatingDataBackground = () => {
     const NUM_NODES = 30;
     const nodes = Array.from({ length: NUM_NODES }).map((_, i) => ({
@@ -57,10 +55,7 @@ const FloatingDataBackground = () => {
         </div>
     );
 };
-// --- FIM DO COMPONENTE DE BACKGROUND ---
 
-
-// --- 1. DADOS DO CRONOGRAMA (ATUALIZADO) ---
 const scheduleDay1 = [
     { icon: PiChalkboardTeacher, time: "8h às 12h", title: "Minicursos", description: "Aprimore suas habilidades técnicas com nossos minicursos práticos.", theme: "course" },
     { icon: FiUsers, time: "14h às 18h — LAB IV.", title: "Capacitação em IA", description: "Cursos gratuitos de Inteligência Artificial oferecidos pela IBM e Instituto Eldorado em parceria com a CAPCOM", theme: "ibm_sponsor" },
@@ -73,13 +68,9 @@ const scheduleDay2 = [
     { icon: PiChalkboardTeacher, time: "14h às 18h", title: "Minicursos", description: "Mais uma rodada de minicursos para fechar o evento com chave de ouro.", theme: "course" }
 ];
 
-// --- 2. COMPONENTES DE CARD PERSONALIZADOS (NOVO CARD ATUALIZADO) ---
+type CardProps = { time: string; title: string; description: string };
+type EventCardProps = CardProps & { icon?: ComponentType<any> };
 
-// Tipos base
-type CardProps = { time: string; title: string; description: string }
-type EventCardProps = CardProps & { icon?: ComponentType<any> }
-
-/** ATUALIZADO Card: Patrocinador IBM (Design inspirado no HTML) */
 function IBMSponsorCard({ time, title, description }: EventCardProps) {
     const courses = [
         { title: "IA generativa para dev de software", duration: "1h" },
@@ -94,7 +85,6 @@ function IBMSponsorCard({ time, title, description }: EventCardProps) {
                        hover:shadow-xl hover:border-blue-400/50 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
             <div className="relative z-10">
-                {/* Logos: allow wrapping on small screens and use object-contain so they don't get cropped */}
                 <div className="flex flex-wrap sm:flex-nowrap justify-center items-center gap-4 border-b border-gray-200 pb-4 mb-4">
                     <img src={IBM} alt="IBM SkillsBuild" className="h-7 w-auto object-contain max-h-9" />
                     <img src={ElDorado} alt="Instituto Eldorado" className="h-9 w-auto object-contain max-h-12" />
@@ -206,7 +196,6 @@ function GameJamEventCard({ time, title, description }: CardProps) {
     );
 }
 
-// --- 3. ROTEADOR DE CARDS E TIMELINE (ATUALIZADO) ---
 
 type TimelineItemProps = { item: { icon: ComponentType<any>; time: string; title: string; description: string; theme: string }; index: number }
 function TimelineItem({ item, index }: TimelineItemProps) {
@@ -269,7 +258,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
     );
 }
 
-/** Container da Linha do Tempo */
+
 type TimelineContainerProps = { children?: ReactNode }
 function TimelineContainer({ children }: TimelineContainerProps) {
     return (
@@ -283,7 +272,6 @@ function TimelineContainer({ children }: TimelineContainerProps) {
     );
 }
 
-/** Divisor de Dias */
 type DayDividerProps = { day: string; date: string }
 function DayDivider({ day, date }: DayDividerProps) {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
@@ -302,8 +290,6 @@ function DayDivider({ day, date }: DayDividerProps) {
     );
 }
 
-// --- 4. COMPONENTE PRINCIPAL DO CRONOGRAMA ---
-
 export function Schedule() {
     const { ref: headerRef, inView: headerInView } = useInView({
         threshold: 0.1,
@@ -312,11 +298,7 @@ export function Schedule() {
 
     return (
         <section id="cronograma" className="relative py-16 md:py-24 px-4 overflow-hidden bg-gradient-to-b from-white to-blue-50">
-
-            {/* Background Animado */}
             <FloatingDataBackground />
-
-            {/* INÍCIO: CSS para as Animações dos CARDS */}
             <style>{`
                  /* Animação Scanline (Credenciamento) */
                  @keyframes scanline {
@@ -349,8 +331,6 @@ export function Schedule() {
                      animation: rise-fade-out 0.7s ease-out forwards;
                 }
             `}</style>
-            {/* FIM: CSS para Animações dos CARDS */}
-
             <div className="container mx-auto max-w-4xl relative z-10">
 
                 <div
@@ -368,8 +348,6 @@ export function Schedule() {
                         Uma jornada de aprendizado e competição em dois dias intensos.
                     </p>
                 </div>
-
-                {/* --- Dia 1 --- */}
                 <div className="mb-16">
                     <DayDivider day="Dia 1" date="23 de Outubro" />
                     <TimelineContainer>
@@ -378,8 +356,6 @@ export function Schedule() {
                         ))}
                     </TimelineContainer>
                 </div>
-
-                {/* --- Dia 2 --- */}
                 <div>
                     <DayDivider day="Dia 2" date="24 de Outubro" />
                     <TimelineContainer>
@@ -393,6 +369,4 @@ export function Schedule() {
     );
 }
 
-// Backwards-compatible export
 export const Infos = Schedule;
-

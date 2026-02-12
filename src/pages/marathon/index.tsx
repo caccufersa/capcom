@@ -5,22 +5,19 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from 'react-dom';
 import { HiOutlineDownload } from 'react-icons/hi';
 import { BiBook } from 'react-icons/bi';
-import marathonImg1 from '../../assets/marathon-1.jpg';
-import marathonImg2 from '../../assets/marathon-2.jpg';
-import marathonImg3 from '../../assets/marathon-3.jpg';
-import marathonImg4 from '../../assets/marathon-4.jpg';
-// Adicione mais imagens aqui, se tiver
+import marathonImg1 from '../../assets/maratona/marathon-1.jpg';
+import marathonImg2 from '../../assets/maratona/marathon-2.jpg';
+import marathonImg3 from '../../assets/maratona/marathon-3.jpg';
+import marathonImg4 from '../../assets/maratona/marathon-4.jpg';
 
 const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeupidu6ZA5RzJrF283cepiX-2GEDyaegrfKhTLvdJiFMZqSQ/viewform?usp=header";
 
-// --- Ícones para uma UI mais consistente ---
 const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
 );
 const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
 );
-// CloseIcon was unused; removed to silence linter warning.
 
 export function ProgrammingMarathon() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -33,7 +30,6 @@ export function ProgrammingMarathon() {
     setCurrentIndex(i);
   }, []);
 
-  // Navegação por teclado no lightbox
   useEffect(() => {
     if (lightboxIndex === null) return;
     const handleKey = (e: KeyboardEvent) => {
@@ -45,7 +41,6 @@ export function ProgrammingMarathon() {
     return () => window.removeEventListener('keydown', handleKey);
   }, [lightboxIndex, images.length]);
 
-  // Bloqueia scroll do body quando lightbox aberto
   useEffect(() => {
     if (lightboxIndex !== null) {
       document.body.style.overflow = 'hidden';
@@ -53,7 +48,6 @@ export function ProgrammingMarathon() {
     }
   }, [lightboxIndex]);
 
-  // --- Lógica do Canvas (Matrix Effect) ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -72,7 +66,7 @@ export function ProgrammingMarathon() {
     };
     resize();
     const characters = '01{}[]()<>/\\|~!@#$%^&*-=+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const baseFontSize = Math.max(12, Math.min(14, window.innerWidth / 80)); // Ajuste responsivo do tamanho da fonte
+    const baseFontSize = Math.max(12, Math.min(14, window.innerWidth / 80)); 
     let columns = Math.floor(canvas.width / baseFontSize);
     // Distribuição mais uniforme das gotas para garantir loop contínuo
     let drops: number[] = Array(columns).fill(0).map(() => Math.random() * -canvas.height);
@@ -202,27 +196,15 @@ export function ProgrammingMarathon() {
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
 
-          {/* ================================================================== */}
-          {/* ======================= GALERIA MELHORADA ======================== */}
-          {/* ================================================================== */}
           <div className="bg-gray-200 border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 p-2 font-sans flex flex-col group">
-  {/* Área da Imagem Principal */}
   <div className="flex-grow flex items-center justify-center p-4 relative bg-black border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100 min-h-[16rem] sm:min-h-[20rem]">
-    {/* A imagem não tem mais cantos arredondados */}
     <img
-      key={currentIndex} // Mantido para re-render
+      key={currentIndex} 
       src={images[currentIndex]}
       alt={`Foto ${currentIndex + 1} da Maratona`}
       className="max-h-[20rem] sm:max-h-[24rem] max-w-full object-contain cursor-pointer"
       onClick={() => setLightboxIndex(currentIndex)}
     />
-    
-    {/* Setas de navegação com estilo de botão clássico.
-      - Sempre visíveis, sem 'group-hover'.
-      - Bordas 'outset' para parecerem botões físicos.
-      - Efeito 'active' para simular o clique.
-      - NOTA: Os componentes ChevronLeftIcon e ChevronRightIcon precisam aceitar a prop 'className'.
-    */}
     <button
       aria-label="Imagem anterior"
       onClick={() => goTo((currentIndex - 1 + images.length) % images.length)}
@@ -238,10 +220,6 @@ export function ProgrammingMarathon() {
       <ChevronRightIcon className="w-6 h-6" />
     </button>
   </div>
-  
-  {/* Container das Thumbnails.
-    - Separado por uma borda "inset" para parecer uma seção diferente.
-  */}
   <div className="w-full flex justify-center gap-2 sm:gap-3 p-2 border-t-2 border-t-gray-400 border-l-gray-400">
     {images.map((src, i) => (
       <button
@@ -261,18 +239,12 @@ export function ProgrammingMarathon() {
     ))}
   </div>
 </div>
-
-{/* Lightbox (Tela Cheia) Estilo Anos 90 COM CORREÇÃO */}
 {lightboxIndex !== null && createPortal(
-  // O fundo agora é um cinza opaco, sem blur ou transparência.
   <div className="fixed inset-0 z-[2147483646] flex items-center justify-center bg-gray-800/75" onClick={() => setLightboxIndex(null)}>
-    
-    {/* A "janela" da imagem, com fundo cinza e bordas 'outset' */}
     <div 
         className="bg-gray-200 border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 p-2 relative"
         onClick={(e) => e.stopPropagation()}
     >
-        {/* Barra de Título Falsa - um toque clássico! */}
         <div className="bg-blue-800 text-white font-bold p-1 mb-2 flex justify-between items-center">
             <span>Visualizador de Imagem</span>
             <button
@@ -283,8 +255,6 @@ export function ProgrammingMarathon() {
                 X
             </button>
         </div>
-        
-        {/* Imagem e Navegação */}
         <div className="relative">
             <img
               src={images[lightboxIndex]}
@@ -292,8 +262,6 @@ export function ProgrammingMarathon() {
               className="max-h-[80vh] max-w-[90vw] object-contain border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100"
             />
         </div>
-        
-        {/* Barra de Status com contador e botões */}
         <div className="mt-2 pt-2 border-t-2 border-t-gray-400 flex justify-between items-center">
             <span className="text-sm text-black px-2">Imagem {lightboxIndex + 1} de {images.length}</span>
             <div className="flex gap-2">
@@ -301,7 +269,6 @@ export function ProgrammingMarathon() {
                      className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
                      onClick={(e) => {
                        e.stopPropagation();
-                       // CORREÇÃO: Adicionada verificação de 'null'
                        setLightboxIndex(prev => {
                          if (prev === null) return null;
                          return (prev - 1 + images.length) % images.length;
@@ -314,7 +281,6 @@ export function ProgrammingMarathon() {
                      className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
                      onClick={(e) => {
                        e.stopPropagation();
-                       // CORREÇÃO: Adicionada verificação de 'null'
                        setLightboxIndex(prev => {
                          if (prev === null) return null;
                          return (prev + 1) % images.length;
@@ -329,21 +295,7 @@ export function ProgrammingMarathon() {
   </div>,
   document.body
 )}
-          {/* Adicionando keyframes para a animação */}
-          <style>{`
-            @keyframes fadeIn {
-              from { opacity: 0; transform: scale(0.98); }
-              to { opacity: 1; transform: scale(1); }
-            }
-            .animate-fade-in {
-              animation: fadeIn 0.4s ease-in-out;
-            }
-          `}</style>
-          {/* ================================================================== */}
-          {/* ===================== FIM DA GALERIA MELHORADA =================== */}
-          {/* ================================================================== */}
 
-          {/* Coluna de Informações (sem alterações) */}
           <div className="bg-gray-200 rounded-none border-2 border-l-gray-400 border-t-gray-400 border-r-gray-100 border-b-gray-100 p-6 font-sans">
   <h3 className="text-lg font-bold text-black mb-4">Linguagens Aceitas</h3>
   <div className="flex flex-wrap gap-3">
@@ -422,9 +374,6 @@ export function ProgrammingMarathon() {
           </div>
         </div>
 
-        {/* ================================================================== */}
-        {/* ======================= BOTÃO MELHORADO ========================== */}
-        {/* ================================================================== */}
         <div className="flex justify-center mt-8">
           <a
             href={registrationFormUrl}
@@ -448,9 +397,6 @@ export function ProgrammingMarathon() {
             Inscreva sua equipe
           </a>
         </div>
-        {/* ================================================================== */}
-        {/* ===================== FIM DO BOTÃO MELHORADO ===================== */}
-        {/* ================================================================== */}
       </div>
     </section>
   );
