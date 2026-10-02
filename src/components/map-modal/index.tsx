@@ -64,7 +64,7 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
               href="https://www.google.com/maps/place/LCC/@-5.206761,-37.3266134,17z/data=!3m1!4b1!4m6!3m5!1s0x7ba07ec488f7071:0x195359523efeb3d7!8m2!3d-5.206761!4d-37.3240385!16s%2Fg%2F11vjgr9hny?entry=ttu&g_ep=EgoyMDI1MDgyNC4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-6 py-3 bg-blue-600 text-white text-center rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="flex-1 px-6 py-3 bg-[#3D568F] text-white text-center rounded-lg font-medium hover:bg-blue-700 transition-colors"
             >
               Abrir no Google Maps
             </a>
@@ -83,7 +83,7 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
         {isMapLoading && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm">
             <div 
-              className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"
+              className="w-12 h-12 border-4 border-[#3D568F] border-t-transparent rounded-full animate-spin"
               role="status"
             />
             <p className="mt-3 text-sm font-medium text-slate-700">Carregando mapa...</p>

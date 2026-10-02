@@ -30,19 +30,9 @@ const sponsors = [
         description: 'Pró-Reitoria de Graduação'
     },
     {
-        name: 'Instituto Eldorado',
-        logo: eldorado,
-        description: 'Centro de Pesquisa e Inovação'
-    },
-    {
         name: 'FGD',
         logo: fgd,
         description: 'Fundação Guimarães Duque'
-    },
-    {
-        name: 'IBM',
-        logo: ibm,
-        description: 'International Business Machines'
     },
     {
         name: 'SBC',

@@ -301,10 +301,10 @@ export function ProgrammingMarathon() {
   <div className="flex flex-wrap gap-3">
     {/* Botão "outset" clássico */}
     <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
-      <SiC className="text-blue-600" size={18} /> C
+      <SiC className="text-[#3D568F]" size={18} /> C
     </span>
     <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
-      <SiCplusplus className="text-blue-600" size={18} /> C++
+      <SiCplusplus className="text-[#3D568F]" size={18} /> C++
     </span>
     {/* Usei vermelho pro Java, mais clássico */}
     <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
@@ -319,7 +319,7 @@ export function ProgrammingMarathon() {
   </div>
 
             <div className="mt-6 mb-6 pb-6 border-b border-slate-200 md:mt-10">
-              <h4 className="text-base font-semibold text-blue-600 mb-4">Cronograma da competição</h4>
+              <h4 className="text-base font-semibold text-[#3D568F] mb-4">Cronograma da competição</h4>
               <ul className="divide-y divide-slate-100">
                 <li className="flex items-start gap-4 py-3">
                   <time className="flex-shrink-0 w-32 text-sm text-slate-600 font-mono">13:00 — 13:45</time>
@@ -343,13 +343,13 @@ export function ProgrammingMarathon() {
             </div>
 
             <div className="space-y-4 text-sm text-slate-600 mb-6">
-              <div className="flex gap-3"><span className="text-slate-400 font-mono">01</span><div><p className="font-medium text-blue-600">Avaliação automática</p><p className="text-black font-bold">Soluções testadas quanto à correção e eficiência</p></div></div>
-              <div className="flex gap-3"><span className="text-slate-400 font-mono">02</span><div><p className="font-medium text-blue-600">Pontuação</p><p className="text-black font-bold">Baseada em acertos, tempo total e penalidades por erros</p></div></div>
-              <div className="flex gap-3"><span className="text-slate-400 font-mono">03</span><div><p className="font-medium text-blue-600">Vitória</p><p className="text-black font-bold">Equipe que resolve mais problemas no menor tempo</p></div></div>
+              <div className="flex gap-3"><span className="text-slate-400 font-mono">01</span><div><p className="font-medium text-[#3D568F]">Avaliação automática</p><p className="text-black font-bold">Soluções testadas quanto à correção e eficiência</p></div></div>
+              <div className="flex gap-3"><span className="text-slate-400 font-mono">02</span><div><p className="font-medium text-[#3D568F]">Pontuação</p><p className="text-black font-bold">Baseada em acertos, tempo total e penalidades por erros</p></div></div>
+              <div className="flex gap-3"><span className="text-slate-400 font-mono">03</span><div><p className="font-medium text-[#3D568F]">Vitória</p><p className="text-black font-bold">Equipe que resolve mais problemas no menor tempo</p></div></div>
             </div>
 
             <div className="mb-6 pt-6 border-t border-slate-200">
-              <h4 className="text-base font-semibold text-blue-600 mb-3">Restrições</h4>
+              <h4 className="text-base font-semibold text-[#3D568F] mb-3">Restrições</h4>
               <div className="space-y-3 text-sm text-slate-600">
                 <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span className="text-black font-bold">Não é permitido o uso de material digital ou acesso à internet.</span></div>
                 <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span className="text-black font-bold">Não é permitido portar aparelhos eletrônicos (celulares, smart watches, fones de ouvido, etc.).</span></div>
@@ -357,7 +357,7 @@ export function ProgrammingMarathon() {
             </div>
             
             <div className="mb-2">
-              <h4 className="text-base font-semibold text-blue-600 mb-2">Observação</h4>
+              <h4 className="text-base font-semibold text-[#3D568F] mb-2">Observação</h4>
               <div className="flex items-start gap-3  p-3 rounded-md">
                 <div className="flex-shrink-0 mt-0.5">
                   <BiBook className="w-5 h-5 text-slate-500" aria-hidden />

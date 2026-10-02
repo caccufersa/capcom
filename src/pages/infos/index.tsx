@@ -111,7 +111,7 @@ function IBMSponsorCard({ time, title, description }: EventCardProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-white font-bold
-                               bg-blue-500 hover:bg-blue-600 transition-colors duration-200"
+                               bg-blue-500 hover:bg-[#3D568F] transition-colors duration-200"
                 >
                     <FiExternalLink />
                     Faça sua Inscrição
@@ -126,7 +126,7 @@ function CourseEventCard({ time, title, description }: EventCardProps) {
     const blueprintStyle = {};
     return (
         <div
-            className="rounded-lg border-2 border-blue-600 bg-white p-5 shadow-lg relative
+            className="rounded-lg border-2 border-[#3D568F] bg-white p-5 shadow-lg relative
                        transition-all duration-300 ease-out
                        hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
@@ -169,7 +169,7 @@ function TalkEventCard({ time, title, description }: EventCardProps) {
         >
             <div className="mb-4">
                 <h3 className="text-xl md:text-2xl font-black text-slate-900">{title}</h3>
-                <time className="block text-sm font-mono font-bold text-blue-600 text-right -mt-5">
+                <time className="block text-sm font-mono font-bold text-[#3D568F] text-right -mt-5">
                     {time}
                 </time>
             </div>
@@ -186,9 +186,9 @@ function GameJamEventCard({ time, title, description }: CardProps) {
                        hover:-translate-y-0.5 hover:-translate-x-0.5"
             style={{ boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', fontFamily: 'sans-serif' }}
         >
-            <time className="block text-sm font-bold text-blue-600 mb-1">{time}</time>
+            <time className="block text-sm font-bold text-[#3D568F] mb-1">{time}</time>
             <h3
-                className="text-xl md:text-2xl font-black text-blue-600 mb-2 uppercase"
+                className="text-xl md:text-2xl font-black text-[#3D568F] mb-2 uppercase"
                 style={{ fontFamily: '"Bungee", cursive', letterSpacing: '0.05em', textShadow: '2px 2px 0px #FFFFFF, 4px 4px 0px rgba(37, 99, 235, 0.2)' }}
             >{title}</h3>
             <p className="text-slate-700 text-sm md:text-base font-medium">{description}</p>
@@ -283,7 +283,7 @@ function DayDivider({ day, date }: DayDividerProps) {
             <div className="h-0.5 bg-slate-200 flex-grow"></div>
             <div className="mx-6 text-center">
                 <h3 className="text-2xl font-bold text-slate-900">{date}</h3>
-                <p className="text-sm font-semibold text-blue-600 uppercase tracking-widest">{day}</p>
+                <p className="text-sm font-semibold text-[#3D568F] uppercase tracking-widest">{day}</p>
             </div>
             <div className="h-0.5 bg-slate-200 flex-grow"></div>
         </div>
@@ -341,7 +341,7 @@ export function Schedule() {
                         className="font-['Poppins',_sans-serif] text-5xl sm:text-6xl font-black text-slate-900
                                    leading-tight drop-shadow-sm mb-4"
                     >
-                        CRONOGRAMA <span className="block text-blue-600 font-medium text-2xl sm:text-3xl -mt-1 sm:-mt-2">DO EVENTO</span>
+                        CRONOGRAMA <span className="block text-[#3D568F] font-medium text-2xl sm:text-3xl -mt-1 sm:-mt-2">DO EVENTO</span>
                     </h2>
 
                     <p className="font-sans text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">

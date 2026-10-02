@@ -208,13 +208,13 @@ export function Subscribe() {
                         {steps.map((step) => (
                             <SwiperSlide key={step.id} className='pb-16'>
                                 <div className="w-full max-w-4xl mx-auto">
-                                    <div className="inline-block bg-blue-100 text-blue-600 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                                    <div className="inline-block bg-blue-100 text-[#3D568F] text-xs sm:text-sm font-semibold px-3 py-1 rounded-full mb-3">
                                         Passo {step.id} de {steps.length}
                                     </div>
                                     <h3 className='font-semibold text-lg sm:text-xl md:text-2xl text-slate-900 mb-3'>{step.title}</h3>
                                     {step.link && (
                                         <a
-                                            className='inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base underline underline-offset-2 mb-3'
+                                            className='inline-flex items-center gap-1 text-[#3D568F] hover:text-blue-700 font-medium text-sm sm:text-base underline underline-offset-2 mb-3'
                                             href={step.link.href}
                                             target='_blank'
                                             rel="noopener noreferrer"

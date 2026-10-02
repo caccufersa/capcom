@@ -49,7 +49,7 @@ export function Hamburguer() {
                         <a
                             onClick={() => setStatusNav(false)}
                             href="/#cronograma"
-                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-[#3D568F]"
                         >
                             <span>Cronograma</span>
                             <RiArrowRightSLine size={18} />
@@ -57,7 +57,7 @@ export function Hamburguer() {
                         <a
                             onClick={() => setStatusNav(false)}
                             href="/#minicursos"
-                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-[#3D568F]"
                         >
                             <span>Minicursos</span>
                             <RiArrowRightSLine size={18} />
@@ -65,7 +65,7 @@ export function Hamburguer() {
                         <a
                             onClick={() => setStatusNav(false)}
                             href="/#maratona"
-                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-[#3D568F]"
                         >
                             <span>Maratona</span>
                             <RiArrowRightSLine size={18} />
@@ -73,7 +73,7 @@ export function Hamburguer() {
                         <Link
                             onClick={() => setStatusNav(false)}
                             to="/gallery"
-                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-[#3D568F]"
                         >
                             <span>Galeria</span>
                             <RiArrowRightSLine size={18} />
@@ -81,7 +81,7 @@ export function Hamburguer() {
                         <a
                             onClick={() => setStatusNav(false)}
                             href="/#subscribe"
-                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-[#3D568F]"
                         >
                             <span>Inscrições</span>
                             <RiArrowRightSLine size={18} />
@@ -89,7 +89,7 @@ export function Hamburguer() {
                         <a 
                             onClick={() => setStatusNav(false)} 
                             href="/#faq" 
-                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
+                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-[#3D568F]"
                         >
                             <span>FAQ</span>
                             <RiArrowRightSLine size={18} />

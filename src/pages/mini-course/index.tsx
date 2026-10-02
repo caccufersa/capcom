@@ -72,7 +72,7 @@ export function Minicourse() {
 
                 <div className="flex items-center justify-center mb-4 md:mb-6">
                     <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-medium ${resultPulse ? 'animate-pulse-slow' : ''}`}> 
-                        <strong className="text-blue-600">{filteredCourses.length}</strong>
+                        <strong className="text-[#3D568F]">{filteredCourses.length}</strong>
                         minicurso{filteredCourses.length !== 1 ? 's' : ''} disponíveis
                     </span>
                 </div>
@@ -83,7 +83,7 @@ export function Minicourse() {
                             key={value}
                             onClick={() => setFilter(value)}
                             className={`flex flex-col items-center px-4 py-3 rounded-2xl text-sm font-semibold transition-transform duration-200 min-w-[120px] transform-gpu
-                                ${filter === value ? 'bg-blue-600 text-white shadow-md scale-105 border-transparent' : 'bg-white text-slate-700 border border-slate-200 hover:shadow-sm hover:-translate-y-0.5'}`}
+                                ${filter === value ? 'bg-[#3D568F] text-white shadow-md scale-105 border-transparent' : 'bg-white text-slate-700 border border-slate-200 hover:shadow-sm hover:-translate-y-0.5'}`}
                             aria-pressed={filter === value}
                         >
                             <span className="leading-tight">{label}</span>
@@ -228,7 +228,7 @@ export function Minicourse() {
                                                         onClick={(e) => { e.stopPropagation(); handleOpenModal(item.id); }}
                                                         aria-label={`Ver mais sobre ${shortName(item.instructor1.name)}`}
                                                         title={`Ver mais sobre ${shortName(item.instructor1.name)}`}
-                                                        className="w-8 h-8 flex items-center justify-center rounded-full text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-200 transition"
+                                                        className="w-8 h-8 flex items-center justify-center rounded-full text-[#3D568F] hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-200 transition"
                                                     >
                                                         <span className="sr-only">Ver mais</span>
                                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
