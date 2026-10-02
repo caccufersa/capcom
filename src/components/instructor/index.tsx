@@ -46,18 +46,23 @@ export function Instructor() {
                     </div>
                 </div>
 
-                <div className="text-center">
+                <div className="flex justify-center gap-5">
                     <a 
                         href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg"
+                        className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg"
                     >
-                        <FiUserPlus size={20} />
-                        <span>Candidate-se como Ministrante</span>
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                        <span>Edital submissão de propostas de minicursos</span>
+                    </a>
+
+                    <a 
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg"
+                    >
+                        <span>Formulário de Inscrição</span>
                     </a>
                 </div>
             </div>
