@@ -7,44 +7,44 @@ import { MapModal, useMapModal } from '../../components/map-modal';
 export function Welcome() {
     const { isOpen, openMap, closeMap } = useMapModal();
     return (
-        <section id="welcome" className="pt-[2rem] md:pt-[6.5rem] pb-16 sm:pb-20 w-full relative flex items-center justify-center min-h-screen px-4">
+        <section id="welcome" className="pt-[4rem] md:pt-[6.5rem] pb-16 sm:pb-20 w-full relative flex items-center justify-center min-h-screen px-4">
             <div className="container mx-auto max-w-7xl lg:max-w-6xl">
-                <div className="grid lg:grid-cols-3 gap-[18rem] lg:gap-[22rem] items-center">
+                <div className="grid min-[860px]:grid-cols-5 gap-6 lg:gap-16 items-center">
                     {/* Ilustração */}
-                    <div className="hidden md:block">
+                    <div className="hidden grid min-[860px]:block min-[860px]:col-span-2">
                         <img
                             src={ilustration}
                             alt="Ilustração CAPCOM"
-                            className="min-w-[10rem] max-w-[26rem] drop-shadow-xl"
+                            className="w-full h-auto max-w-full object-contain drop-shadow-xl"
                             loading="lazy"
                             decoding="async"
                         />
                     </div>
 
                     {/* Conteúdo */}
-                    <div className=" md:col-span-2 flex flex-col justify-center lg:order-2 order-1">
-                        <div className="flex gap-1">
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-[1.1] tracking-tight">
+                    <div className="min-[860px]:col-span-3 flex flex-col justify-center">
+                        <div className="flex items-center gap-2 mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+                            <h1 className="font-extrabold text-slate-900 leading-[1.1] tracking-tight text-[1em]">
                                 CAPCOM <span className="text-[#3D568F]">2026</span>
                             </h1>
-                            <div className="md:hidden">
-                                <img
-                                    src={ilustration}
-                                    alt="Ilustração CAPCOM"
-                                    className="min-w-[1rem] max-w-[1.8rem] drop-shadow-xl"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                            </div>
 
+                            <img
+                                src={ilustration}
+                                alt="Ilustração CAPCOM"
+                                className="min-[860px]:hidden h-[1em] w-auto shrink-0 drop-shadow-xl"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </div>
 
 
-                        <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed font-light">
-                            Mais do que um evento acadêmico, a CAPCOM é um <span className="font-medium text-slate-900">ambiente de integração, colaboração e inovação</span>.
+                        <p className="text-base md:text-lg text-slate-600 mt-[-8px] leading-relaxed font-medium">
+                            Computação, Inovação e Futuro: 20 anos de Ciência da Computação.
                         </p>
-
-                        <p className="text-base sm:text-lg text-slate-500 mb-10 leading-relaxed font-light">
+                        <p className="text-base md:text-lg text-slate-600 mb-5 leading-relaxed font-light">
+                            Mais do que um evento acadêmico, a CAPCOM é um <span className="font-medium">ambiente de integração, colaboração e inovação</span>.
+                        </p>
+                        <p className="text-base md:text-lg text-slate-600 mb-10 leading-relaxed font-light">
                             Participe de oficinas, minicursos e atividades práticas que vão te envolver em experiências dinâmicas de aprendizado, despertando sua curiosidade e conectando você ao universo das tecnologias emergentes que transformam o nosso mundo.
                         </p>
 
@@ -92,6 +92,6 @@ export function Welcome() {
             </div>
             {/* Map modal for quick access from the welcome stats */}
             <MapModal isOpen={isOpen} onClose={closeMap} />
-        </section>
+        </section >
     )
 }

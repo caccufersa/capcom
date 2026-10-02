@@ -71,56 +71,6 @@ const scheduleDay2 = [
 type CardProps = { time: string; title: string; description: string };
 type EventCardProps = CardProps & { icon?: ComponentType<any> };
 
-function IBMSponsorCard({ time, title, description }: EventCardProps) {
-    const courses = [
-        { title: "IA generativa para dev de software", duration: "1h" },
-        { title: "Desenvolva seu primeiro robô de bate-papo", duration: "1h" },
-        { title: "Modelos IBM Granite para Dev de Software", duration: "1.5h" },
-        { title: "Classificando dados usando IBM Granite", duration: "1.5h" }
-    ];
-
-    return (
-        <div className="rounded-lg bg-white p-5 shadow-lg relative border border-gray-200
-                       transition-all duration-300 ease-out
-                       hover:shadow-xl hover:border-blue-400/50 hover:-translate-y-0.5 hover:scale-[1.01]"
-        >
-            <div className="relative z-10">
-                <div className="flex flex-wrap sm:flex-nowrap justify-center items-center gap-4 border-b border-gray-200 pb-4 mb-4">
-                    <img src={IBM} alt="IBM SkillsBuild" className="h-7 w-auto object-contain max-h-9" />
-                    <img src={ElDorado} alt="Instituto Eldorado" className="h-9 w-auto object-contain max-h-12" />
-                </div>
-
-                <div className="text-center mb-4">
-                    <time className="inline-block text-sm font-extrabold text-blue-500 bg-white px-3 py-1 border border-blue-200 rounded mb-2">{time}</time>
-                    <h3 className="text-xl font-bold text-slate-900 leading-tight">{title}</h3>
-                </div>
-
-                <p className="text-slate-600 text-sm md:text-base mb-4 text-center">{description}</p>
-
-                <div className="bg-gray-50 rounded-md p-3 border border-gray-200 mb-4">
-                    <h4 className="text-center font-bold text-gray-800 text-sm mb-2">Cursos Disponíveis</h4>
-                    <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-gray-600">
-                        {courses.map(course => (
-                            <p key={course.title}>• {course.title} ({course.duration})</p>
-                        ))}
-                    </div>
-                </div>
-
-                <a
-                    href="https://informativo.eldorado.org.br/ibm-skills-build-ia-ufersa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-white font-bold
-                               bg-blue-500 hover:bg-[#3D568F] transition-colors duration-200"
-                >
-                    <FiExternalLink />
-                    Faça sua Inscrição
-                </a>
-            </div>
-        </div>
-    );
-}
-
 
 function CourseEventCard({ time, title, description }: EventCardProps) {
     const blueprintStyle = {};
@@ -178,24 +128,6 @@ function TalkEventCard({ time, title, description }: EventCardProps) {
     );
 }
 
-function GameJamEventCard({ time, title, description }: CardProps) {
-    return (
-        <div
-            className="bg-white p-5 md:p-6 rounded-xl border-2 border-slate-900 text-center
-                       transition-all duration-300 ease-out
-                       hover:-translate-y-0.5 hover:-translate-x-0.5"
-            style={{ boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', fontFamily: 'sans-serif' }}
-        >
-            <time className="block text-sm font-bold text-[#3D568F] mb-1">{time}</time>
-            <h3
-                className="text-xl md:text-2xl font-black text-[#3D568F] mb-2 uppercase"
-                style={{ fontFamily: '"Bungee", cursive', letterSpacing: '0.05em', textShadow: '2px 2px 0px #FFFFFF, 4px 4px 0px rgba(37, 99, 235, 0.2)' }}
-            >{title}</h3>
-            <p className="text-slate-700 text-sm md:text-base font-medium">{description}</p>
-        </div>
-    );
-}
-
 
 type TimelineItemProps = { item: { icon: ComponentType<any>; time: string; title: string; description: string; theme: string }; index: number }
 function TimelineItem({ item, index }: TimelineItemProps) {
@@ -215,8 +147,6 @@ function TimelineItem({ item, index }: TimelineItemProps) {
     let CardComponent;
     switch (theme) {
         case "marathon": CardComponent = <MarathonEventCard time={time} title={title} description={description} />; break;
-        case "gamejam": CardComponent = <GameJamEventCard time={time} title={title} description={description} />; break;
-        case "ibm_sponsor": CardComponent = <IBMSponsorCard time={time} title={title} description={description} />; break;
         case "talk": CardComponent = <TalkEventCard time={time} title={title} description={description} />; break;
         case "course": CardComponent = <CourseEventCard time={time} title={title} description={description} />; break;
         default: CardComponent = <CourseEventCard time={time} title={title} description={description} />;
@@ -349,7 +279,7 @@ export function Schedule() {
                     </p>
                 </div>
                 <div className="mb-16">
-                    <DayDivider day="Dia 1" date="23 de Outubro" />
+                    <DayDivider day="Dia 1" date="09 de Novembro - Computação: 20 anos de história e futuro" />
                     <TimelineContainer>
                         {scheduleDay1.map((item, index) => (
                             <TimelineItem key={`${item.title}-d1-${index}`} item={item} index={index} />
@@ -357,7 +287,31 @@ export function Schedule() {
                     </TimelineContainer>
                 </div>
                 <div>
-                    <DayDivider day="Dia 2" date="24 de Outubro" />
+                    <DayDivider day="Dia 2" date="10 de Novembro" />
+                    <TimelineContainer>
+                        {scheduleDay2.map((item, index) => (
+                            <TimelineItem key={`${item.title}-d2-${index}`} item={item} index={index} />
+                        ))}
+                    </TimelineContainer>
+                </div>
+                <div>
+                    <DayDivider day="Dia 3" date="11 de Novembro" />
+                    <TimelineContainer>
+                        {scheduleDay2.map((item, index) => (
+                            <TimelineItem key={`${item.title}-d2-${index}`} item={item} index={index} />
+                        ))}
+                    </TimelineContainer>
+                </div>
+                <div>
+                    <DayDivider day="Dia 4" date="12 de Novembro" />
+                    <TimelineContainer>
+                        {scheduleDay2.map((item, index) => (
+                            <TimelineItem key={`${item.title}-d2-${index}`} item={item} index={index} />
+                        ))}
+                    </TimelineContainer>
+                </div>
+                <div>
+                    <DayDivider day="Dia 5" date="13 de Novembro" />
                     <TimelineContainer>
                         {scheduleDay2.map((item, index) => (
                             <TimelineItem key={`${item.title}-d2-${index}`} item={item} index={index} />
