@@ -70,14 +70,6 @@ export function Hamburguer() {
                             <span>Maratona</span>
                             <RiArrowRightSLine size={18} />
                         </a>
-                        <a
-                            onClick={() => setStatusNav(false)}
-                            href="/#gamejam"
-                            className="flex items-center justify-between px-3 py-2.5 font-medium text-slate-700 text-sm rounded-lg transition-all hover:bg-blue-50 hover:text-blue-600"
-                        >
-                            <span>Game Jam</span>
-                            <RiArrowRightSLine size={18} />
-                        </a>
                         <Link
                             onClick={() => setStatusNav(false)}
                             to="/gallery"

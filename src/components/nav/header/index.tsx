@@ -12,7 +12,6 @@ export function Header() {
                     <a href="/#cronograma" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Cronograma</a>
                     <a href="/#minicursos" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600 whitespace-nowrap">Minicursos</a>
                     <a href="/#maratona" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Maratona</a>
-                    <a href="/#gamejam" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">Game Jam</a>
                     <a href="/#subscribe" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600 hidden sm:inline">Inscrições</a>
                     <a href="/#faq" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600">FAQ</a>
                     <Link to="/galeria" className="font-medium text-slate-700 text-xs sm:text-sm md:text-base transition-all hover:text-blue-600"><BiPhotoAlbum className="inline mr-1" />Galeria</Link>
