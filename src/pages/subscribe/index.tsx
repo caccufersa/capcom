@@ -214,7 +214,7 @@ export function Subscribe() {
                                     <h3 className='font-semibold text-lg sm:text-xl md:text-2xl text-slate-900 mb-3'>{step.title}</h3>
                                     {step.link && (
                                         <a
-                                            className='inline-flex items-center gap-1 text-[#3D568F] hover:text-blue-700 font-medium text-sm sm:text-base underline underline-offset-2 mb-3'
+                                            className='inline-flex items-center gap-1 text-[#3D568F] hover:text-[#0E2251] font-medium text-sm sm:text-base underline underline-offset-2 mb-3'
                                             href={step.link.href}
                                             target='_blank'
                                             rel="noopener noreferrer"

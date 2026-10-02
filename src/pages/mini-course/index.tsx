@@ -193,7 +193,7 @@ export function Minicourse() {
                                                             />
                                                         ) : (
                                                             <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-blue-100 flex items-center justify-center ring-2 ring-white shadow-sm">
-                                                                <span className="text-xs font-semibold text-blue-700">
+                                                                <span className="text-xs font-semibold text-[#0E2251]">
                                                                     {item.instructor1.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                                                                 </span>
                                                             </div>

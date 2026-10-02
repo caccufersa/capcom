@@ -1,5 +1,5 @@
 import { TbMenu2 } from 'react-icons/tb';
-import capcomLogo from '../../../assets/capcom-logo.png';
+import capcomLogo from '../../../assets/logoCAPCOM26.svg';
 import { useState, useEffect } from 'react';
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ export function Hamburguer() {
         <header className="z-50 fixed top-4 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 max-w-5xl mx-auto flex items-center justify-center rounded-full bg-white h-12 sm:h-14 border border-slate-200 shadow-sm">
             <nav className="flex justify-between items-center w-full px-4 sm:px-6 md:px-10">
                 <a href="/#welcome" className="flex-shrink-0">
-                    <img src={capcomLogo} alt="Logo capcom" className="w-16 md:w-20" loading="lazy" decoding="async" />
+                    <img src={capcomLogo} alt="Logo capcom" className="w-[7rem]" loading="lazy" decoding="async" />
                 </a>
                 <button 
                     onClick={() => setStatusNav(!statusNav)} 

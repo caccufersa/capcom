@@ -60,7 +60,7 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
         const initials = instructor.name.split(' ').map(part => part[0]).join('').slice(0, 2).toUpperCase()
 
         return (
-            <div className="rounded-full w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-semibold text-xl">
+            <div className="rounded-full w-24 h-24 bg-gradient-to-br from-blue-500 to-[#0E2251] flex items-center justify-center text-white font-semibold text-xl">
                 {initials}
             </div>
         )
@@ -85,7 +85,7 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
                                 {course.tags.map((tag, index) => (
                                     <span 
                                         key={index}
-                                        className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100"
+                                        className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-blue-50 text-[#0E2251] border border-blue-100"
                                     >
                                         {tag}
                                     </span>

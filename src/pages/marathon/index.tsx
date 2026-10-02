@@ -185,9 +185,9 @@ export function ProgrammingMarathon() {
           </h2>
 
           <p className="text-slate-700 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed responsive-subtitle font-bold">
-            A maratona de programação reúne <span className="font-bold text-blue-700">equipes de até três alunos</span> que,
-            em cerca de <span className="font-bold text-blue-700">três horas</span>, resolvem problemas de lógica e algoritmos usando linguagens como
-            <span className="font-bold text-blue-700"> C, C++, Java, Kotlin e Python</span>.
+            A maratona de programação reúne <span className="font-bold text-[#0E2251]">equipes de até três alunos</span> que,
+            em cerca de <span className="font-bold text-[#0E2251]">três horas</span>, resolvem problemas de lógica e algoritmos usando linguagens como
+            <span className="font-bold text-[#0E2251]"> C, C++, Java, Kotlin e Python</span>.
             As soluções são <span className="font-bold text-green-700">avaliadas automaticamente</span> quanto à correção e eficiência,
             com pontuação baseada em acertos e tempo total.
             Vence a equipe que resolve <span className="font-bold text-slate-900">mais problemas no menor tempo</span>, considerando penalidades por erros.
@@ -229,7 +229,7 @@ export function ProgrammingMarathon() {
         className={`relative w-16 h-12 overflow-hidden bg-black p-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
           ${i === currentIndex
             // O thumbnail ativo tem uma borda "inset", como se estivesse pressionado.
-            ? 'border-2 border-t-blue-700 border-l-blue-700 border-b-blue-300 border-r-blue-300'
+            ? 'border-2 border-t-[#0E2251] border-l-[#0E2251] border-b-blue-300 border-r-blue-300'
             // O inativo tem uma borda "outset" sutil.
             : 'border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400'
           }`}

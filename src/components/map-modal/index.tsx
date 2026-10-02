@@ -64,7 +64,7 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
               href="https://www.google.com/maps/place/LCC/@-5.206761,-37.3266134,17z/data=!3m1!4b1!4m6!3m5!1s0x7ba07ec488f7071:0x195359523efeb3d7!8m2!3d-5.206761!4d-37.3240385!16s%2Fg%2F11vjgr9hny?entry=ttu&g_ep=EgoyMDI1MDgyNC4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-6 py-3 bg-[#3D568F] text-white text-center rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="flex-1 px-6 py-3 bg-[#3D568F] text-white text-center rounded-lg font-medium hover:bg-[#0E2251] transition-colors"
             >
               Abrir no Google Maps
             </a>

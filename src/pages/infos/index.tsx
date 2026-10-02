@@ -134,7 +134,7 @@ function CourseEventCard({ time, title, description }: EventCardProps) {
             <div className="relative z-10">
                 <div className="flex justify-between items-start mb-2">
                     <h3 className="text-lg md:text-xl font-bold text-slate-900">{title}</h3>
-                    <time className="block text-sm font-mono font-bold text-blue-700 bg-white px-3 py-1 border border-blue-200 rounded flex-shrink-0 ml-4">
+                    <time className="block text-sm font-mono font-bold text-[#0E2251] bg-white px-3 py-1 border border-blue-200 rounded flex-shrink-0 ml-4">
                         {time}
                     </time>
                 </div>
@@ -150,7 +150,7 @@ function MarathonEventCard({ time, title, description }: CardProps) {
                        transition-all duration-300 ease-out
                        hover:shadow-md"
         >
-            <time className="block text-sm font-bold text-blue-700 mb-1 font-mono">
+            <time className="block text-sm font-bold text-[#0E2251] mb-1 font-mono">
                 &gt; {time}
             </time>
             <h3 className="text-lg md:text-xl font-bold text-black mb-2 font-mono uppercase">

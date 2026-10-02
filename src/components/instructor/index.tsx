@@ -10,7 +10,7 @@ export function Instructor() {
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-blue-50 rounded-full border border-blue-100">
                         <LuGraduationCap size={16} className="text-[#3D568F]" />
-                        <span className="text-xs sm:text-sm font-semibold text-blue-700">Oportunidade</span>
+                        <span className="text-xs sm:text-sm font-semibold text-[#0E2251]">Oportunidade</span>
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 mb-3 tracking-tight">
                         Quer Ministrar um Minicurso?
@@ -51,7 +51,7 @@ export function Instructor() {
                         href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg"
+                        className="inline-flex items-center gap-2 bg-[#3D568F] hover:bg-[#0E2251] text-white font-semibold px-4 py-2 md:px-8 md:py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg leading-tight"
                     >
                         <span>Edital submissão de propostas de minicursos</span>
                     </a>
@@ -60,7 +60,7 @@ export function Instructor() {
                         href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg"
+                        className="inline-flex items-center gap-2 bg-[#3D568F] hover:bg-[#0E2251] text-white font-semibold px-4 py-2 md:px-8 md:py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg leading-tight"
                     >
                         <span>Formulário de Inscrição</span>
                     </a>

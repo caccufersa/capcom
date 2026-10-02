@@ -118,7 +118,7 @@ export default function Countdown() {
             href="https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-[#3D568F] text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm sm:text-base w-full sm:w-auto max-w-sm"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-[#3D568F] text-white rounded-lg font-medium hover:bg-[#0E2251] transition-colors text-sm sm:text-base w-full sm:w-auto max-w-sm"
           >
             Garantir minha vaga
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
