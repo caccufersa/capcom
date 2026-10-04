@@ -1,4 +1,4 @@
-import { FiUsers, FiUserPlus } from "react-icons/fi";
+import { FiUsers} from "react-icons/fi";
 import { LuGraduationCap } from "react-icons/lu";
 import { IoBookOutline } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa";
