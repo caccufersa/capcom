@@ -62,7 +62,7 @@ export default function Countdown() {
       </div>
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-base sm:text-lg md:text-xl uppercase tracking-wider text-blue-600 font-medium mb-4 md:mb-6">
+          <p className="text-base sm:text-lg md:text-xl uppercase tracking-wider text-[#3D568F] font-medium mb-4 md:mb-6">
             23 e 24 de Outubro, 2025
           </p>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extralight text-slate-900">
@@ -118,7 +118,7 @@ export default function Countdown() {
             href="https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm sm:text-base w-full sm:w-auto max-w-sm"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-[#3D568F] text-white rounded-lg font-medium hover:bg-[#0E2251] transition-colors text-sm sm:text-base w-full sm:w-auto max-w-sm"
           >
             Garantir minha vaga
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -25,27 +25,27 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
             <span className="flex gap-2 items-center">
                 {instructor.insta && (
                     <a href={instructor.insta} target="_blank" rel="noreferrer" aria-label="Instagram do ministrante">
-                        <FaInstagram size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                        <FaInstagram size={22} className="text-blue-800 hover:text-[#3D568F] transition-colors" />
                     </a>
                 )}
                 {instructor.github && (
                     <a href={instructor.github} target="_blank" rel="noreferrer" aria-label="GitHub do ministrante">
-                        <IoLogoGithub size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                        <IoLogoGithub size={22} className="text-blue-800 hover:text-[#3D568F] transition-colors" />
                     </a>
                 )}
                 {instructor.email && (
                     <a href={`mailto:${instructor.email}`} aria-label="Enviar e-mail para o ministrante">
-                        <MdOutlineMail size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                        <MdOutlineMail size={22} className="text-blue-800 hover:text-[#3D568F] transition-colors" />
                     </a>
                 )}
                 {instructor.itchio && (
                     <a href={instructor.itchio} target="_blank" rel="noreferrer" aria-label="Itch.io do ministrante">
-                        <FaItchIo size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                        <FaItchIo size={22} className="text-blue-800 hover:text-[#3D568F] transition-colors" />
                     </a>
                 )}
                 {instructor.linkedin && (
                     <a href={instructor.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn do ministrante">
-                        <FaLinkedin size={22} className="text-blue-800 hover:text-blue-600 transition-colors" />
+                        <FaLinkedin size={22} className="text-blue-800 hover:text-[#3D568F] transition-colors" />
                     </a>
                 )}
             </span>
@@ -60,7 +60,7 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
         const initials = instructor.name.split(' ').map(part => part[0]).join('').slice(0, 2).toUpperCase()
 
         return (
-            <div className="rounded-full w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-semibold text-xl">
+            <div className="rounded-full w-24 h-24 bg-gradient-to-br from-blue-500 to-[#0E2251] flex items-center justify-center text-white font-semibold text-xl">
                 {initials}
             </div>
         )
@@ -85,7 +85,7 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
                                 {course.tags.map((tag, index) => (
                                     <span 
                                         key={index}
-                                        className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100"
+                                        className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-blue-50 text-[#0E2251] border border-blue-100"
                                     >
                                         {tag}
                                     </span>
@@ -111,7 +111,7 @@ export function InfosMinicouse({ closeModal, id }: ModalProps) {
                         <a
                             onClick={closeModal}
                             href="#subscribe"
-                            className="inline-flex items-center justify-center gap-2 mt-4 bg-blue-600 px-6 py-2 rounded-full text-white font-semibold transition-all hover:scale-105"
+                            className="inline-flex items-center justify-center gap-2 mt-4 bg-[#3D568F] px-6 py-2 rounded-full text-white font-semibold transition-all hover:scale-105"
                         >
                             Inscrever-se
                         </a>

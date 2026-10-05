@@ -2,9 +2,7 @@ import ufersa from '../../assets/patrocinadores/ufersa.webp';
 import ccen from '../../assets/patrocinadores/ccen.webp';
 import proec from '../../assets/patrocinadores/proec.webp';
 import prograd from '../../assets/patrocinadores/prograd.webp';
-import eldorado from '../../assets/patrocinadores/eldorado.webp';
 import fgd from '../../assets/patrocinadores/fgd.webp';
-import ibm from '../../assets/patrocinadores/IBM.webp';
 import sbc from '../../assets/patrocinadores/sbc.webp';
 import uern from '../../assets/patrocinadores/uern.webp';
 
@@ -30,19 +28,9 @@ const sponsors = [
         description: 'Pró-Reitoria de Graduação'
     },
     {
-        name: 'Instituto Eldorado',
-        logo: eldorado,
-        description: 'Centro de Pesquisa e Inovação'
-    },
-    {
         name: 'FGD',
         logo: fgd,
         description: 'Fundação Guimarães Duque'
-    },
-    {
-        name: 'IBM',
-        logo: ibm,
-        description: 'International Business Machines'
     },
     {
         name: 'SBC',

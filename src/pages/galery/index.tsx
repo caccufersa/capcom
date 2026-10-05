@@ -54,7 +54,7 @@ export function Gallery() {
             onClick={() => setActiveYear(year)}
             className={`px-5 sm:px-6 py-2 rounded-full text-sm border transition ${
               activeYear === year
-                ? 'bg-blue-600 text-white border-blue-600'
+                ? 'bg-[#3D568F] text-white border-[#3D568F]'
                 : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
             }`}
           >
@@ -72,7 +72,7 @@ export function Gallery() {
                   type="button"
                   key={src}
                   onClick={() => setSelectedPhotoIndex(index)}
-                  className="group relative block overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+                  className="group relative block overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3D568F]"
                 >
                   <img
                     src={src}

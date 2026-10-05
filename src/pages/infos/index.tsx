@@ -2,11 +2,8 @@
 
 import React, { type ReactNode, type ComponentType } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { FiUsers, FiCode, FiExternalLink } from "react-icons/fi";
-import { IoGameControllerOutline } from "react-icons/io5";
-import { PiChalkboardTeacher, PiSpeakerSimpleHighLight } from "react-icons/pi";
-import IBM from "../../assets/patrocinadores/IBM.webp";
-import ElDorado from "../../assets/patrocinadores/eldorado.webp";
+import { FiUsers, FiCode } from "react-icons/fi";
+import { PiChalkboardTeacher } from "react-icons/pi";
 
 const FloatingDataBackground = () => {
     const NUM_NODES = 30;
@@ -23,7 +20,8 @@ const FloatingDataBackground = () => {
     }));
 
     return (
-        <div className="absolute inset-0 z-10 overflow-hidden bg-gradient-to-b from-white to-blue-50"
+        <div
+            className="absolute inset-0 z-10 overflow-hidden bg-gradient-to-b from-white to-blue-50"
             style={{ perspective: '1000px' }}
         >
             <style>{`
@@ -56,85 +54,61 @@ const FloatingDataBackground = () => {
     );
 };
 
-const scheduleDay1 = [
-    { icon: PiChalkboardTeacher, time: "8h às 12h", title: "Minicursos", description: "Aprimore suas habilidades técnicas com nossos minicursos práticos.", theme: "course" },
-    { icon: FiUsers, time: "14h às 18h — LAB IV.", title: "Capacitação em IA", description: "Cursos gratuitos de Inteligência Artificial oferecidos pela IBM e Instituto Eldorado em parceria com a CAPCOM", theme: "ibm_sponsor" },
-    { icon: FiCode, time: "13h às 17h30", title: "Maratona de Programação", description: "Desafie seus limites em nossa competição de programação em equipe.", theme: "marathon" },
+type ScheduleItem = {
+    icon: ComponentType<any>;
+    time: string;
+    title: string;
+    description: string;
+    theme: string;
+};
+
+const scheduleDay1: ScheduleItem[] = [
+    { icon: PiChalkboardTeacher, time: "14h", title: "Abertura oficial", description: "Apresentação da CAPCOM 2026 e acolhimento dos participantes.", theme: "course" },
+    { icon: FiUsers, time: "14h30", title: "Palestra: 20 anos de Ciência da Computação na UFERSA", description: "Apresentação da trajetória do curso, principais marcos, desafios, conquistas e contribuição para a formação de profissionais na região.", theme: "course" },
+    { icon: FiCode, time: "15h30", title: "Mesa “20 anos de Computação: memórias, experiências e transformações", description: "Participação de professores, servidores e egressos do curso.", theme: "course" },
+    { icon: FiCode, time: "16h30", title: "Palestra \"Carreiras e oportunidades na Computação\"", description: "Apresentação das principais áreas de atuação e das transformações do mercado de trabalho.", theme: "course" },
+    { icon: FiCode, time: "17h30", title: "Momento de encerramento", description: "", theme: "course" }
 ];
 
-const scheduleDay2 = [
-    { icon: PiSpeakerSimpleHighLight, time: "8h às 9h30", title: "Palestra SBC", description: "Uma visão sobre o futuro da computação com a Sociedade Brasileira de Computação.", theme: "talk" },
-    { icon: IoGameControllerOutline, time: "9h30 às 12h", title: "GameJam", description: "Desafie-se a criar um jogo do zero em equipe! O tema surpresa será revelado na Segunda-feira (20/10). Vocês terão até a Sexta-feira para desenvolver o jogo, com avaliação final e a premiação ocorrendo neste bloco.", theme: "gamejam" },
+const scheduleDay2: ScheduleItem[] = [
+    { icon: PiChalkboardTeacher, time: "14h às 18h", title: "Minicursos", description: "Aprimore suas habilidades técnicas com nossos minicursos práticos.", theme: "course" }
+];
+
+const scheduleDay3: ScheduleItem[] = [
     { icon: PiChalkboardTeacher, time: "14h às 18h", title: "Minicursos", description: "Mais uma rodada de minicursos para fechar o evento com chave de ouro.", theme: "course" }
+];
+
+const scheduleDay4: ScheduleItem[] = [
+    { icon: FiCode, time: "13h às 17h30", title: "Maratona de Programação", description: "Desafie seus limites em nossa competição de programação em equipe.", theme: "marathon" }
+];
+
+const scheduleDay5: ScheduleItem[] = [
+    { icon: PiChalkboardTeacher, time: "14h", title: "Palestras temáticas", description: "Inteligência Artificial e profissões do futuro; Segurança da informação; Computação em nuvem; Inovação e empreendedorismo tecnológico.", theme: "course" },
+    { icon: PiChalkboardTeacher, time: "16h", title: "Oficinas práticas", description: "Atividades práticas destinadas prioritariamente à comunidade externa.", theme: "course" },
+];
+
+const days = [
+    { day: "Dia 1", date: "09 de Novembro - Computação: 20 anos de história e futuro", items: scheduleDay1 },
+    { day: "Dia 2", date: "10 de Novembro", items: scheduleDay2 },
+    { day: "Dia 3", date: "11 de Novembro", items: scheduleDay3 },
+    { day: "Dia 4", date: "12 de Novembro", items: scheduleDay4 },
+    { day: "Dia 5", date: "13 de Novembro", items: scheduleDay5 },
 ];
 
 type CardProps = { time: string; title: string; description: string };
 type EventCardProps = CardProps & { icon?: ComponentType<any> };
 
-function IBMSponsorCard({ time, title, description }: EventCardProps) {
-    const courses = [
-        { title: "IA generativa para dev de software", duration: "1h" },
-        { title: "Desenvolva seu primeiro robô de bate-papo", duration: "1h" },
-        { title: "Modelos IBM Granite para Dev de Software", duration: "1.5h" },
-        { title: "Classificando dados usando IBM Granite", duration: "1.5h" }
-    ];
-
-    return (
-        <div className="rounded-lg bg-white p-5 shadow-lg relative border border-gray-200
-                       transition-all duration-300 ease-out
-                       hover:shadow-xl hover:border-blue-400/50 hover:-translate-y-0.5 hover:scale-[1.01]"
-        >
-            <div className="relative z-10">
-                <div className="flex flex-wrap sm:flex-nowrap justify-center items-center gap-4 border-b border-gray-200 pb-4 mb-4">
-                    <img src={IBM} alt="IBM SkillsBuild" className="h-7 w-auto object-contain max-h-9" />
-                    <img src={ElDorado} alt="Instituto Eldorado" className="h-9 w-auto object-contain max-h-12" />
-                </div>
-
-                <div className="text-center mb-4">
-                    <time className="inline-block text-sm font-extrabold text-blue-500 bg-white px-3 py-1 border border-blue-200 rounded mb-2">{time}</time>
-                    <h3 className="text-xl font-bold text-slate-900 leading-tight">{title}</h3>
-                </div>
-
-                <p className="text-slate-600 text-sm md:text-base mb-4 text-center">{description}</p>
-
-                <div className="bg-gray-50 rounded-md p-3 border border-gray-200 mb-4">
-                    <h4 className="text-center font-bold text-gray-800 text-sm mb-2">Cursos Disponíveis</h4>
-                    <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-gray-600">
-                        {courses.map(course => (
-                            <p key={course.title}>• {course.title} ({course.duration})</p>
-                        ))}
-                    </div>
-                </div>
-
-                <a
-                    href="https://informativo.eldorado.org.br/ibm-skills-build-ia-ufersa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-white font-bold
-                               bg-blue-500 hover:bg-blue-600 transition-colors duration-200"
-                >
-                    <FiExternalLink />
-                    Faça sua Inscrição
-                </a>
-            </div>
-        </div>
-    );
-}
-
-
 function CourseEventCard({ time, title, description }: EventCardProps) {
-    const blueprintStyle = {};
     return (
         <div
-            className="rounded-lg border-2 border-blue-600 bg-white p-5 shadow-lg relative
+            className="rounded-lg border-2 border-[#3D568F] bg-white p-5 shadow-lg relative
                        transition-all duration-300 ease-out
                        hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
-            <div className="absolute inset-0 opacity-50" style={blueprintStyle}></div>
             <div className="relative z-10">
                 <div className="flex justify-between items-start mb-2">
                     <h3 className="text-lg md:text-xl font-bold text-slate-900">{title}</h3>
-                    <time className="block text-sm font-mono font-bold text-blue-700 bg-white px-3 py-1 border border-blue-200 rounded flex-shrink-0 ml-4">
+                    <time className="block text-sm font-mono font-bold text-[#0E2251] bg-white px-3 py-1 border border-blue-200 rounded flex-shrink-0 ml-4">
                         {time}
                     </time>
                 </div>
@@ -146,15 +120,16 @@ function CourseEventCard({ time, title, description }: EventCardProps) {
 
 function MarathonEventCard({ time, title, description }: CardProps) {
     return (
-        <div className="bg-gray-200 rounded-none border-2 border-l-gray-400 border-t-gray-400 border-r-gray-100 border-b-gray-100 p-5 md:p-6 font-sans
+        <div
+            className="bg-gray-200 rounded-none border-2 border-l-gray-400 border-t-gray-400 border-r-gray-100 border-b-gray-100 p-5 md:p-6 font-sans
                        transition-all duration-300 ease-out
                        hover:shadow-md"
         >
-            <time className="block text-sm font-bold text-blue-700 mb-1 font-mono">
+            <time className="block text-sm font-bold text-[#0E2251] mb-1 font-mono">
                 &gt; {time}
             </time>
             <h3 className="text-lg md:text-xl font-bold text-black mb-2 font-mono uppercase">
-                // {title}
+                {"// "}{title}
             </h3>
             <p className="text-slate-800 text-sm md:text-base font-medium">{description}</p>
         </div>
@@ -163,13 +138,14 @@ function MarathonEventCard({ time, title, description }: CardProps) {
 
 function TalkEventCard({ time, title, description }: EventCardProps) {
     return (
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-xl
+        <div
+            className="rounded-lg border border-slate-200 bg-white p-6 shadow-xl
                        transition-all duration-300 ease-out
                        hover:shadow-2xl hover:shadow-slate-900/10 hover:-translate-y-0.5 hover:scale-[1.01]"
         >
             <div className="mb-4">
                 <h3 className="text-xl md:text-2xl font-black text-slate-900">{title}</h3>
-                <time className="block text-sm font-mono font-bold text-blue-600 text-right -mt-5">
+                <time className="block text-sm font-mono font-bold text-[#3D568F] text-right -mt-5">
                     {time}
                 </time>
             </div>
@@ -178,35 +154,16 @@ function TalkEventCard({ time, title, description }: EventCardProps) {
     );
 }
 
-function GameJamEventCard({ time, title, description }: CardProps) {
-    return (
-        <div
-            className="bg-white p-5 md:p-6 rounded-xl border-2 border-slate-900 text-center
-                       transition-all duration-300 ease-out
-                       hover:-translate-y-0.5 hover:-translate-x-0.5"
-            style={{ boxShadow: '6px 6px 0px rgba(37, 99, 235, 0.3)', fontFamily: 'sans-serif' }}
-        >
-            <time className="block text-sm font-bold text-blue-600 mb-1">{time}</time>
-            <h3
-                className="text-xl md:text-2xl font-black text-blue-600 mb-2 uppercase"
-                style={{ fontFamily: '"Bungee", cursive', letterSpacing: '0.05em', textShadow: '2px 2px 0px #FFFFFF, 4px 4px 0px rgba(37, 99, 235, 0.2)' }}
-            >{title}</h3>
-            <p className="text-slate-700 text-sm md:text-base font-medium">{description}</p>
-        </div>
-    );
-}
-
-
-type TimelineItemProps = { item: { icon: ComponentType<any>; time: string; title: string; description: string; theme: string }; index: number }
+type TimelineItemProps = { item: ScheduleItem; index: number };
 function TimelineItem({ item, index }: TimelineItemProps) {
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.2,
     });
 
+    // index global: o lado continua alternando entre os dias
     const side = index % 2 === 0 ? 'right' : 'left';
     const { time, title, description, theme } = item;
-
 
     const cardLayout = side === 'left'
         ? "md:col-start-1 md:text-right"
@@ -215,10 +172,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
     let CardComponent;
     switch (theme) {
         case "marathon": CardComponent = <MarathonEventCard time={time} title={title} description={description} />; break;
-        case "gamejam": CardComponent = <GameJamEventCard time={time} title={title} description={description} />; break;
-        case "ibm_sponsor": CardComponent = <IBMSponsorCard time={time} title={title} description={description} />; break;
         case "talk": CardComponent = <TalkEventCard time={time} title={title} description={description} />; break;
-        case "course": CardComponent = <CourseEventCard time={time} title={title} description={description} />; break;
         default: CardComponent = <CourseEventCard time={time} title={title} description={description} />;
     }
 
@@ -227,25 +181,25 @@ function TimelineItem({ item, index }: TimelineItemProps) {
         : 'md:right-full md:-mr-px';
 
     return (
-        <div ref={ref} className={`relative grid grid-cols-[1fr] md:grid-cols-2 items-start md:gap-x-8 group`}>
-            <div className={`col-start-1 ${cardLayout} relative overflow-hidden`} >
+        <div ref={ref} className="relative grid grid-cols-[1fr] md:grid-cols-2 items-start md:gap-x-8 group">
+            <div className={`col-start-1 ${cardLayout} relative overflow-hidden`}>
                 <div
                     className={`
                         absolute inset-0 z-10 transition-all duration-700 ease-out pointer-events-none
                         before:absolute before:inset-0 before:bg-rising-snow-pattern before:animate-rise-fade-out
                         ${inView ? 'opacity-0' : 'opacity-100'}
                     `}
-                    style={
-                        { ['--snow-color' as any]: 'rgba(255, 255, 255, 0.8)' } as React.CSSProperties
-                    }
+                    style={{ ['--snow-color' as any]: 'rgba(255, 255, 255, 0.8)' } as React.CSSProperties}
                 ></div>
-                <div className={`relative z-20 transition-all duration-500 ease-out delay-200
-                                  ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                <div
+                    className={`relative z-20 transition-all duration-500 ease-out delay-200
+                                ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                 >
                     {CardComponent}
                 </div>
             </div>
-            <div className={`
+            <div
+                className={`
                     hidden md:block absolute top-6 h-px w-8 bg-slate-300
                     transition-all duration-500 ease-out delay-300
                     ${connectorClasses}
@@ -258,21 +212,20 @@ function TimelineItem({ item, index }: TimelineItemProps) {
     );
 }
 
-
-type TimelineContainerProps = { children?: ReactNode }
+type TimelineContainerProps = { children?: ReactNode };
 function TimelineContainer({ children }: TimelineContainerProps) {
     return (
         <div className="relative flex flex-col space-y-8">
             <div className="absolute top-0 bottom-0 w-0.5 bg-slate-300
-                                left-4 -translate-x-1/2
-                                md:left-1/2 md:-translate-x-1/2">
+                            left-4 -translate-x-1/2
+                            md:left-1/2 md:-translate-x-1/2">
             </div>
             {children}
         </div>
     );
 }
 
-type DayDividerProps = { day: string; date: string }
+type DayDividerProps = { day: string; date: string };
 function DayDivider({ day, date }: DayDividerProps) {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
     return (
@@ -283,7 +236,7 @@ function DayDivider({ day, date }: DayDividerProps) {
             <div className="h-0.5 bg-slate-200 flex-grow"></div>
             <div className="mx-6 text-center">
                 <h3 className="text-2xl font-bold text-slate-900">{date}</h3>
-                <p className="text-sm font-semibold text-blue-600 uppercase tracking-widest">{day}</p>
+                <p className="text-sm font-semibold text-[#3D568F] uppercase tracking-widest">{day}</p>
             </div>
             <div className="h-0.5 bg-slate-200 flex-grow"></div>
         </div>
@@ -296,20 +249,21 @@ export function Schedule() {
         triggerOnce: true,
     });
 
+    // offset de cada dia = quantidade de itens dos dias anteriores
+    let offset = 0;
+    const daysWithOffset = days.map((d) => {
+        const current = { ...d, offset };
+        offset += d.items.length;
+        return current;
+    });
+
     return (
-        <section id="cronograma" className="relative py-16 md:py-24 px-4 overflow-hidden bg-gradient-to-b from-white to-blue-50">
+        <section
+            id="cronograma"
+            className="relative py-16 md:py-24 px-4 overflow-hidden bg-gradient-to-b from-white to-blue-50"
+        >
             <FloatingDataBackground />
             <style>{`
-                 /* Animação Scanline (Credenciamento) */
-                 @keyframes scanline {
-                     0% { transform: translateY(-100%); }
-                     100% { transform: translateY(200%); }
-                 }
-                 .animate-scanline {
-                      animation: scanline 1.5s linear infinite;
-                 }
-
-                 /* ANIMAÇÃO: Rising Snow / Cloud Reveal */
                 @keyframes rise-fade-out {
                     0% { background-position: center bottom; opacity: 1; }
                     100% { background-position: center top; opacity: 0; }
@@ -328,11 +282,12 @@ export function Schedule() {
                     background-repeat: repeat;
                 }
                 .animate-rise-fade-out {
-                     animation: rise-fade-out 0.7s ease-out forwards;
+                    animation: rise-fade-out 0.7s ease-out forwards;
                 }
             `}</style>
-            <div className="container mx-auto max-w-4xl relative z-10">
 
+            <div className="container mx-auto max-w-4xl relative z-10">
+                {/* Cabeçalho (usa headerRef e headerInView) */}
                 <div
                     ref={headerRef}
                     className={`text-center mb-16 transition-opacity duration-700 ease-out ${headerInView ? 'opacity-100' : 'opacity-0'}`}
@@ -341,29 +296,32 @@ export function Schedule() {
                         className="font-['Poppins',_sans-serif] text-5xl sm:text-6xl font-black text-slate-900
                                    leading-tight drop-shadow-sm mb-4"
                     >
-                        CRONOGRAMA <span className="block text-blue-600 font-medium text-2xl sm:text-3xl -mt-1 sm:-mt-2">DO EVENTO</span>
+                        CRONOGRAMA{" "}
+                        <span className="block text-[#3D568F] font-medium text-2xl sm:text-3xl -mt-1 sm:-mt-2">
+                            DO EVENTO
+                        </span>
                     </h2>
 
                     <p className="font-sans text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
-                        Uma jornada de aprendizado e competição em dois dias intensos.
+                        Uma jornada de aprendizado e competição em cinco dias intensos.
                     </p>
                 </div>
-                <div className="mb-16">
-                    <DayDivider day="Dia 1" date="23 de Outubro" />
-                    <TimelineContainer>
-                        {scheduleDay1.map((item, index) => (
-                            <TimelineItem key={`${item.title}-d1-${index}`} item={item} index={index} />
-                        ))}
-                    </TimelineContainer>
-                </div>
-                <div>
-                    <DayDivider day="Dia 2" date="24 de Outubro" />
-                    <TimelineContainer>
-                        {scheduleDay2.map((item, index) => (
-                            <TimelineItem key={`${item.title}-d2-${index}`} item={item} index={index} />
-                        ))}
-                    </TimelineContainer>
-                </div>
+
+                {/* Dias */}
+                {daysWithOffset.map(({ day, date, items, offset }) => (
+                    <div key={day} className="mb-16">
+                        <DayDivider day={day} date={date} />
+                        <TimelineContainer>
+                            {items.map((item, index) => (
+                                <TimelineItem
+                                    key={`${item.title}-${day}-${index}`}
+                                    item={item}
+                                    index={offset + index}
+                                />
+                            ))}
+                        </TimelineContainer>
+                    </div>
+                ))}
             </div>
         </section>
     );

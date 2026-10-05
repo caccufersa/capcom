@@ -10,7 +10,7 @@ export default function DeadlineBanner() {
           href="https://sigaa.ufersa.edu.br/sigaa/public/servicos_digitais/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-700 font-medium underline underline-offset-2 transition-colors whitespace-nowrap"
+          className="text-[#3D568F] hover:text-[#0E2251] font-medium underline underline-offset-2 transition-colors whitespace-nowrap"
         >
           Inscrever-se →
         </a>
