@@ -48,7 +48,7 @@ export function Instructor() {
 
                 <div className="flex justify-center gap-5">
                     <a 
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" 
+                        href="https://drive.google.com/drive/folders/12DksjJMZ2QYtQ8E6-po5PsPnuZpND7Rz?usp=sharing"  
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-[#3D568F] hover:bg-[#0E2251] text-white font-semibold px-4 py-2 md:px-8 md:py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg leading-tight"
@@ -57,7 +57,7 @@ export function Instructor() {
                     </a>
 
                     <a 
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScI1eGgIhQkvX6lFqWPlsRT1nSCspBCqJep4XyhDg0qq9VpAA/viewform?usp=send_form" 
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSf5T-60hG7w7kObmIawNKAi0NKGYqX5usTMitn7THFyUhCiZA/viewform?usp=header" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-[#3D568F] hover:bg-[#0E2251] text-white font-semibold px-4 py-2 md:px-8 md:py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg leading-tight"
