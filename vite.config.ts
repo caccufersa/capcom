@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react()
   ],
-  base: './', // Use relative paths so the site works on subpath hosting (GitHub Pages, custom folders)
+  base: '/capcom/', // Use relative paths so the site works on subpath hosting (GitHub Pages, custom folders)
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
