@@ -50,11 +50,11 @@ export function Welcome() {
 
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
                             <a
-                                href="#minicourse"
+                                href="#instructor"
                                 className="px-8 py-4 bg-[#3D568F] text-white rounded-lg font-medium hover:bg-[#0E2251] transition-all hover:scale-105 inline-flex items-center justify-center gap-2 text-base shadow-lg shadow-[#3D568F]/20"
                             >
                                 <IoBookOutline size={22} />
-                                Explorar Minicursos
+                                Ministre um minicurso!
                             </a>
                             <a
                                 href="#subscribe"
