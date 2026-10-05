@@ -20,11 +20,11 @@ export function Faq() {
         },
         {
             question: "Posso ver algum minicurso sem ter os pré-requisitos necessários?",
-            answer: "Sim, por sua conta e risco :)"
+            answer: "Não é indicado, mas se você quiser é por sua conta em risco :)"
         },
         {
             question: "Onde serão os eventos?",
-            answer: "Nos laboratórios do LCC, manhã e tarde"
+            answer: "Nos laboratórios do LCC, à tarde"
         },
         {
             question: "Haverá certificado de participação?",
@@ -32,7 +32,7 @@ export function Faq() {
         },
         {
             question: "Qual a carga horária dos minicursos?",
-            answer: "Cada minicurso tem carga horária de 4 horas, distribuídas em um único dia (manhã ou tarde). É possível participar de até 2 minicursos durante o evento (um em cada dia)."
+            answer: "A carga horária do minicurso pode variar de 4 a 8h, acontecendo, respectivamente, em uma ou duas tardes. É possível participar de até 2 minicursos durante o evento (um em cada dia), contanto que nenhum dos minicursos escolhidos tenha carga horária de 8h."
         },
         {
             question: "Quais os critérios para receber o certificado?",
