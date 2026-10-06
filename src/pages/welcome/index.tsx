@@ -7,7 +7,7 @@ import { MapModal, useMapModal } from '../../components/map-modal';
 export function Welcome() {
     const { isOpen, openMap, closeMap } = useMapModal();
     return (
-        <section id="welcome" className="pt-[4rem] md:pt-[6.5rem] pb-16 sm:pb-20 w-full relative flex items-center justify-center min-h-screen px-4">
+        <section id="welcome" className="pt-[5.5rem] md:pt-[6.5rem] pb-16 sm:pb-20 w-full relative flex items-center justify-center min-h-screen px-4">
             <div className="container mx-auto max-w-7xl lg:max-w-6xl">
                 <div className="grid min-[860px]:grid-cols-5 gap-6 lg:gap-16 items-center">
                     {/* Ilustração */}
