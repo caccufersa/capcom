@@ -10,7 +10,7 @@ import marathonImg2 from '../../assets/maratona/marathon-2.jpg';
 import marathonImg3 from '../../assets/maratona/marathon-3.jpg';
 import marathonImg4 from '../../assets/maratona/marathon-4.jpg';
 
-const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeupidu6ZA5RzJrF283cepiX-2GEDyaegrfKhTLvdJiFMZqSQ/viewform?usp=header";
+//const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeupidu6ZA5RzJrF283cepiX-2GEDyaegrfKhTLvdJiFMZqSQ/viewform?usp=header";
 
 const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
@@ -23,7 +23,7 @@ export function ProgrammingMarathon() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const images = [marathonImg1, marathonImg2, marathonImg3, marathonImg4];
+  const images = [marathonImg2, marathonImg3, marathonImg4, marathonImg1];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goTo = useCallback((i: number) => {
@@ -66,12 +66,12 @@ export function ProgrammingMarathon() {
     };
     resize();
     const characters = '01{}[]()<>/\\|~!@#$%^&*-=+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const baseFontSize = Math.max(12, Math.min(14, window.innerWidth / 80)); 
+    const baseFontSize = Math.max(12, Math.min(14, window.innerWidth / 80));
     let columns = Math.floor(canvas.width / baseFontSize);
     // Distribuição mais uniforme das gotas para garantir loop contínuo
     let drops: number[] = Array(columns).fill(0).map(() => Math.random() * -canvas.height);
     let running = true;
-    
+
     function loop() {
       if (!running || !ctx || !canvas) return;
       // Fade mais suave para melhorar o efeito de loop
@@ -79,18 +79,18 @@ export function ProgrammingMarathon() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       const fontSize = baseFontSize;
       ctx.font = `${fontSize}px monospace`;
-      
+
       for (let i = 0; i < drops.length; i++) {
         const x = i * fontSize;
         const y = drops[i] * fontSize;
         const char = characters[Math.floor(Math.random() * characters.length)];
-        
+
         // Cores mais vibrantes para melhor visibilidade
         ctx.fillStyle = 'rgba(37, 99, 235, 0.9)';
         ctx.fillText(char, x, y);
         ctx.fillStyle = 'rgba(56, 189, 248, 0.7)';
         ctx.fillText(char, x, y - fontSize * 0.6);
-        
+
         // Melhoria no loop: reinicia as gotas de forma mais consistente
         if (y > canvas.height + fontSize) {
           // Probabilidade variável para criar um efeito mais natural
@@ -101,16 +101,16 @@ export function ProgrammingMarathon() {
             drops[i] = -5 - Math.random() * 15;
           }
         }
-        
+
         // Velocidade variável para um efeito mais natural
         const speed = 0.3 + Math.random() * 0.4;
         drops[i] += speed;
       }
       requestAnimationFrame(loop);
     }
-    
+
     loop();
-    
+
     const onResize = () => {
       resize();
       // Recalcula o tamanho da fonte baseado na largura da tela
@@ -118,11 +118,11 @@ export function ProgrammingMarathon() {
       columns = Math.floor(canvas.width / newBaseFontSize);
       // Preserva as gotas existentes quando possível para manter a continuidade
       const oldDrops = [...drops];
-      drops = Array(columns).fill(0).map((_, i) => 
+      drops = Array(columns).fill(0).map((_, i) =>
         i < oldDrops.length ? oldDrops[i] : Math.random() * -canvas.height
       );
     };
-    
+
     window.addEventListener('resize', onResize);
     return () => {
       running = false;
@@ -130,7 +130,7 @@ export function ProgrammingMarathon() {
     };
   }, []);
 
-    return (
+  return (
     <section
       id="maratona"
       className="relative bg-white py-12 md:py-20 px-3 sm:px-4 border-b border-slate-200 overflow-hidden"
@@ -197,126 +197,126 @@ export function ProgrammingMarathon() {
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
 
           <div className="bg-gray-200 border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 p-2 font-sans flex flex-col group">
-  <div className="flex-grow flex items-center justify-center p-4 relative bg-black border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100 min-h-[16rem] sm:min-h-[20rem]">
-    <img
-      key={currentIndex} 
-      src={images[currentIndex]}
-      alt={`Foto ${currentIndex + 1} da Maratona`}
-      className="max-h-[20rem] sm:max-h-[24rem] max-w-full object-contain cursor-pointer"
-      onClick={() => setLightboxIndex(currentIndex)}
-    />
-    <button
-      aria-label="Imagem anterior"
-      onClick={() => goTo((currentIndex - 1 + images.length) % images.length)}
-      className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 z-10 p-2 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500"
-    >
-      <ChevronLeftIcon className="w-6 h-6" />
-    </button>
-    <button
-      aria-label="Próxima imagem"
-      onClick={() => goTo((currentIndex + 1) % images.length)}
-      className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 z-10 p-2 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500"
-    >
-      <ChevronRightIcon className="w-6 h-6" />
-    </button>
-  </div>
-  <div className="w-full flex justify-center gap-2 sm:gap-3 p-2 border-t-2 border-t-gray-400 border-l-gray-400">
-    {images.map((src, i) => (
-      <button
-        key={i}
-        aria-label={`Ver imagem ${i + 1}`}
-        onClick={() => goTo(i)}
-        className={`relative w-16 h-12 overflow-hidden bg-black p-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-          ${i === currentIndex
-            // O thumbnail ativo tem uma borda "inset", como se estivesse pressionado.
-            ? 'border-2 border-t-[#0E2251] border-l-[#0E2251] border-b-blue-300 border-r-blue-300'
-            // O inativo tem uma borda "outset" sutil.
-            : 'border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400'
-          }`}
-      >
-        <img src={src} alt={`Miniatura ${i + 1}`} className="w-full h-full object-cover" />
-      </button>
-    ))}
-  </div>
-</div>
-{lightboxIndex !== null && createPortal(
-  <div className="fixed inset-0 z-[2147483646] flex items-center justify-center bg-gray-800/75" onClick={() => setLightboxIndex(null)}>
-    <div 
-        className="bg-gray-200 border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 p-2 relative"
-        onClick={(e) => e.stopPropagation()}
-    >
-        <div className="bg-blue-800 text-white font-bold p-1 mb-2 flex justify-between items-center">
-            <span>Visualizador de Imagem</span>
-            <button
-                className="bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 w-5 h-5 flex items-center justify-center font-mono active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
-                onClick={() => setLightboxIndex(null)}
-                aria-label="Fechar imagem"
-            >
-                X
-            </button>
-        </div>
-        <div className="relative">
-            <img
-              src={images[lightboxIndex]}
-              alt={`Foto ${lightboxIndex + 1} da Maratona`}
-              className="max-h-[80vh] max-w-[90vw] object-contain border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100"
-            />
-        </div>
-        <div className="mt-2 pt-2 border-t-2 border-t-gray-400 flex justify-between items-center">
-            <span className="text-sm text-black px-2">Imagem {lightboxIndex + 1} de {images.length}</span>
-            <div className="flex gap-2">
-                <button
-                     className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
-                     onClick={(e) => {
-                       e.stopPropagation();
-                       setLightboxIndex(prev => {
-                         if (prev === null) return null;
-                         return (prev - 1 + images.length) % images.length;
-                       });
-                     }}
-                >
-                    &lt; Anterior
-                </button>
-                 <button
-                     className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
-                     onClick={(e) => {
-                       e.stopPropagation();
-                       setLightboxIndex(prev => {
-                         if (prev === null) return null;
-                         return (prev + 1) % images.length;
-                       });
-                     }}
-                >
-                    Próxima &gt;
-                </button>
+            <div className="flex-grow flex items-center justify-center p-4 relative bg-black border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100 min-h-[16rem] sm:min-h-[20rem]">
+              <img
+                key={currentIndex}
+                src={images[currentIndex]}
+                alt={`Foto ${currentIndex + 1} da Maratona`}
+                className="max-h-[20rem] sm:max-h-[24rem] max-w-full object-contain cursor-pointer"
+                onClick={() => setLightboxIndex(currentIndex)}
+              />
+              <button
+                aria-label="Imagem anterior"
+                onClick={() => goTo((currentIndex - 1 + images.length) % images.length)}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 z-10 p-2 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              >
+                <ChevronLeftIcon className="w-6 h-6" />
+              </button>
+              <button
+                aria-label="Próxima imagem"
+                onClick={() => goTo((currentIndex + 1) % images.length)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 z-10 p-2 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              >
+                <ChevronRightIcon className="w-6 h-6" />
+              </button>
             </div>
-        </div>
-    </div>
-  </div>,
-  document.body
-)}
+            <div className="w-full flex justify-center gap-2 sm:gap-3 p-2 border-t-2 border-t-gray-400 border-l-gray-400">
+              {images.map((src, i) => (
+                <button
+                  key={i}
+                  aria-label={`Ver imagem ${i + 1}`}
+                  onClick={() => goTo(i)}
+                  className={`relative w-16 h-12 overflow-hidden bg-black p-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
+          ${i === currentIndex
+                      // O thumbnail ativo tem uma borda "inset", como se estivesse pressionado.
+                      ? 'border-2 border-t-[#0E2251] border-l-[#0E2251] border-b-blue-300 border-r-blue-300'
+                      // O inativo tem uma borda "outset" sutil.
+                      : 'border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400'
+                    }`}
+                >
+                  <img src={src} alt={`Miniatura ${i + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          </div>
+          {lightboxIndex !== null && createPortal(
+            <div className="fixed inset-0 z-[2147483646] flex items-center justify-center bg-gray-800/75" onClick={() => setLightboxIndex(null)}>
+              <div
+                className="bg-gray-200 border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 p-2 relative"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="bg-blue-800 text-white font-bold p-1 mb-2 flex justify-between items-center">
+                  <span>Visualizador de Imagem</span>
+                  <button
+                    className="bg-gray-200 text-black border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 w-5 h-5 flex items-center justify-center font-mono active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
+                    onClick={() => setLightboxIndex(null)}
+                    aria-label="Fechar imagem"
+                  >
+                    X
+                  </button>
+                </div>
+                <div className="relative">
+                  <img
+                    src={images[lightboxIndex]}
+                    alt={`Foto ${lightboxIndex + 1} da Maratona`}
+                    className="max-h-[80vh] max-w-[90vw] object-contain border-2 border-t-gray-400 border-l-gray-400 border-b-gray-100 border-r-gray-100"
+                  />
+                </div>
+                <div className="mt-2 pt-2 border-t-2 border-t-gray-400 flex justify-between items-center">
+                  <span className="text-sm text-black px-2">Imagem {lightboxIndex + 1} de {images.length}</span>
+                  <div className="flex gap-2">
+                    <button
+                      className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLightboxIndex(prev => {
+                          if (prev === null) return null;
+                          return (prev - 1 + images.length) % images.length;
+                        });
+                      }}
+                    >
+                      &lt; Anterior
+                    </button>
+                    <button
+                      className="bg-gray-200 text-black border-2 px-4 py-1 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLightboxIndex(prev => {
+                          if (prev === null) return null;
+                          return (prev + 1) % images.length;
+                        });
+                      }}
+                    >
+                      Próxima &gt;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>,
+            document.body
+          )}
 
           <div className="bg-gray-200 rounded-none border-2 border-l-gray-400 border-t-gray-400 border-r-gray-100 border-b-gray-100 p-6 font-sans">
-  <h3 className="text-lg font-bold text-black mb-4">Linguagens Aceitas</h3>
-  <div className="flex flex-wrap gap-3">
-    {/* Botão "outset" clássico */}
-    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
-      <SiC className="text-[#3D568F]" size={18} /> C
-    </span>
-    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
-      <SiCplusplus className="text-[#3D568F]" size={18} /> C++
-    </span>
-    {/* Usei vermelho pro Java, mais clássico */}
-    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
-      <DiJava className="text-red-600" size={18} /> Java
-    </span>
-    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
-      <SiKotlin className="text-purple-600" size={18} /> Kotlin
-    </span>
-    <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
-      <SiPython className="text-yellow-500" size={18} /> Python
-    </span>
-  </div>
+            <h3 className="text-lg font-bold text-black mb-4">Linguagens Aceitas</h3>
+            <div className="flex flex-wrap gap-3">
+              {/* Botão "outset" clássico */}
+              <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+                <SiC className="text-[#3D568F]" size={18} /> C
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+                <SiCplusplus className="text-[#3D568F]" size={18} /> C++
+              </span>
+              {/* Usei vermelho pro Java, mais clássico */}
+              <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+                <DiJava className="text-red-600" size={18} /> Java
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+                <SiKotlin className="text-purple-600" size={18} /> Kotlin
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-1 rounded-none border-2 border-t-gray-100 border-l-gray-100 border-b-gray-400 border-r-gray-400 bg-gray-200 text-black text-sm font-medium hover:bg-gray-100 active:border-t-gray-400 active:border-l-gray-400 active:border-b-gray-100 active:border-r-gray-100">
+                <SiPython className="text-yellow-500" size={18} /> Python
+              </span>
+            </div>
 
             <div className="mt-6 mb-6 pb-6 border-b border-slate-200 md:mt-10">
               <h4 className="text-base font-semibold text-[#3D568F] mb-4">Cronograma da competição</h4>
@@ -355,7 +355,7 @@ export function ProgrammingMarathon() {
                 <div className="flex items-start gap-3"><LuBan className="text-red-500 mt-1 flex-shrink-0" size={16} /><span className="text-black font-bold">Não é permitido portar aparelhos eletrônicos (celulares, smart watches, fones de ouvido, etc.).</span></div>
               </div>
             </div>
-            
+
             <div className="mb-2">
               <h4 className="text-base font-semibold text-[#3D568F] mb-2">Observação</h4>
               <div className="flex items-start gap-3  p-3 rounded-md">
@@ -376,7 +376,11 @@ export function ProgrammingMarathon() {
 
         <div className="flex justify-center mt-8">
           <a
-            href={registrationFormUrl}
+            href="#"
+            aria-disabled="true"
+            tabIndex={-1}
+
+            //href={registrationFormUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -389,7 +393,7 @@ export function ProgrammingMarathon() {
     active:border-t-slate-500 active:border-l-slate-500
     active:border-b-slate-100 active:border-r-slate-100
     transition-none
-    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 pointer-events-none opacity-50"
             aria-label="Inscrever equipe na Maratona"
             title="Inscrever equipe"
           >
