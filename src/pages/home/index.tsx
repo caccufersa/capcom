@@ -12,7 +12,7 @@ export function Home() {
       <Welcome />
       {/* <Countdown /> */}
       <Infos />
-      <Instructor /> {/* <-- Tag com o nome correto */}
+      <Instructor /> 
       <ProgrammingMarathon />
       <Subscribe />
       <Faq />

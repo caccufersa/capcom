@@ -37,14 +37,11 @@ export function Gallery() {
     <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 max-w-7xl mx-auto min-h-screen">
       <header className="text-center mb-8 sm:mb-12 space-y-2 sm:space-y-3">
         <h1 className="text-5xl md:text-7xl font-bold text-zinc-900 tracking-tighter leading-[0.9]">
-  Galeria de <br />
-  <span className="font-serif italic font-light text-6xl md:text-8xl text-blue-400 ml-8 -mt-4 block">
-    momentos.
-  </span>
-</h1>
-        <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto px-2">
-          Vamos publicar os álbuns oficiais aqui mesmo. Estamos só finalizando os retoques das fotos.
-        </p>
+          Galeria de <br />
+          <span className="font-serif italic font-light text-6xl md:text-8xl text-blue-400 ml-8 -mt-4 block">
+            momentos.
+          </span>
+        </h1>
       </header>
 
       <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 max-w-xl mx-auto">
@@ -52,11 +49,10 @@ export function Gallery() {
           <button
             key={year}
             onClick={() => setActiveYear(year)}
-            className={`px-5 sm:px-6 py-2 rounded-full text-sm border transition ${
-              activeYear === year
+            className={`px-5 sm:px-6 py-2 rounded-full text-sm border transition ${activeYear === year
                 ? 'bg-[#3D568F] text-white border-[#3D568F]'
                 : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
-            }`}
+              }`}
           >
             {year}
           </button>
