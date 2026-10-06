@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom"
 import { Footer } from "./pages/footer/index.tsx"
 import { Nav } from "./components/nav/index.tsx"
 import WhatsAppButton from "./components/whatsapp-button"
+import {ScrollToTop} from "./components/scroll-to-top"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Outlet />
       <Footer />
       <WhatsAppButton />
+      <ScrollToTop/>
     </div>
   )
 }

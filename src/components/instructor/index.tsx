@@ -46,23 +46,23 @@ export function Instructor() {
                     </div>
                 </div>
 
-                <div className="flex justify-center gap-5">
+                <div className="flex flex-col md:flex-row justify-center gap-5">
                     <a 
                         href="https://drive.google.com/drive/folders/12DksjJMZ2QYtQ8E6-po5PsPnuZpND7Rz?usp=sharing"  
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-[#3D568F] hover:bg-[#0E2251] text-white font-semibold px-4 py-2 md:px-8 md:py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg leading-tight"
+                        className="bg-[#3D568F] hover:bg-[#0E2251] text-white text-center font-semibold px-10 py-5 rounded-xl transition-all leading-tight shadow-lg shadow-[#3D568F]/20"
                     >
-                        <span>Edital submissão de propostas de minicursos</span>
+                        Edital submissão de propostas de minicursos
                     </a>
 
                     <a 
                         href="https://docs.google.com/forms/d/e/1FAIpQLSf5T-60hG7w7kObmIawNKAi0NKGYqX5usTMitn7THFyUhCiZA/viewform?usp=header" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-[#3D568F] hover:bg-[#0E2251] text-white font-semibold px-4 py-2 md:px-8 md:py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg leading-tight"
+                        className="bg-[#3D568F] hover:bg-[#0E2251] text-white text-center font-semibold px-10 py-5 rounded-xl transition-all leading-tight shadow-lg shadow-[#3D568F]/20"
                     >
-                        <span>Formulário de Inscrição</span>
+                        Formulário de Inscrição
                     </a>
                 </div>
             </div>
