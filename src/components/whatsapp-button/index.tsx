@@ -2,7 +2,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppButton() {
   const whatsappNumber = '5584998947502';
-  const message = 'Olá! Gostaria de saber mais informações sobre o CAPCOM 2025.';
+  const message = 'Olá! Gostaria de saber mais informações sobre o CAPCOM 2026.';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
