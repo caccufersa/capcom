@@ -6,37 +6,37 @@ export function Faq() {
             question: "Não estudo na UFERSA ou não sou do curso de computação, posso me inscrever no evento?",
             answer: "Com certeza! Só é necessária uma conta no gov.br. Um dos objetivos do evento é capacitar alunos que desconhecem a área da computação."
         },
-        {
-            question: "Posso me inscrever em mais de um minicurso por dia?",
-            answer: "Não, os minicursos são todos ministrados no mesmo horário em diferentes laboratórios espalhados pelo LCC."
-        },
-        {
-            question: "Preciso me inscrever no evento na página do SIGAA antes de me inscrever nos minicursos?",
-            answer: "Sim, é necessário se inscrever no evento, esperar aprovação e, em seguida, se inscrever em cada minicurso desejado."
-        },
-        {
-            question: "Não sei programar, posso ver algum minicurso?",
-            answer: "Sim, há cursos sem pré-requisitos que abordam conceitos básicos desde o início."
-        },
-        {
-            question: "Posso ver algum minicurso sem ter os pré-requisitos necessários?",
-            answer: "Não é indicado, mas se você quiser é por sua conta em risco :)"
-        },
+        // {
+        //     question: "Posso me inscrever em mais de um minicurso por dia?",
+        //     answer: "Não, os minicursos são todos ministrados no mesmo horário em diferentes laboratórios espalhados pelo LCC."
+        // },
+        // {
+        //     question: "Preciso me inscrever no evento na página do SIGAA antes de me inscrever nos minicursos?",
+        //     answer: "Sim, é necessário se inscrever no evento, esperar aprovação e, em seguida, se inscrever em cada minicurso desejado."
+        // },
+        // {
+        //     question: "Não sei programar, posso ver algum minicurso?",
+        //     answer: "Sim, há cursos sem pré-requisitos que abordam conceitos básicos desde o início."
+        // },
+        // {
+        //     question: "Posso ver algum minicurso sem ter os pré-requisitos necessários?",
+        //     answer: "Não é indicado, mas se você quiser é por sua conta em risco :)"
+        // },
         {
             question: "Onde serão os eventos?",
-            answer: "Nos laboratórios do LCC, à tarde"
+            answer: "As palestras acontecerão no auditório da PROEC e a maratona de programação no Laboratório 7 do LCC."
         },
         {
             question: "Haverá certificado de participação?",
             answer: "Sim! Será emitido certificado digital para todos os participantes que cumprirem os requisitos mínimos de participação. O certificado será disponibilizado após o evento através da plataforma SIGAA."
         },
-        {
-            question: "Qual a carga horária dos minicursos?",
-            answer: "A carga horária do minicurso pode variar de 4 a 8h, acontecendo, respectivamente, em uma ou duas tardes. É possível participar de até 2 minicursos durante o evento (um em cada dia), contanto que nenhum dos minicursos escolhidos tenha carga horária de 8h."
-        },
+        // {
+        //     question: "Qual a carga horária dos minicursos?",
+        //     answer: "A carga horária do minicurso pode variar de 4 a 8h, acontecendo, respectivamente, em uma ou duas tardes. É possível participar de até 2 minicursos durante o evento (um em cada dia), contanto que nenhum dos minicursos escolhidos tenha carga horária de 8h."
+        // },
         {
             question: "Quais os critérios para receber o certificado?",
-            answer: "Para receber o certificado é necessário ter pelo menos 75% de presença no(s) minicurso(s) em que se inscreveu. A presença será computada através de lista de frequência durante as atividades."
+            answer: "Para receber o certificado é necessário ter pelo menos 75% de presença. A presença será computada através de lista de frequência durante as atividades."
         }
     ];
 

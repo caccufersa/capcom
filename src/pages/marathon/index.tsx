@@ -10,7 +10,7 @@ import marathonImg2 from '../../assets/maratona/marathon-2.jpg';
 import marathonImg3 from '../../assets/maratona/marathon-3.jpg';
 import marathonImg4 from '../../assets/maratona/marathon-4.jpg';
 
-//const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeupidu6ZA5RzJrF283cepiX-2GEDyaegrfKhTLvdJiFMZqSQ/viewform?usp=header";
+const registrationFormUrl = "https://forms.gle/UrgWAtFKZM7dCHLk8";
 
 const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
@@ -376,16 +376,14 @@ export function ProgrammingMarathon() {
 
         <div className="flex justify-center mt-8">
           <a
-            href="#"
             aria-disabled="true"
             tabIndex={-1}
-
-            //href={registrationFormUrl}
+            href={registrationFormUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="
     inline-flex items-center justify-center gap-2
-    bg-slate-300 text-slate-900 font-semibold 
+    bg-slate-200 text-slate-900 font-semibold 
     px-6 py-3
     border-2 border-solid
     border-t-slate-100 border-l-slate-100
@@ -393,7 +391,7 @@ export function ProgrammingMarathon() {
     active:border-t-slate-500 active:border-l-slate-500
     active:border-b-slate-100 active:border-r-slate-100
     transition-none
-    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 pointer-events-none opacity-50"
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500  hover:bg-slate-300"
             aria-label="Inscrever equipe na Maratona"
             title="Inscrever equipe"
           >
