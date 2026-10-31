@@ -4,6 +4,10 @@ import React, { type ReactNode, type ComponentType } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { FiUsers, FiCode } from "react-icons/fi";
 import { PiChalkboardTeacher } from "react-icons/pi";
+import imgNicolas from "../../assets/instrutores/nicolasAndre.jpeg";
+import imgKatia from "../../assets/instrutores/katia-cilene.jpeg"
+import imgFabio from "../../assets/instrutores/fabio-francisco.jpeg"
+import imgMilton from "../../assets/instrutores/francisco-milton.jpeg"
 
 const FloatingDataBackground = () => {
     const NUM_NODES = 30;
@@ -60,20 +64,21 @@ type ScheduleItem = {
     title: string;
     description: string;
     theme: string;
+    image?: string;
 };
 
 const scheduleDay1: ScheduleItem[] = [
-    { icon: FiUsers, time: "14h", title: "Abertura oficial e Palestra: \"20 anos de Ciência da Computação na UFERSA\"", description: "Apresentação da trajetória do curso, principais marcos, desafios, conquistas e contribuição para a formação de profissionais na região.", theme: "course" },
+    { icon: FiUsers, time: "14h", title: "Abertura oficial e Palestra: \"20 anos de Ciência da Computação na UFERSA\"", description: "Apresentação da trajetória do curso, principais marcos, desafios, conquistas e contribuição para a formação de profissionais na região.", theme: "course"},
     { icon: FiCode, time: "15h", title: "Mesa \"20 anos de Computação: memórias, experiências e transformações\"", description: "Participação de professores, servidores e egressos do curso.", theme: "course" },
-    { icon: FiCode, time: "16h", title: "Palestra \"O Impacto da Inteligência Artificial no Mercado de Trabalho\"", description: "Apresentação das principais áreas de atuação e das transformações do mercado de trabalho.", theme: "course" },
-    { icon: FiCode, time: "17h30", title: "Momento de encerramento", description: "Confraternização de estudantes e professores com bolo.", theme: "course" }
+    { icon: FiCode, time: "16h", title: "Palestra \"O Impacto da Inteligência Artificial no Mercado de Trabalho\"", description: "Apresentação das principais áreas de atuação e das transformações do mercado de trabalho por Nhícolas André, Senior Director of Web Engineering Fueled.", theme: "course", image: imgNicolas  },
+    { icon: FiCode, time: "16h40", title: "Momento de encerramento", description: "Momento de confraternização para os estudantes, professores, servidores e egressos.", theme: "course" }
 ];
 
 const scheduleDay2: ScheduleItem[] = [
     
-    { icon: FiUsers, time: "14h", title: "Palestra: \"Inovação: Da Pesquisa Científica à Startup\"", description: "Palestra com o Prof. Dr. Fabio Francisco da Costa Fontes sobre inovações na pesquisa científica à Startup.", theme: "course" },
-    { icon: FiCode, time: "15h", title: "Palestra: \"Desafios Digitais na Educação na Era da Inteligência Artificial\"", description: "Palestra com o Prof. Dr. Francisco Milton Mendes Neto sobre os desafios digitais enfrentados na educação na era da inteligência artificial.", theme: "course" },
-    { icon: FiCode, time: "16h", title: "Palestra: \"Educação Digital da Educação Básica e as oportunidades para os profissionais da Ciência da Computação\"", description: "Palestra com a Profª. Drª. Kátia Cilene da Silva Moura sobre educação digital e oportunidades para o profissional de Ciência da Computação.", theme: "course" },
+    { icon: FiUsers, time: "14h", title: "Palestra: \"Inovação: Da Pesquisa Científica à Startup\"", description: "Palestra com o Prof. Dr. Fabio Francisco da Costa Fontes sobre inovações na pesquisa científica à Startup.", theme: "course", image: imgFabio },
+    { icon: FiCode, time: "15h", title: "Palestra: \"Desafios Digitais na Educação na Era da Inteligência Artificial\"", description: "Palestra com o Prof. Dr. Francisco Milton Mendes Neto sobre os desafios digitais enfrentados na educação na era da inteligência artificial.", theme: "course", image: imgMilton },
+    { icon: FiCode, time: "16h", title: "Palestra: \"Educação Digital da Educação Básica e as oportunidades para os profissionais da Ciência da Computação\"", description: "Palestra com a Profª. Drª. Kátia Cilene da Silva Moura sobre educação digital e oportunidades para o profissional de Ciência da Computação.", theme: "course", image: imgKatia },
 ];
 
 const scheduleDay3: ScheduleItem[] = [
@@ -87,24 +92,40 @@ const days = [
     { day: "Dia 3 - lab 7 LCC", date: "11 de Novembro - Maratona de Programação", items: scheduleDay3 },
 ];
 
-type CardProps = { time: string; title: string; description: string };
-type EventCardProps = CardProps & { icon?: ComponentType<any> };
+type CardProps = { time: string; title: string; description: string, side?: 'left' | 'right' };
+type EventCardProps = CardProps & { icon?: ComponentType<any>; image?: string;};
 
-function CourseEventCard({ time, title, description }: EventCardProps) {
+function CourseEventCard({ time, title, description, side, image }: EventCardProps) {
+    const headerClass = side === 'left'
+        ? "flex justify-between items-end mb-2 md:flex-row-reverse gap-2"
+        : "flex justify-between items-end mb-2 gap-2";
+
+    const timeMargin = side === 'left' ? "md:mr-4 ml-4 md:ml-0" : "ml-4";
+
     return (
-        <div
-            className="rounded-lg border-2 border-[#3D568F] bg-white p-5 shadow-lg relative
-                       transition-all duration-300 ease-out
-                       hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-0.5 hover:scale-[1.01]"
-        >
+        <div className="rounded-lg border-2 border-[#3D568F] bg-white p-5 shadow-lg relative
+                        transition-all duration-300 ease-out
+                        hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-0.5 hover:scale-[1.01]">
             <div className="relative z-10">
-                <div className="flex justify-between items-start mb-2">
+                <div className={headerClass}>
                     <h3 className="text-lg md:text-xl font-bold text-slate-900">{title}</h3>
-                    <time className="block text-sm font-mono font-bold text-[#0E2251] bg-white px-3 py-1 border border-blue-200 rounded flex-shrink-0 ml-4">
+                    {image && (
+                        <img
+                            src={image}
+                            alt={title}
+                            loading="lazy"
+                            className="w-10 h-10 md:w-20 md:h-20 rounded-full object-cover border-2 border-[#3D568F] shadow-md flex-shrink-0"
+                        />
+                    )}
+                    
+                </div>
+
+                <div className={headerClass}>
+                    <p className="text-slate-600 text-sm md:text-base mt-3">{description}</p>
+                    <time className={`block text-sm font-mono font-bold text-[#0E2251] bg-white px-3 py-1 border border-blue-200 rounded flex-shrink-0 ${timeMargin}`}>
                         {time}
                     </time>
                 </div>
-                <p className="text-slate-600 text-sm md:text-base mt-3">{description}</p>
             </div>
         </div>
     );
@@ -155,7 +176,7 @@ function TimelineItem({ item, index }: TimelineItemProps) {
 
     // index global: o lado continua alternando entre os dias
     const side = index % 2 === 0 ? 'right' : 'left';
-    const { time, title, description, theme } = item;
+    const { time, title, description, theme, image } = item;
 
     const cardLayout = side === 'left'
         ? "md:col-start-1 md:text-right"
@@ -163,9 +184,9 @@ function TimelineItem({ item, index }: TimelineItemProps) {
 
     let CardComponent;
     switch (theme) {
-        case "marathon": CardComponent = <MarathonEventCard time={time} title={title} description={description} />; break;
-        case "talk": CardComponent = <TalkEventCard time={time} title={title} description={description} />; break;
-        default: CardComponent = <CourseEventCard time={time} title={title} description={description} />;
+        case "marathon": CardComponent = <MarathonEventCard time={time} title={title} description={description} side={side} />; break;
+        case "talk": CardComponent = <TalkEventCard time={time} title={title} description={description} side={side} />; break;
+        default: CardComponent = <CourseEventCard time={time} title={title} description={description} side={side} image={image} />;
     }
 
     const connectorClasses = side === 'left'
@@ -278,7 +299,7 @@ export function Schedule() {
                 }
             `}</style>
 
-            <div className="container mx-auto max-w-4xl relative z-10">
+            <div className="container mx-auto max-w-6xl relative z-10">
                 {/* Cabeçalho (usa headerRef e headerInView) */}
                 <div
                     ref={headerRef}
