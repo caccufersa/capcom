@@ -7,7 +7,7 @@ import { PiChalkboardTeacher } from "react-icons/pi";
 import imgNicolas from "../../assets/instrutores/nicolasAndre.jpeg";
 import imgKatia from "../../assets/instrutores/katia-cilene.jpeg"
 import imgFabio from "../../assets/instrutores/fabio-francisco.jpeg"
-import imgMilton from "../../assets/instrutores/francisco-milton.jpeg"
+import imgMilton from "../../assets/instrutores/franciscoMilton.jpeg"
 
 const FloatingDataBackground = () => {
     const NUM_NODES = 30;
