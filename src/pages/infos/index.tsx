@@ -114,7 +114,7 @@ function CourseEventCard({ time, title, description, side, image }: EventCardPro
                             src={image}
                             alt={title}
                             loading="lazy"
-                            className="w-10 h-10 md:w-20 md:h-20 rounded-full object-cover border-2 border-[#3D568F] shadow-md flex-shrink-0"
+                            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl md:rounded-full object-cover object-top border-2 border-[#3D568F] shadow-md flex-shrink-0"
                         />
                     )}
                     
