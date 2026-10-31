@@ -63,36 +63,28 @@ type ScheduleItem = {
 };
 
 const scheduleDay1: ScheduleItem[] = [
-    { icon: PiChalkboardTeacher, time: "14h", title: "Abertura oficial", description: "Apresentação da CAPCOM 2026 e acolhimento dos participantes.", theme: "course" },
-    { icon: FiUsers, time: "14h30", title: "Palestra: 20 anos de Ciência da Computação na UFERSA", description: "Apresentação da trajetória do curso, principais marcos, desafios, conquistas e contribuição para a formação de profissionais na região.", theme: "course" },
-    { icon: FiCode, time: "15h30", title: "Mesa “20 anos de Computação: memórias, experiências e transformações", description: "Participação de professores, servidores e egressos do curso.", theme: "course" },
-    { icon: FiCode, time: "16h30", title: "Palestra \"Carreiras e oportunidades na Computação\"", description: "Apresentação das principais áreas de atuação e das transformações do mercado de trabalho.", theme: "course" },
-    { icon: FiCode, time: "17h30", title: "Momento de encerramento", description: "", theme: "course" }
+    { icon: FiUsers, time: "14h", title: "Abertura oficial e Palestra: \"20 anos de Ciência da Computação na UFERSA\"", description: "Apresentação da trajetória do curso, principais marcos, desafios, conquistas e contribuição para a formação de profissionais na região.", theme: "course" },
+    { icon: FiCode, time: "15h", title: "Mesa \"20 anos de Computação: memórias, experiências e transformações\"", description: "Participação de professores, servidores e egressos do curso.", theme: "course" },
+    { icon: FiCode, time: "16h", title: "Palestra \"O Impacto da Inteligência Artificial no Mercado de Trabalho\"", description: "Apresentação das principais áreas de atuação e das transformações do mercado de trabalho.", theme: "course" },
+    { icon: FiCode, time: "17h30", title: "Momento de encerramento", description: "Confraternização de estudantes e professores com bolo.", theme: "course" }
 ];
 
 const scheduleDay2: ScheduleItem[] = [
-    { icon: PiChalkboardTeacher, time: "14h às 18h", title: "Minicursos", description: "Aprimore suas habilidades técnicas com nossos minicursos práticos.", theme: "course" }
+    
+    { icon: FiUsers, time: "14h", title: "Palestra: \"Inovação: Da Pesquisa Científica à Startup\"", description: "Palestra com o Prof. Dr. Fabio Francisco da Costa Fontes sobre inovações na pesquisa científica à Startup.", theme: "course" },
+    { icon: FiCode, time: "15h", title: "Palestra: \"Desafios Digitais na Educação na Era da Inteligência Artificial\"", description: "Palestra com o Prof. Dr. Francisco Milton Mendes Neto sobre os desafios digitais enfrentados na educação na era da inteligência artificial.", theme: "course" },
+    { icon: FiCode, time: "16h", title: "Palestra: \"Educação Digital da Educação Básica e as oportunidades para os profissionais da Ciência da Computação\"", description: "Palestra com a Profª. Drª. Kátia Cilene da Silva Moura sobre educação digital e oportunidades para o profissional de Ciência da Computação.", theme: "course" },
 ];
 
 const scheduleDay3: ScheduleItem[] = [
-    { icon: PiChalkboardTeacher, time: "14h às 18h", title: "Minicursos", description: "Mais uma rodada de minicursos para fechar o evento com chave de ouro.", theme: "course" }
-];
-
-const scheduleDay4: ScheduleItem[] = [
-    { icon: FiCode, time: "13h às 17h30", title: "Maratona de Programação", description: "Desafie seus limites em nossa competição de programação em equipe.", theme: "marathon" }
-];
-
-const scheduleDay5: ScheduleItem[] = [
-    { icon: PiChalkboardTeacher, time: "14h", title: "Palestras temáticas", description: "Inteligência Artificial e profissões do futuro; Segurança da informação; Computação em nuvem; Inovação e empreendedorismo tecnológico.", theme: "course" },
-    { icon: PiChalkboardTeacher, time: "16h", title: "Oficinas práticas", description: "Atividades práticas destinadas prioritariamente à comunidade externa.", theme: "course" },
+    { icon: PiChalkboardTeacher, time: "13h", title: "Maratona de programação", description: "Ínicio da competição maratona de programação.", theme: "marathon" },
+    { icon: PiChalkboardTeacher, time: "17h", title: "Premiação dos Ganhadores", description: "Premiação dos ganhadores da maratona e momento de encerramento", theme: "marathon" }
 ];
 
 const days = [
-    { day: "Dia 1", date: "09 de Novembro - Computação: 20 anos de história e futuro", items: scheduleDay1 },
-    { day: "Dia 2", date: "10 de Novembro", items: scheduleDay2 },
-    { day: "Dia 3", date: "11 de Novembro", items: scheduleDay3 },
-    { day: "Dia 4", date: "12 de Novembro", items: scheduleDay4 },
-    { day: "Dia 5", date: "13 de Novembro", items: scheduleDay5 },
+    { day: "Dia 1 - auditório PROEC", date: "09 de Novembro - Computação: 20 anos de história e futuro", items: scheduleDay1 },
+    { day: "Dia 2 - auditório PROEC", date: "10 de Novembro - Tecnologias Emergentes e Inovação", items: scheduleDay2 },
+    { day: "Dia 3 - lab 7 LCC", date: "11 de Novembro - Maratona de Programação", items: scheduleDay3 },
 ];
 
 type CardProps = { time: string; title: string; description: string };

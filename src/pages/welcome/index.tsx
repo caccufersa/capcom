@@ -54,7 +54,7 @@ export function Welcome() {
                                 className="px-8 py-4 bg-[#3D568F] text-white rounded-lg font-medium hover:bg-[#0E2251] transition-all hover:scale-105 inline-flex items-center justify-center gap-2 text-base shadow-lg shadow-[#3D568F]/20"
                             >
                                 <IoBookOutline size={22} />
-                                Ministre um minicurso!
+                                Ver Palestras
                             </a>
                             <a
                                 href="#subscribe"
@@ -68,11 +68,11 @@ export function Welcome() {
                         <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-slate-600 font-light">
                             <div className="flex items-center gap-2">
                                 <MdMenuBook className="text-[#3D568F]" size={20} />
-                                <span><span className="font-semibold text-slate-900">10+</span> Minicursos</span>
+                                <span><span className="font-semibold text-slate-900">5 </span>Palestras</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <IoCalendarOutline className="text-[#3D568F]" size={20} />
-                                <span><span className="font-semibold text-slate-900">09 a 13</span> de Novembro</span>
+                                <span><span className="font-semibold text-slate-900">09 a 11</span> de Novembro</span>
                             </div>
                             <button
                                 onClick={(e) => { e.preventDefault(); openMap(); }}
