@@ -2,9 +2,7 @@ import ufersa from '../../assets/patrocinadores/ufersa.webp';
 import ccen from '../../assets/patrocinadores/ccen.webp';
 import proec from '../../assets/patrocinadores/proec.webp';
 import prograd from '../../assets/patrocinadores/prograd.webp';
-import fgd from '../../assets/patrocinadores/fgd.webp';
 import sbc from '../../assets/patrocinadores/sbc.webp';
-import uern from '../../assets/patrocinadores/uern.webp';
 
 const sponsors = [
     {
