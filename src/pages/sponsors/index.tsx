@@ -2,9 +2,7 @@ import ufersa from '../../assets/patrocinadores/ufersa.webp';
 import ccen from '../../assets/patrocinadores/ccen.webp';
 import proec from '../../assets/patrocinadores/proec.webp';
 import prograd from '../../assets/patrocinadores/prograd.webp';
-import fgd from '../../assets/patrocinadores/fgd.webp';
 import sbc from '../../assets/patrocinadores/sbc.webp';
-import uern from '../../assets/patrocinadores/uern.webp';
 
 const sponsors = [
     {
@@ -28,20 +26,10 @@ const sponsors = [
         description: 'Pró-Reitoria de Graduação'
     },
     {
-        name: 'FGD',
-        logo: fgd,
-        description: 'Fundação Guimarães Duque'
-    },
-    {
         name: 'SBC',
         logo: sbc,
         description: 'Sociedade Brasileira de Computação'
     },
-    {
-        name: 'UERN',
-        logo: uern,
-        description: 'Universidade do Estado do Rio Grande do Norte'
-    }
 ];
 
 export function Sponsors() {
