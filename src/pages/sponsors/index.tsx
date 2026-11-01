@@ -28,20 +28,10 @@ const sponsors = [
         description: 'Pró-Reitoria de Graduação'
     },
     {
-        name: 'FGD',
-        logo: fgd,
-        description: 'Fundação Guimarães Duque'
-    },
-    {
         name: 'SBC',
         logo: sbc,
         description: 'Sociedade Brasileira de Computação'
     },
-    {
-        name: 'UERN',
-        logo: uern,
-        description: 'Universidade do Estado do Rio Grande do Norte'
-    }
 ];
 
 export function Sponsors() {
