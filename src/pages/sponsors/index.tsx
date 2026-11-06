@@ -3,6 +3,13 @@ import ccen from '../../assets/patrocinadores/ccen.webp';
 import proec from '../../assets/patrocinadores/proec.webp';
 import prograd from '../../assets/patrocinadores/prograd.webp';
 import sbc from '../../assets/patrocinadores/sbc.webp';
+import proae from '../../assets/patrocinadores/proae.webp';
+import parque from '../../assets/patrocinadores/parque-eletrico.webp';
+import olinda from '../../assets/patrocinadores/olinda.webp';
+import doces from '../../assets/patrocinadores/doces-salgados.webp';
+import cimsal from '../../assets/patrocinadores/cimsal.webp';
+import livraria from '../../assets/patrocinadores/livraria-independencia.webp';
+
 
 const sponsors = [
     {
@@ -26,9 +33,39 @@ const sponsors = [
         description: 'Pró-Reitoria de Graduação'
     },
     {
+        name: 'PROAE',
+        logo: proae,
+        description: 'Pro-Reitoria de Assistência Estudantil'
+    },
+    {
         name: 'SBC',
         logo: sbc,
         description: 'Sociedade Brasileira de Computação'
+    },
+    {
+        name: 'Parque Elétrico',
+        logo: parque,
+        description: 'Parque Elétrico'
+    },
+    {
+        name: 'Olinda Empreendimentos',
+        logo: olinda,
+        description: 'Olinda Empreendimentos'
+    },
+    {
+        name: 'Doces e Salgados',
+        logo: doces,
+        description: 'Doces e Salgados'
+    },
+    {
+        name: 'Cimsal',
+        logo: cimsal,
+        description: 'Cimsal'
+    },
+    {
+        name: 'Livaria Independência',
+        logo: livraria,
+        description: 'Livaria Independência'
     },
 ];
 
