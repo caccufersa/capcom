@@ -7,7 +7,6 @@ import { PiChalkboardTeacher } from "react-icons/pi";
 import imgNicolas from "../../assets/instrutores/nicolasAndre.jpeg";
 import imgKatia from "../../assets/instrutores/katia-cilene.jpeg"
 import imgFabio from "../../assets/instrutores/fabio-francisco.jpeg"
-import imgMilton from "../../assets/instrutores/franciscoMilton.jpeg"
 
 const FloatingDataBackground = () => {
     const NUM_NODES = 30;
@@ -77,7 +76,7 @@ const scheduleDay1: ScheduleItem[] = [
 const scheduleDay2: ScheduleItem[] = [
     
     { icon: FiUsers, time: "14h", title: "Palestra: \"Inovação: Da Pesquisa Científica à Startup\"", description: "Palestra com o Prof. Dr. Fabio Francisco da Costa Fontes sobre inovações na pesquisa científica à Startup.", theme: "course", image: imgFabio },
-    { icon: FiCode, time: "15h", title: "Palestra: \"Desafios Digitais na Educação na Era da Inteligência Artificial\"", description: "Palestra com o Prof. Dr. Francisco Milton Mendes Neto sobre os desafios digitais enfrentados na educação na era da inteligência artificial.", theme: "course", image: imgMilton },
+    { icon: FiCode, time: "15h", title: "Palestra: \"Desafios Digitais na Educação na Era da Inteligência Artificial\"", description: "Palestra sobre os desafios digitais enfrentados na educação na era da inteligência artificial.", theme: "course"},
     { icon: FiCode, time: "16h", title: "Palestra: \"Educação Digital da Educação Básica e as oportunidades para os profissionais da Ciência da Computação\"", description: "Palestra com a Profª. Drª. Kátia Cilene da Silva Moura sobre educação digital e oportunidades para o profissional de Ciência da Computação.", theme: "course", image: imgKatia },
 ];
 
